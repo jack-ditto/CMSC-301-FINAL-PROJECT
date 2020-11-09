@@ -1,16 +1,13 @@
-
+using namespace std;
 
 class ProgramCounter {
+	public:
+		/* Constructor */
+		ProgramCounter();
+		void set(int);
+		int get();
+		void toString();
 
-				public:
-
-								/* Constructor */
-								ProgramCounter();
-								void set();
-								int get();
-
-				private:
-
-								int pc;
-				
+	private:
+		int pc;
 };

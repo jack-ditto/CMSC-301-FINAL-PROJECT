@@ -1,8 +1,17 @@
+#include <iostream>
 #include "ProgramCounter.h"
 
 
-ProgramCounter::ProgramCounter() {}
+//Constructor initializes pc to 400000
+ProgramCounter::ProgramCounter(): pc(400000) {}
 
-void ProgramCounter::set() {}
+//Set updates pc to new parameter
+void ProgramCounter::set(int newPC) {pc = newPC;}
 
-int ProgramCounter::get() {}
+//get returns the current value of pc
+int ProgramCounter::get() {return pc;}
+
+//toString prints out contents of pc
+void ProgramCounter::toString(){
+  cout << "PC is currently: " << pc << endl;
+}
