@@ -3,7 +3,7 @@
 
 class RegisterFile{
   private:
-    map<Register,string> regMap;
+    map<int,long> regMap;
     bool regWrite
     Register readRegister1;
     Register readRegister2;
