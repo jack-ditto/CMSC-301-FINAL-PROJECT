@@ -1,21 +1,22 @@
 #include <string>
 #include <map>
+#include <vector>
 
 using namespace std;
 
 class InstructionMemory{
   private:
-    int address;
+    long address;
     string instr;
-    map<int,string> InstrMap;
+    map<long,vector<string>> InstrMap;
 
   public:
-    InstructionMemory(map<int,string> instructionsMap);
-    string getForControl(int address);
-    string getForShift(int address);
-    string getForExtend(int address);
-    string getForRegOne(int address);
-    string getForRegTwo(int address);
-    string getForMuxOne(int address);
+    InstructionMemory(map<long,vector<string>> instructionsMap);
+    string getForControl(long address);
+    string getForShift(long address);
+    string getForExtend(long address);
+    string getForRegOne(long address);
+    string getForRegTwo(long address);
+    string getForMuxOne(long address);
     void toString();
 };

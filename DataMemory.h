@@ -9,11 +9,16 @@ class DataMemory{
     bool MemRead;
     string address;
     string data;
-    map<int,string> memMap;
+    map<long,long> memMap;
 
   public:
-    DataMemory();
-    void setAddr(string input);
-    string get(int addr);
-    void set(int addr, string value);
+    DataMemory(map<long,long> memoryMap);
+    void setAddr(long input);
+    long get(long addr);
+    void set(long addr, long value);
+    void setMemRead(bool in);
+    void setMemWrite(bool in);
+    long getMemRead();
+    long getMemWrite();
+    void toString();
 };
