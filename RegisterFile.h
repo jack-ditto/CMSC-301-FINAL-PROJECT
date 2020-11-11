@@ -1,22 +1,28 @@
 #include <map>
 #include <string>
 
+using namespace std;
+
 class RegisterFile{
   private:
     map<int,long> regMap;
-    bool regWrite
-    Register readRegister1;
-    Register readRegister2;
-    Register writeRegister;
-    string writeData;
-    string readData1;
-    string readData2;
+    bool regWrite;
+    int readRegister1;
+    int readRegister2;
+    int writeRegister;
+    long writeData;
+    long readData1;
+    long readData2;
 
   public:
-    RegisterFile(map<Register,string> registerMap);
-    void write(string);
+    RegisterFile(map<int,long> registerMap);
+    void setWriteRegister(string);
     void setReadReg1(string);
     void setReadReg2(string);
-    string getData1();
-    string getData2();
-}
+    long getData1();
+    long getData2();
+    long getWriteData();
+    void setRegWrite(bool val);
+    bool getRegWrite();
+    void toString();
+};
