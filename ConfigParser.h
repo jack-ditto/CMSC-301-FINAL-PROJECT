@@ -16,9 +16,9 @@ class ConfigParser{
   private:
     map<string, string> configParameters;
 
-    map<int, vector<string>> instructionMap; // vector for assembly and machine
-    map<int, string> memoryMap;
-    map<int, string> registerMap;
+    map<long, vector<string>> instructionMap; // vector for assembly and machine
+    map<long, long> memoryMap;
+    map<int, long> registerMap;
 
     void setInstructions();
     void setMemory();
