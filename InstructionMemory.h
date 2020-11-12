@@ -13,11 +13,12 @@ class InstructionMemory{
   public:
     InstructionMemory(map<long,vector<string>> instructionsMap);
     InstructionMemory();
-    string getForControl(long address);
-    string getForShift(long address);
-    string getForExtend(long address);
-    string getForRegOne(long address);
-    string getForRegTwo(long address);
-    string getForMuxOne(long address);
+    void setAddress(long pc);
+    string getForControl();
+    string getForShift();
+    string getForExtend();
+    string getForRegOne();
+    string getForRegTwo();
+    string getForMuxOne();
     void toString();
 };
