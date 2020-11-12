@@ -18,12 +18,16 @@ InstructionMemory::InstructionMemory(map<long,vector<string>> instructionsMap){
 InstructionMemory::InstructionMemory(){}
 
 
+//
+void InstructionMemory::setAddress(long pc){address = pc;}
+
+
 //getForControl returns the bits 31-26 for the control unit
 //
 //Parameter - long address
 //
 //Return - binary string
-string InstructionMemory::getForControl(long address){
+string InstructionMemory::getForControl(){
   vector<string> temp = InstrMap.at(address);
   string str = temp.at(1);
   return str.substr(0,6);
@@ -35,7 +39,7 @@ string InstructionMemory::getForControl(long address){
 //Parameter - long address
 //
 //Return - binary string
-string InstructionMemory::getForShift(long address){
+string InstructionMemory::getForShift(){
   vector<string> temp = InstrMap.at(address);
   string str = temp.at(1);
   return str.substr(6,25);
@@ -47,7 +51,7 @@ string InstructionMemory::getForShift(long address){
 //Parameter - long address
 //
 //Return - binary string
-string InstructionMemory::getForExtend(long address){
+string InstructionMemory::getForExtend(){
   vector<string> temp = InstrMap.at(address);
   string str = temp.at(1);
   return str.substr(16,16);
@@ -59,7 +63,7 @@ string InstructionMemory::getForExtend(long address){
 //Parameter - long address
 //
 //Return - binary string
-string InstructionMemory::getForRegOne(long address){
+string InstructionMemory::getForRegOne(){
   vector<string> temp = InstrMap.at(address);
   string str = temp.at(1);
   return str.substr(6,5);
@@ -72,7 +76,7 @@ string InstructionMemory::getForRegOne(long address){
 //Parameter - long address
 //
 //Return - binary string
-string InstructionMemory::getForRegTwo(long address){
+string InstructionMemory::getForRegTwo(){
   vector<string> temp = InstrMap.at(address);
   string str = temp.at(1);
   return str.substr(11,5);
@@ -84,7 +88,7 @@ string InstructionMemory::getForRegTwo(long address){
 //Parameter - long address
 //
 //Return - binary string
-string InstructionMemory::getForMuxOne(long address){
+string InstructionMemory::getForMuxOne(){
   vector<string> temp = InstrMap.at(address);
   string str = temp.at(1);
   return str.substr(16,5);
