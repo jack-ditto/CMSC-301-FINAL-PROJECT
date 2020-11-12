@@ -16,6 +16,7 @@ class RegisterFile{
 
   public:
     RegisterFile(map<int,long> registerMap);
+    RegisterFile();
     void setWriteRegister(string);
     void setReadReg1(string);
     void setReadReg2(string);
