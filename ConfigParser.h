@@ -13,6 +13,10 @@ class ConfigParser{
     // Specify a text file config.
     ConfigParser(string filename);
 
+    map<long, vector<string>> getInstructions();
+    map<long, long> getMemory();
+    map<int, long> getRegisters();
+
   private:
     map<string, string> configParameters;
 

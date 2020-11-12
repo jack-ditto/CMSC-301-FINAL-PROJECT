@@ -100,4 +100,17 @@ void ConfigParser::setRegisters(){
         //     std::cout << "key[" << p.first << "] = " << p.second << '\n';
         // }
     }
+
+}
+
+map<long, vector<string>> ConfigParser::getInstructions(){
+    return instructionMap;
+}
+
+map<long, long> ConfigParser::getMemory(){
+    return memoryMap;
+}
+
+map<int, long> ConfigParser::getRegisters(){
+    return registerMap;
 }
