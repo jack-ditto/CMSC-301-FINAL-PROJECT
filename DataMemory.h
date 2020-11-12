@@ -13,6 +13,7 @@ class DataMemory{
 
   public:
     DataMemory(map<long,long> memoryMap);
+    DataMemory();
     void setAddr(long input);
     long get(long addr);
     void set(long addr, long value);

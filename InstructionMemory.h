@@ -12,6 +12,7 @@ class InstructionMemory{
 
   public:
     InstructionMemory(map<long,vector<string>> instructionsMap);
+    InstructionMemory();
     string getForControl(long address);
     string getForShift(long address);
     string getForExtend(long address);
