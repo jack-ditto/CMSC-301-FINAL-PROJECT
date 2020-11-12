@@ -9,7 +9,7 @@ class SignExtend{
 
   public:
     SignExtend();
-    setInput(string in);
+    void setInput(string in);
     void extend();
     string get();
     void toString();
