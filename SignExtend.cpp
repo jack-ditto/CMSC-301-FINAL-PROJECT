@@ -1,7 +1,10 @@
 #include <iostream>
 #include "SignExtend.h"
 
-SignExtend::SignExtend(string in){input = in;}
+SignExtend::SignExtend(){}
+
+//setInput sets the input instance variable
+void SignExtend::setInput(string in){input = in;}
 
 //sign extends input by 16b according to most significant byte
 void SignExtend::extend(){
