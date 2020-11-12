@@ -8,7 +8,8 @@ class SignExtend{
     string output;
 
   public:
-    SignExtend(string in);
+    SignExtend();
+    setInput(string in);
     void extend();
     string get();
     void toString();
