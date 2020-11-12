@@ -12,6 +12,10 @@ DataMemory::DataMemory(map<long,long> memoryMap){
 }
 
 
+//Empty constructor just initializes DataMemory
+DataMemory::DataMemory(){}
+
+
 //setAddr initializes the address long to the input
 //
 //paramenter - long input

@@ -13,6 +13,10 @@ RegisterFile::RegisterFile(map<int,long> registerMap){
 }
 
 
+//Empty constructor just initializes RegisterFile
+RegisterFile::RegisterFile(){}
+
+
 //write sets writeData to input
 //
 //parameter - string write

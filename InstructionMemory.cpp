@@ -14,6 +14,10 @@ InstructionMemory::InstructionMemory(map<long,vector<string>> instructionsMap){
 }
 
 
+//Empty constructor just initializes InstructionMemory
+InstructionMemory::InstructionMemory(){}
+
+
 //getForControl returns the bits 31-26 for the control unit
 //
 //Parameter - long address
