@@ -8,10 +8,12 @@ class Multiplexer
 
 public:
     // Constructor
-    Multiplexer(int control, string choice1, string choice2);
+    Multiplexer();
 
     // Get the decision
     string get();
+    void setControl(int control);
+    void setChoices(string choice1, string choice2);
 
 private:
     string output;  // Store the output
