@@ -15,6 +15,6 @@ void ShiftLeftTwo::set(string input) {
     this->input = input;
 }
 
-void shiftLeftTwo() {
+void ShiftLeftTwo::shiftLeftTwo() {
     // Perform shift on this->input, set to this->output
 }
