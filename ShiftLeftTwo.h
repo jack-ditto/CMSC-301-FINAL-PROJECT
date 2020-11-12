@@ -11,10 +11,10 @@ class ShiftLeftTwo {
 
         // Perform shift left on input
         string get(string input);
+        void set(string input);
 
     private:
-
-        // Possibly some private helpers for the shift here. 
-
-
+        string output;
+        string input;
+        void shiftLeftTwo();
 };

@@ -7,9 +7,14 @@ ShiftLeftTwo::ShiftLeftTwo()
 
 string ShiftLeftTwo::get(string input)
 {
+    this->shiftLeftTwo();
+    return this->output;
+}
 
-    // Do the shift here
-    string result = "";
+void ShiftLeftTwo::set(string input) {
+    this->input = input;
+}
 
-    return result;
+void shiftLeftTwo() {
+    // Perform shift on this->input, set to this->output
 }
