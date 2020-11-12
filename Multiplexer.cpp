@@ -12,8 +12,8 @@ void Multiplexer::setControl(int control)
 void Multiplexer::setChoices(string choice1, string choice2)
 {
     // TODO: input validation
-    this->choice1;
-    this->choice2;
+    this->choice1 = choice1;
+    this->choice2 = choice2;
 }
 
 string Multiplexer::get()
