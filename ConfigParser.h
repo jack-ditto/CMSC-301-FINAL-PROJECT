@@ -16,6 +16,7 @@ class ConfigParser{
     map<long, vector<string>> getInstructions();
     map<long, long> getMemory();
     map<int, long> getRegisters();
+    string outputMode();
 
   private:
     map<string, string> configParameters;

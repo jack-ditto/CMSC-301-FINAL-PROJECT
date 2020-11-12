@@ -6,8 +6,8 @@ OBJS = Main.o ConfigParser.o ASMParser.o Instruction.o Opcode.o RegisterTable.o 
 
 INCDIR = -I ASMParser	# additional dirs to look
 
-CCFLAGS = -Wall -std=c++17 $(INCDIR) -g -c	# compiler options
-LDFLAGS = -Wall -std=c++17 -g			# linker options
+CCFLAGS = -Wall -Wno-deprecated -Werror=return-type -std=c++17 $(INCDIR) -g -c	# compiler options
+LDFLAGS = -Wall -Wno-deprecated -Werror=return-type -std=c++17 -g			# linker options
 
 Main: $(OBJS)
 	$(LD) $(LDFLAGS) $(OBJS) -o Main

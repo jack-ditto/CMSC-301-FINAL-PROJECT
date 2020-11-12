@@ -255,6 +255,15 @@ int ASMParser::cvtNumString2Number(string s)
     return val;
 }
 
+bool isNumberHex(string str){
+  try{
+    stol(str, nullptr, 16);
+    return true;
+  } catch(exception& e){
+    return false;
+  }
+}
+
 
 bool ASMParser::getOperands(Instruction &i, Opcode o,
 			    string *operand, int operand_count)
@@ -299,6 +308,8 @@ bool ASMParser::getOperands(Instruction &i, Opcode o,
       imm = cvtNumString2Number(operand[imm_p]);
       if(((abs(imm) & 0xFFFF0000)<<1))  // too big a number to fit
 	      return false;
+    }else if(isNumberHex(operand[imm_p])){
+      imm = stol(operand[imm_p], nullptr, 16);
     }
     else{
       if(opcodes.isIMMLabel(o)){  // Can the operand be a label?
@@ -323,6 +334,7 @@ string ASMParser::encode(Instruction i)
   string str = "";
   Opcode instructionOpcode = i.getOpcode();
   int instructionImmediate = i.getImmediate();
+  std::cout << hex << instructionImmediate << std::endl;
   // write 6 bits of opcode
   str += opcodes.getOpcodeField(instructionOpcode);
   // if the instruction is RTYPE

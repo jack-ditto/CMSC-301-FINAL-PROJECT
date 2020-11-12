@@ -47,9 +47,9 @@ void ConfigParser::setInstructions(){
     }
 
     instructionMap = parser->getInstructionMap();
-    // for (const auto &p : instructionMap) {
-    //     std::cout << "key[" << hex << p.first << "] = " << p.second.at(0) << " ; " << p.second.at(1) << '\n';
-    // }
+    for (const auto &p : instructionMap) {
+        std::cout << "key[" << hex << p.first << "] = " << p.second.at(0) << " ; " << p.second.at(1) << '\n';
+    }
 }
 
 void ConfigParser::setMemory(){
@@ -113,4 +113,8 @@ map<long, long> ConfigParser::getMemory(){
 
 map<int, long> ConfigParser::getRegisters(){
     return registerMap;
+}
+
+string ConfigParser::outputMode(){
+    return configParameters["output_mode"];
 }

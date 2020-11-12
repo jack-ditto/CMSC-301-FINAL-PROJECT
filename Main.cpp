@@ -15,5 +15,7 @@ int main(int argc, char const *argv[])
 	parser = new ConfigParser(argv[1]);
 
 	Processor processor = Processor(parser->getInstructions(), parser->getMemory(), parser->getRegisters());
+
+	std::cout << parser->outputMode() << std::endl;
 	return 0;
 }
