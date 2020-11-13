@@ -19,7 +19,7 @@ class Control {
         bool getMemWrite();
         bool getMemRead();
         bool getMemToReg();
-        bool getAluOp();
+        string getAluOp();
         bool getAluSrc();
         bool getRegWrite();
 
@@ -31,7 +31,7 @@ class Control {
         bool memWrite;
         bool memRead;
         bool memToReg;
-        bool aluOp;
+        string aluOp;
         bool aluSrc;
         bool regWrite;
 

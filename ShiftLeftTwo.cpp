@@ -5,7 +5,7 @@ ShiftLeftTwo::ShiftLeftTwo()
 {
 }
 
-string ShiftLeftTwo::get(string input)
+string ShiftLeftTwo::get()
 {
     this->shiftLeftTwo();
     return this->output;

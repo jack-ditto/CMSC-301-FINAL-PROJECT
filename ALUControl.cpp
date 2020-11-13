@@ -6,10 +6,6 @@ ALUControl::ALUControl() {
     // TODO: assign default values
 }
 
-ALUControl::ALUControl(string aluOp, string inst) {
-    this->aluOp = aluOp;
-    this->inst = inst;
-}
 
 bool ALUControl::get() {
 
@@ -17,4 +13,9 @@ bool ALUControl::get() {
     this->output = false;
 
     return this->output;
+}
+
+void ALUControl::set(string aluOp, string inst) {
+    this->aluOp = aluOp;
+    this->inst = inst;
 }

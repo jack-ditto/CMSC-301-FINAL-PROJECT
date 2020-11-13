@@ -32,15 +32,16 @@ class Processor{
         ALU alu1;
         ALU alu2;
         ALU alu3;
-        // Multiplexer multiplexer1;
-        // Multiplexer multiplexer2;
-        // Multiplexer multiplexer3;
-        // Multiplexer multiplexer4;
-        // Multiplexer multiplexer5;
+        Multiplexer multiplexer1;
+        Multiplexer multiplexer2;
+        Multiplexer multiplexer3;
+        Multiplexer multiplexer4;
+        Multiplexer multiplexer5;
         ShiftLeftTwo shiftLeftTwo1;
         ShiftLeftTwo shiftLeftTwo2;
         Control control;
         ALUControl aluControl;
-        // SignExtend signExtend;
+        SignExtend signExtend;
+        string concatinatePC(string shift, int pc);
 };
 #endif

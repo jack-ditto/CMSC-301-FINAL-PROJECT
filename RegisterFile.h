@@ -1,5 +1,6 @@
 #include <map>
 #include <string>
+#include <bitset>
 
 using namespace std;
 
@@ -10,9 +11,9 @@ class RegisterFile{
     int readRegister1;
     int readRegister2;
     int writeRegister;
-    long writeData;
-    long readData1;
-    long readData2;
+    string writeData;
+    string readData1;
+    string readData2;
 
   public:
     RegisterFile(map<int,long> registerMap);
@@ -20,10 +21,10 @@ class RegisterFile{
     void setWriteRegister(string);
     void setReadReg1(string);
     void setReadReg2(string);
-    long getData1();
-    long getData2();
-    long getWriteData();
+    void setWriteData(string in);
+    string getData1();
+    string getData2();
+    string getWriteData();
     void setRegWrite(bool val);
-    bool getRegWrite();
     void toString();
 };

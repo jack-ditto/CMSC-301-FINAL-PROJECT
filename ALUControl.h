@@ -3,17 +3,15 @@
 using namespace std;
 
 class ALUControl {
-    
-    
+
+
     public:
 
         // Default contructor
         ALUControl();
 
-        // Typical use contructor
-        ALUControl(string aluOp, string inst);
-
         bool get();
+        void set(string aluOp, string inst);
 
     private:
 

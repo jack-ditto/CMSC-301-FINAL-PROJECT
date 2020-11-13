@@ -18,15 +18,20 @@ DataMemory::DataMemory(){}
 
 //setAddr initializes the address long to the input
 //
-//paramenter - long input
+//paramenter - string input
 //
-void DataMemory::setAddr(long input){address = input;}
+void DataMemory::setAddr(string input){address = input;}
 
 
 //setMemWrite sets the DataMemory Units MemWrite flag
 //
 //parameter - bool in
-void DataMemory::setMemWrite(bool in){MemWrite = in;}
+void DataMemory::setMemWrite(bool in){
+  MemWrite = in;
+  if (MemWrite){
+    write();
+  }
+}
 
 
 //setMemRead sets the DataMemory units MemRead flag
@@ -35,33 +40,37 @@ void DataMemory::setMemWrite(bool in){MemWrite = in;}
 void DataMemory::setMemRead(bool in){MemRead = in;}
 
 
-
-//getMemWrite gets the DataMemory Units MemWrite flag
-long DataMemory::getMemWrite(){return MemWrite;}
-
-
-//getMemRead gets the DataMemory units MemRead flag
-long DataMemory::getMemRead(){return MemRead;}
-
-
 //get returns the corresponding data for a give address
 //
 //paramenters - long address
 //
 //return - corresponding data from map
-long DataMemory::get(long addr){return memMap.at(addr);}
+string DataMemory::get(){
+  return bitset<32>(memMap.at(stol(address))).to_string();
+}
+
+//set initializes data string to input
+//
+//parameters - string str
+//
+void DataMemory::setWriteData(string str){
+  data = str;
+}
 
 
-//set updates the value of the given map address to a new value
+//write updates the value of the given map address to a new value
 //
 //parameters:
 //    long addr
 //    long value
 //
-void DataMemory::set(long addr, long value){
-  map<long,long>::iterator it = memMap.find(addr);
-  it->second = value;
+void DataMemory::write(){
+  long addr = stol(address);
+  long d = stol(data);
+  memMap[addr] = d;
 }
+
+
 
 //toString prints out the contents of DataMemory
 void DataMemory::toString(){

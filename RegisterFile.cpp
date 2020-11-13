@@ -23,7 +23,6 @@ RegisterFile::RegisterFile(){}
 //
 void RegisterFile::setWriteRegister(string write){
   writeRegister = stoi(write,nullptr,2);
-  writeData = regMap.at(writeRegister);
 }
 
 
@@ -33,7 +32,7 @@ void RegisterFile::setWriteRegister(string write){
 //
 void RegisterFile::setReadReg1(string val){
   readRegister1 = stoi(val,nullptr,2);
-  readData1 = regMap.at(readRegister1);
+  readData1 = bitset<32>(regMap.at(readRegister1)).to_string();
 }
 
 
@@ -43,7 +42,15 @@ void RegisterFile::setReadReg1(string val){
 //
 void RegisterFile::setReadReg2(string val){
   readRegister2 = stoi(val,nullptr,2);
-  readData2 = regMap.at(readRegister2);
+  readData2 = bitset<32>(regMap.at(readRegister2)).to_string();
+}
+
+
+void RegisterFile::setWriteData(string in){
+  if (regWrite){
+    long input = stol(in);
+    regMap[writeRegister] = input;
+  }
 }
 
 
@@ -54,27 +61,21 @@ void RegisterFile::setReadReg2(string val){
 void RegisterFile::setRegWrite(bool val){regWrite = val;}
 
 
-//getRegWrite returns the boolean value of RegWrite
-//
-//return - boolean
-bool RegisterFile::getRegWrite(){return regWrite;}
-
-
 //getData1 returns value of data assocaited with readRegister1
 //
-//return - long
-long RegisterFile::getData1(){return readData1;}
+//return - string
+string RegisterFile::getData1(){return readData1;}
 
 
 //getData2 returns value of data associated with readRegeister2
 //
-//return - long
-long RegisterFile::getData2(){return readData2;}
+//return - string
+string RegisterFile::getData2(){return readData2;}
 
 //getWriteData
 //
-//return - long
-long RegisterFile::getWriteData(){return writeData;}
+//return - string
+string RegisterFile::getWriteData(){return writeData;}
 
 
 void RegisterFile::toString(){

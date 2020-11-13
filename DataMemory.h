@@ -1,5 +1,6 @@
 #include <map>
 #include <string>
+#include <bitset>
 
 using namespace std;
 
@@ -10,16 +11,16 @@ class DataMemory{
     string address;
     string data;
     map<long,long> memMap;
+    void write();
 
   public:
     DataMemory(map<long,long> memoryMap);
     DataMemory();
-    void setAddr(long input);
-    long get(long addr);
+    void setAddr(string input);
+    string get();
     void set(long addr, long value);
     void setMemRead(bool in);
     void setMemWrite(bool in);
-    long getMemRead();
-    long getMemWrite();
     void toString();
+    void setWriteData(string str);
 };

@@ -32,7 +32,7 @@ bool Control::getMemToReg() {
     return this->memToReg;
 }
 
-bool Control::getAluOp() {
+string Control::getAluOp() {
     return this->aluOp;
 }
 

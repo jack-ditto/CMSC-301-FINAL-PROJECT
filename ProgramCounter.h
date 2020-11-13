@@ -4,7 +4,7 @@ class ProgramCounter {
 	public:
 		/* Constructor */
 		ProgramCounter();
-		void set(int);
+		void set(string);
 		int get();
 		void toString();
 

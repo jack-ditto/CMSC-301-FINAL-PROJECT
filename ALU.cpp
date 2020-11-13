@@ -7,6 +7,7 @@ ALU::ALU()
     this->result = "";
     this->input1 = "";
     this->input2 = "";
+    this->zeroFlag = false;
 }
 
 // Set operation to be done by ALU
@@ -67,4 +68,12 @@ void ALU::subtractInputs()
 {
     // Subtract the inputs here
     // Store result in this->result
+
+    // If subtraction and the value is 0, set zero flag to true
+}
+
+void ALU::setValues(int opNum, string input1, string intpu2) {
+    this->setInput1(input1);
+    this->setInput2(input2);
+    this->setOperation(opNum);
 }

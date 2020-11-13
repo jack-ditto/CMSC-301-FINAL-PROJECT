@@ -4,13 +4,13 @@ using namespace std;
 
 class ShiftLeftTwo {
 
-    public: 
+    public:
 
         // Constructor
         ShiftLeftTwo();
 
         // Perform shift left on input
-        string get(string input);
+        string get();
         void set(string input);
 
     private:

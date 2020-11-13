@@ -1,12 +1,12 @@
 #include <iostream>
 #include "ProgramCounter.h"
-
+#include<string>
 
 //Constructor initializes pc to 400000
 ProgramCounter::ProgramCounter(): pc(400000) {}
 
 //Set updates pc to new parameter
-void ProgramCounter::set(int newPC) {pc = newPC;}
+void ProgramCounter::set(string newPC) {pc = stoi(newPC);}
 
 //get returns the current value of pc
 int ProgramCounter::get() {return pc;}
