@@ -9,11 +9,21 @@ Processor::Processor(map<long, vector<string>> instructionMap,
         registerFile = RegisterFile(registerMap);
 }
 
+string concatenatePC(string shift, int pc){
+    string programC = bitset<32>(pc).to_string();
+    string result = programC.substr(0, 4) + shift;
+    return result;
+}
+
 void Processor::step(){
     // Get PC from program counter
     long pc = programCounter.get();
+
+    programCounter.toString();
     // Pass PC to instruction memory
     instructionMemory.setAddress(pc);
+
+    instructionMemory.toString();
     // passes bits 31-26 of the instruction into the control unit
     control.setInstruction(instructionMemory.getForControl());
     // Pass regist write value into register unit
@@ -28,6 +38,7 @@ void Processor::step(){
     multiplexer1.setControl(control.getRegDst());
     // Pass the result of mux1 to write register
     registerFile.setWriteRegister(multiplexer1.get());
+    registerFile.toString();
 
     // Pass bits 15-0 to Sign extend
     signExtend.setInput(instructionMemory.getForExtend());
@@ -73,12 +84,6 @@ void Processor::step(){
     multiplexer5.setControl(control.getJump());
     // Updates PC to output of mux5
     programCounter.set(multiplexer5.get());
-}
-
-string concatenatePC(string shift, int pc){
-    string programC = bitset<32>(pc).to_string();
-    string result = programC.substr(0, 4) + shift;
-    return result;
 }
 
 

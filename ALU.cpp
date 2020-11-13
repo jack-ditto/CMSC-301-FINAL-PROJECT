@@ -77,3 +77,7 @@ void ALU::setValues(int opNum, string input1, string intpu2) {
     this->setInput2(input2);
     this->setOperation(opNum);
 }
+
+bool ALU::getZeroFlag() {
+    return false;
+}
