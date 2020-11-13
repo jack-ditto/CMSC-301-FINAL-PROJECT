@@ -4,7 +4,7 @@ Multiplexer::Multiplexer()
 {}
 
 void Multiplexer::setControl(int control)
-{   
+{
     // TODO: input validation
     this->control = control;
 }

@@ -8,9 +8,7 @@
 //parameters - map<long,vector<string>>
 //
 InstructionMemory::InstructionMemory(map<long,vector<string>> instructionsMap){
-  for (map<long,vector<string>>::iterator it = instructionsMap.begin(); it != instructionsMap.end(); it++){
-    InstrMap.insert(pair<long,vector<string>>(it->first,it->second));
-  }
+  instrMap = instructionsMap;
 }
 
 
@@ -26,7 +24,7 @@ void InstructionMemory::setAddress(long pc){address = pc;}
 //
 //Return - binary string
 string InstructionMemory::getForControl(){
-  vector<string> temp = InstrMap.at(address);
+  vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
   return str.substr(0,6);
 }
@@ -36,7 +34,7 @@ string InstructionMemory::getForControl(){
 //
 //Return - binary string
 string InstructionMemory::getForShift(){
-  vector<string> temp = InstrMap.at(address);
+  vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
   return str.substr(6,25);
 }
@@ -46,7 +44,7 @@ string InstructionMemory::getForShift(){
 //
 //Return - binary string
 string InstructionMemory::getForExtend(){
-  vector<string> temp = InstrMap.at(address);
+  vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
   return str.substr(16,16);
 }
@@ -56,7 +54,7 @@ string InstructionMemory::getForExtend(){
 //
 //Return - binary string
 string InstructionMemory::getForRegOne(){
-  vector<string> temp = InstrMap.at(address);
+  vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
   return str.substr(6,5);
 }
@@ -67,7 +65,7 @@ string InstructionMemory::getForRegOne(){
 //
 //Return - binary string
 string InstructionMemory::getForRegTwo(){
-  vector<string> temp = InstrMap.at(address);
+  vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
   return str.substr(11,5);
 }
@@ -77,7 +75,7 @@ string InstructionMemory::getForRegTwo(){
 //
 //Return - binary string
 string InstructionMemory::getForMuxOne(){
-  vector<string> temp = InstrMap.at(address);
+  vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
   return str.substr(16,5);
 }
@@ -87,7 +85,7 @@ string InstructionMemory::getForMuxOne(){
 //
 //Return - binary string
 string InstructionMemory::getForALUControl(){
-  vector<string> temp = InstrMap.at(address);
+  vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
   return str.substr(27,6);
 }
@@ -96,7 +94,7 @@ string InstructionMemory::getForALUControl(){
 //toString prints out the contents of InstructionMemory
 void InstructionMemory::toString(){
   cout << "Contents of InstructionMemory: " << endl;
-  for (map<long,vector<string>>::iterator it = InstrMap.begin(); it != InstrMap.end(); it++){
+  for (map<long,vector<string>>::iterator it = instrMap.begin(); it != instrMap.end(); it++){
     vector<string> temp = it->second;
     string inst = temp.at(1);
     cout << it->first << " => " << inst << endl;

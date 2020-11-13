@@ -7,9 +7,7 @@
 //parameters - map<Register,string>
 //
 RegisterFile::RegisterFile(map<int,long> registerMap){
-  for (map<int,long>::iterator it = registerMap.begin(); it != registerMap.end(); it++){
-    regMap.insert(pair<int,long>(it->first,it->second));
-  }
+  regMap = registerMap;
 }
 
 
@@ -22,6 +20,7 @@ RegisterFile::RegisterFile(){}
 //parameter - string write
 //
 void RegisterFile::setWriteRegister(string write){
+  cout << "test" << write << endl;
   writeRegister = stoi(write,nullptr,2);
 }
 

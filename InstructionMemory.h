@@ -8,7 +8,7 @@ class InstructionMemory{
   private:
     long address;
     string instr;
-    map<long,vector<string>> InstrMap;
+    map<long,vector<string>> instrMap;
 
   public:
     InstructionMemory(map<long,vector<string>> instructionsMap);

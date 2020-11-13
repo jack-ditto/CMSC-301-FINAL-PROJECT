@@ -3,7 +3,7 @@
 #include<string>
 
 //Constructor initializes pc to 400000
-ProgramCounter::ProgramCounter(): pc(400000) {}
+ProgramCounter::ProgramCounter(): pc(0x400000) {}
 
 //Set updates pc to new parameter
 void ProgramCounter::set(string newPC) {pc = stoi(newPC);}

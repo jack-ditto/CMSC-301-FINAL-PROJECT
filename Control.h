@@ -24,7 +24,8 @@ class Control {
         bool getRegWrite();
 
     private:
-
+        void setAll(bool regDst, bool aluSrc, bool memToReg, bool regWrite, bool memRead,
+            bool memWrite, bool branch, string aluOp);
         bool regDst;
         bool jump;
         bool branch;

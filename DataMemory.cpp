@@ -6,9 +6,7 @@
 //parameters - map<long,long>
 //
 DataMemory::DataMemory(map<long,long> memoryMap){
-  for (map<long,long>::iterator it = memoryMap.begin(); it != memoryMap.end(); it++){
-    memMap.insert(pair<long,long>(it->first,it->second));
-  }
+  memMap = memoryMap;
 }
 
 
