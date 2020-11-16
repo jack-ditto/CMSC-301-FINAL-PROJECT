@@ -1,22 +1,17 @@
-#include<string>
+#include <string>
 
 using namespace std;
 
-class ALUControl {
+class ALUControl
+{
 
+public:
+    ALUControl();                         // default / typical use constructor
+    int get();                            // gets the operation number corresponding to the correct ALU op for an instruction
+    void set(string opCode, string func); // sets the op code and function code
 
-    public:
-
-        // Default contructor
-        ALUControl();
-
-        bool get();
-        void set(string aluOp, string inst);
-
-    private:
-
-        string inst;
-        string aluOp;
-        bool output;
-
+private:
+    string opCode; // operation code
+    string func;   // function code
+    int output;    // result
 };

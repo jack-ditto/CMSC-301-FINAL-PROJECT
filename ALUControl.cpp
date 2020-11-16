@@ -1,21 +1,62 @@
 #include "ALUControl.h"
 
-
-// Default contructor
-ALUControl::ALUControl() {
-    // TODO: assign default values
+/**
+ * Default / typical use constructor
+ */
+ALUControl::ALUControl()
+{
+    this->opCode = "";
+    this->func = "";
+    this->output = -1;
 }
 
+/**
+ * Execute and return value of op number for ALU
+ */
+int ALUControl::get()
+{
 
-bool ALUControl::get() {
+    // return ALU op num based on op code and function code
+    // add = 0, subtract = 1
 
-    // Make decision here
-    this->output = false;
+    // ADD
+    if (this->opCode == "000000" && this->func == "100000")
+    {
+        this->output = 0;
+    }
+
+    // LW & SW
+    if (this->opCode == "100011" || this->opCode == "101011")
+    {
+        this->output = 0;
+    }
+
+    // BEQ
+    if (this->opCode == "000100")
+    {
+        this->output = 1;
+    }
+
+    // ADDI
+    if (this->opCode == "001000")
+    {
+        this->output = 0;
+    }
+
+    // J - there should be no ALU operation on a jump
+    if (this->opCode == "000010")
+    {
+        this->output = -1;
+    }
 
     return this->output;
 }
 
-void ALUControl::set(string aluOp, string inst) {
-    this->aluOp = aluOp;
-    this->inst = inst;
+/**
+ * Set opCode and function code
+ */
+void ALUControl::set(string opCode, string func)
+{
+    this->opCode = opCode;
+    this->func = func;
 }
