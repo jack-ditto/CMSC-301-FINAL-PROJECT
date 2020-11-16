@@ -3,25 +3,47 @@
 // Default constructor
 Control::Control() {}
 
-void Control::setInstruction(string instruction) {
-    // Set the various instance variables here
-    if (instruction == "00000") // R type
-        setAll(1,0,0,1,0,0,0,"0");
-    else if (instruction == "100011") //lw
-        setAll(1,0,0,1,0,0,0,"0");
-    else if(instruction == "101011") // sw
-        setAll(1,0,0,1,0,0,0,"0");
-    else if(instruction == "000100") // beq
-        setAll(1,0,0,1,0,0,0,"0");
-    else if(instruction == "001000") //ADDI
-        setAll(1,0,0,1,0,0,0,"0");
-    else if(instruction == "000010") // jump
-        setAll(1,0,0,1,0,0,0,"0");
 
+/**
+ * Set control flags based on first 6 bits of instruction (left to write)
+ * 
+ * @param instruction bits 31-26 of the instruction
+ */
+void Control::setInstruction(string instruction)
+{
+    // Set the various instance variables here
+
+    // R-Type
+    if (instruction == "00000")
+        setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
+
+    // Load word (lw)
+    else if (instruction == "100011")
+        setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
+
+    // Store word (sw)
+    else if (instruction == "101011") 
+        setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
+    
+    // Branch if equal to (beq)
+    else if (instruction == "000100") 
+        setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
+
+    // Add Immediate (addi)
+    else if (instruction == "001000")
+        setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
+    
+    // Jump (j)
+    else if (instruction == "000010")
+        setValues(1, 0, 0, 1, 0, 0, 0, instruction, 1);
 }
 
-void Control::setAll(bool regDst, bool aluSrc, bool memToReg, bool regWrite, bool memRead,
-bool memWrite, bool branch, string aluOp){
+/**
+ * Sets all values of instance variables. 
+ */
+void Control::setValues(bool regDst, bool aluSrc, bool memToReg, bool regWrite, bool memRead,
+                     bool memWrite, bool branch, string aluOp, bool jump)
+{
     this->regDst = regDst;
     this->aluSrc = aluSrc;
     this->memToReg = memToReg;
@@ -30,40 +52,51 @@ bool memWrite, bool branch, string aluOp){
     this->memWrite = memWrite;
     this->branch = branch;
     this->aluOp = aluOp;
+    this->jump = jump;
 }
+
 // Getters
-bool Control::getRegDst() {
+bool Control::getRegDst()
+{
     return this->regDst;
 }
 
-bool Control::getJump() {
+bool Control::getJump()
+{
     return this->jump;
 }
 
-bool Control::getBranch() {
+bool Control::getBranch()
+{
     return this->branch;
 }
 
-bool Control::getMemWrite() {
+bool Control::getMemWrite()
+{
     return this->memWrite;
 }
 
-bool Control::getMemRead() {
+bool Control::getMemRead()
+{
     return this->memRead;
 }
 
-bool Control::getMemToReg() {
+bool Control::getMemToReg()
+{
     return this->memToReg;
 }
 
-string Control::getAluOp() {
+string Control::getAluOp()
+{
     return this->aluOp;
 }
 
-bool Control::getAluSrc() {
+bool Control::getAluSrc()
+{
     return this->aluSrc;
 }
 
-bool Control::getRegWrite() {
+bool Control::getRegWrite()
+{
     return this->regWrite;
 }

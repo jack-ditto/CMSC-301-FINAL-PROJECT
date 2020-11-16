@@ -1,39 +1,34 @@
-#include<string>
+#include <string>
 
 using namespace std;
 
-class Control {
+class Control
+{
 
-    public:
+public:
+    Control();                               // default / typical use constructor
+    void setInstruction(string instruction); // set the instruction
+    bool getRegDst();                        // get destination register
+    bool getJump();                          // get if jump instruction
+    bool getBranch();                        // get if branch instruction
+    bool getMemWrite();                      // get if memory write
+    bool getMemRead();                       // get if memory read
+    bool getMemToReg();                      // get if mem to register
+    string getAluOp();                       // get the op code of the instruction for ALU control
+    bool getAluSrc();                        // get source for ALU
+    bool getRegWrite();                      // get if register write
 
-        // Constructor
-        Control();
-
-        // Set the instruction
-        void setInstruction(string instruction);
-
-        // Getters
-        bool getRegDst();
-        bool getJump();
-        bool getBranch();
-        bool getMemWrite();
-        bool getMemRead();
-        bool getMemToReg();
-        string getAluOp();
-        bool getAluSrc();
-        bool getRegWrite();
-
-    private:
-        void setAll(bool regDst, bool aluSrc, bool memToReg, bool regWrite, bool memRead,
-            bool memWrite, bool branch, string aluOp);
-        bool regDst;
-        bool jump;
-        bool branch;
-        bool memWrite;
-        bool memRead;
-        bool memToReg;
-        string aluOp;
-        bool aluSrc;
-        bool regWrite;
-
+private:
+    // set values helper method
+    void setValues(bool regDst, bool aluSrc, bool memToReg, bool regWrite, bool memRead,
+                   bool memWrite, bool branch, string aluOp, bool jump);
+    bool regDst;
+    bool jump;
+    bool branch;
+    bool memRead;
+    bool memToReg;
+    string aluOp;
+    bool memWrite;
+    bool aluSrc;
+    bool regWrite;
 };
