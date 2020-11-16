@@ -1,6 +1,11 @@
 #include "ALU.h"
 
-// Constructor
+/**
+ * Default / common use construtor
+ * 
+ * Allows for construction of object, sets all values to defaults.
+ * Setter methods should be used to assign all the data. 
+ */
 ALU::ALU()
 {
     this->operationNum = -1;
@@ -10,9 +15,15 @@ ALU::ALU()
     this->zeroFlag = false;
 }
 
-// Set operation to be done by ALU
-// 0 = ADD
-// 1 = SUBTRACT
+/**
+ * Sets the operation to be performed by the ALU. 
+ * 
+ * ADD = 0
+ * SUBTRACT = 1
+ * TODO: add AND and OR operations if nescessary
+ * 
+ * @param opNum the number corresponding to the desired operation. 
+ */
 void ALU::setOperation(int opNum)
 {
     if (opNum > 1 || opNum < 0)
@@ -25,6 +36,9 @@ void ALU::setOperation(int opNum)
     }
 }
 
+/**
+ * Executes and gets the result of the ALU
+ */
 string ALU::getResult()
 {
     if (this->operationNum == -1)
@@ -46,38 +60,81 @@ string ALU::getResult()
     return this->result;
 }
 
+/**
+ * Sets the value of input 1
+ * 
+ * @param input1 32 bit binary string. 
+ */
 void ALU::setInput1(string input1)
 {
     // TODO: error handing
     this->input1 = input1;
 }
 
+/**
+ * Sets the value of input 2
+ * 
+ * @param input2 32 bit binary string. 
+ */
 void ALU::setInput2(string input2)
 {
     // TODO: error handing
     this->input2 = input2;
 }
 
+/**
+ * Adds the results of input1 and input 2 and stores the resulting 32 bit binary string in result. 
+ */
 void ALU::addInputs()
 {
-    // Add the inputs together here
-    // Store result in this->result
+    // Convert from strings to longs
+    long input1Long = stol(this->input1, nullptr, 2);
+    long input2Long = stol(this->input2, nullptr, 2);
+
+    // Add longs and convert to 32 bit binary string
+    string res = bitset<32>(input1Long + input2Long).to_string();
+    this->result = res;
 }
 
+/**
+ * Subtracts the results of input1 and input 2 (input1 - input2) and 
+ * stores the resulting 32 bit binary string in result. 
+ */
 void ALU::subtractInputs()
 {
-    // Subtract the inputs here
-    // Store result in this->result
+    // Convert from strings to longs
+    long input1Long = stol(this->input1, nullptr, 2);
+    long input2Long = stol(this->input2, nullptr, 2);
 
-    // If subtraction and the value is 0, set zero flag to true
+    // Subtract and check for zero flag
+    long sub = input1Long - input2Long;
+    if(sub == 0) {
+        this->zeroFlag = true;
+    }
+
+    // Subtract longs and convert to 32 bit binary string
+    string res = bitset<32>(sub).to_string();
+    this->result = res;
 }
 
-void ALU::setValues(int opNum, string input1, string intpu2) {
+/**
+ * Sets all the values nescessary for the ALU to function.
+ * 
+ * @param opNum integer specifying the desired operation
+ * @param input1 32 bit binary string 
+ * @param input2 32 bit binary string
+ */
+void ALU::setValues(int opNum, string input1, string input2)
+{
     this->setInput1(input1);
     this->setInput2(input2);
     this->setOperation(opNum);
 }
 
-bool ALU::getZeroFlag() {
+/**
+ * Returns the boolean zero flag nescessary for jump instructions. 
+ */
+bool ALU::getZeroFlag()
+{
     return false;
 }
