@@ -1,5 +1,5 @@
-#include<string>
-#include<iostream>
+#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -7,20 +7,15 @@ class Multiplexer
 {
 
 public:
-    // Constructor
-    Multiplexer();
-
-    // Get the decision
-    string get();
-    void setControl(int control);
-    void setChoices(string choice1, string choice2);
+    Multiplexer();                                   // default / typical use constructor
+    string get();                                    // gets the decision from the multiplexer
+    void setControl(int control);                    // set the value of the control line
+    void setChoices(string choice1, string choice2); // set both choices for mux
 
 private:
-    string output;  // Store the output
-    string choice1; // Store choice 1
-    string choice2; // Store choice 2
-    int control;    // Store control
-
-    // Decide which output based on control
-    void decide();
+    string output;  // store the output
+    string choice1; // store choice 1
+    string choice2; // store choice 2
+    int control;    // store control
+    void decide();  // Decide which output based on control
 };
