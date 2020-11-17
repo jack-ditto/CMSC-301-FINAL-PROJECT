@@ -11,6 +11,9 @@ public:
     string get();                                    // gets the decision from the multiplexer
     void setControl(int control);                    // set the value of the control line
     void setChoices(string choice1, string choice2); // set both choices for mux
+    string getChoice1();
+    string getChoice2();
+    int getControl();
 
 private:
     string output;  // store the output

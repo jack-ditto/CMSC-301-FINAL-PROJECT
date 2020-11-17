@@ -60,3 +60,24 @@ void Multiplexer::decide()
         this->output = this->choice2;
     }
 }
+
+/**
+ * Getter for choice 1
+ */
+string Multiplexer::getChoice1() {
+    return this->choice1;
+}
+
+/**
+ * Getter for choice 2
+ */
+string Multiplexer::getChoice2() {
+    return this->choice2;
+}
+
+/**
+ * Getter for control
+ */
+int Multiplexer::getControl() {
+    return this->control;
+}
