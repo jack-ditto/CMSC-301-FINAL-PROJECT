@@ -136,5 +136,27 @@ void ALU::setValues(int opNum, string input1, string input2)
  */
 bool ALU::getZeroFlag()
 {
-    return false;
+    return this->zeroFlag;
 }
+
+/**
+ * Getter for operation number
+ */
+int ALU::getOpNum() {
+    return this->operationNum;
+}
+
+/**
+ * Getter for input 1
+ */
+string ALU::getInput1() {
+    return this->input1;
+}
+
+/**
+ * Getter for input 2
+ */
+string ALU::getInput2() {
+    return this->input2;
+}
+

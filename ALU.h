@@ -15,6 +15,9 @@ public:
     void setInput1(string input1);                           // set first input
     void setInput2(string input2);                           // set second input
     bool getZeroFlag();                                      // return the zero flag
+    int getOpNum();                                          // getter for opNum
+    string getInput1();                                      // getter for input1
+    string getInput2();                                      // getter for inpur2
 
 private:
     string input1;         // binary string input one
