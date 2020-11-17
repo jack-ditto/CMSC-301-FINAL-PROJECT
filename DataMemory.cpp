@@ -44,6 +44,9 @@ void DataMemory::setMemRead(bool in){MemRead = in;}
 //
 //return - corresponding data from map
 string DataMemory::get(){
+  if (!MemRead){
+    return "00000000000000000000000000000000";
+  }
   return bitset<32>(memMap.at(stol(address))).to_string();
 }
 
