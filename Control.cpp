@@ -14,8 +14,8 @@ void Control::setInstruction(string instruction)
     // Set the various instance variables here
 
     // R-Type (add, slt)
-    if (instruction == "00000")
-        setValues(true, false, false, true, false, false, false, instruction, false);
+    if (instruction == "000000")
+        setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
 
     // Load word (lw)
     else if (instruction == "100011")

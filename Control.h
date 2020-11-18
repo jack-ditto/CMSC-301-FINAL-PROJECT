@@ -20,15 +20,15 @@ public:
 
 private:
     // set values helper method
-    void setValues(bool regDst, bool aluSrc, bool memToReg, bool regWrite, bool memRead,
-                   bool memWrite, bool branch, string aluOp, bool jump);
-    bool regDst;
-    bool jump;
-    bool branch;
-    bool memRead;
-    bool memToReg;
+    void setValues(int regDst, int aluSrc, int memToReg, int regWrite, int memRead,
+                   int memWrite, int branch, string aluOp, int jump);
+    int regDst;
+    int jump;
+    int branch;
+    int memRead;
+    int memToReg;
     string aluOp;
-    bool memWrite;
-    bool aluSrc;
-    bool regWrite;
+    int memWrite;
+    int aluSrc;
+    int regWrite;
 };
