@@ -26,6 +26,7 @@ void Processor::step(){
     instructionMemory.toString();
     // passes bits 31-26 of the instruction into the control unit
     control.setInstruction(instructionMemory.getForControl());
+    control.toString();
     // Pass regist write value into register unit
     registerFile.setRegWrite(control.getRegWrite());
     // Pass bits 25-21 into read register one
@@ -62,7 +63,6 @@ void Processor::step(){
     dataMemory.setMemRead(control.getMemRead());
     // Pass MemWrite control bits to DataMemory
     dataMemory.setMemWrite(control.getMemWrite());
-
     dataMemory.toString();
     // Set choices of mux3 to result of ALU3 (0) and read data in DatMemory (1)
     multiplexer3.setChoices(alu3.getResult(), dataMemory.get());
