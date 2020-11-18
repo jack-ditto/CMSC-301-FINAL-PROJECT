@@ -18,6 +18,7 @@ public:
     int getOpNum();                                          // getter for opNum
     string getInput1();                                      // getter for input1
     string getInput2();                                      // getter for inpur2
+    void toString();                                         // to string method
 
 private:
     string input1;            // binary string input one
