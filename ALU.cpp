@@ -126,7 +126,7 @@ void ALU::subtractInputs()
  */
 void ALU::subtractInputsSlt() {
     this->subtractInputs();
-    this->result = "0000000000000000000000000000000" + this->result[0];
+    this->result = "0000000000000000000000000000000" + this->result.substr(0, 1);
 }
 
 /**
