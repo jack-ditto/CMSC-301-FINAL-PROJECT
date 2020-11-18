@@ -104,6 +104,7 @@ bool Control::getRegWrite()
 
 void Control::toString()
 {
+    cout << "---- Control ----" << endl;
     cout << "regDst: " << this->regDst << endl;
     cout << "aluSrc: " << this->aluSrc << endl;
     cout << "memToReg: " << this->memToReg << endl;
@@ -113,13 +114,5 @@ void Control::toString()
     cout << "branch: " << this->branch << endl;
     cout << "aluOp: " << this->aluOp << endl;
     cout << "jump: " << this->jump << endl;
-    //  this->regDst = regDst;
-    // this->aluSrc = aluSrc;
-    // this->memToReg = memToReg;
-    // this->regWrite = regWrite;
-    // this->memRead = memRead;
-    // this->memWrite = memWrite;
-    // this->branch = branch;
-    // this->aluOp = aluOp;
-    // this->jump = jump;
+    cout << "-----------------" << endl;
 }
