@@ -26,7 +26,7 @@ int ALUControl::get()
     }
 
     // LW & SW
-    if (this->opCode == "100011" || this->opCode == "101011")
+    if (this->opCode == "100011" && this->opCode == "101011")
     {
         this->output = 0;
     }
@@ -40,13 +40,18 @@ int ALUControl::get()
     // ADDI
     if (this->opCode == "001000")
     {
-        this->output = 0;
+        this->output = 1;
     }
 
     // J - there should be no ALU operation on a jump
     if (this->opCode == "000010")
     {
         this->output = -1;
+    }
+
+    // SLT
+    if(this->opCode == "000000" && this->opCode == "100010") {
+        this->output = 2;
     }
 
     return this->output;

@@ -55,6 +55,10 @@ string ALU::getResult()
     if (this->operationNum == 1)
     {
         this->subtractInputs();
+    } 
+
+    if(this->operationNum == 2) {
+        this->subtractInputsSlt();
     }
 
     return this->result;
@@ -115,6 +119,14 @@ void ALU::subtractInputs()
     // Subtract longs and convert to 32 bit binary string
     string res = bitset<32>(sub).to_string();
     this->result = res;
+}
+
+/**
+ * Subtract for SLT. 
+ */
+void ALU::subtractInputsSlt() {
+    this->subtractInputs();
+    this->result = "0000000000000000000000000000000" + this->result[0];
 }
 
 /**

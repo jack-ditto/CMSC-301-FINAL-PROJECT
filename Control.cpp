@@ -13,21 +13,21 @@ void Control::setInstruction(string instruction)
 {
     // Set the various instance variables here
 
-    // R-Type
+    // R-Type (add, slt)
     if (instruction == "00000")
         setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
 
     // Load word (lw)
     else if (instruction == "100011")
-        setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
+        setValues(0, 1, 1, 1, 1, 0, 0, instruction, 0);
 
     // Store word (sw)
     else if (instruction == "101011") 
-        setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
+        setValues(-1, 1, -1, 0, 0, 1, 0, instruction, 0);
     
     // Branch if equal to (beq)
     else if (instruction == "000100") 
-        setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
+        setValues(-1, 0, -1, 0, 0, 0, 1, instruction, 1);
 
     // Add Immediate (addi)
     else if (instruction == "001000")
@@ -35,7 +35,7 @@ void Control::setInstruction(string instruction)
     
     // Jump (j)
     else if (instruction == "000010")
-        setValues(1, 0, 0, 1, 0, 0, 0, instruction, 1);
+        setValues(0, 0, 0, 0, 0, 0, 0, instruction, 1);
 }
 
 /**
