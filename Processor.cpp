@@ -60,7 +60,6 @@ void Processor::step(){
     dataMemory.setMemRead(control.getMemRead());
     // Pass MemWrite control bits to DataMemory
     dataMemory.setMemWrite(control.getMemWrite());
-
     dataMemory.toString();
     // Set choices of mux3 to result of ALU3 (0) and read data in DatMemory (1)
     multiplexer3.setChoices(alu3.getResult(), dataMemory.get());
