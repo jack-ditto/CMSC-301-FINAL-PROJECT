@@ -47,7 +47,7 @@ void RegisterFile::setReadReg2(string val){
 
 void RegisterFile::setWriteData(string in){
   if (regWrite){
-    long input = stol(in);
+    long input = stol(in,nullptr,2);
     regMap[writeRegister] = input;
   }
 }
