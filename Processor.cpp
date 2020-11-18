@@ -36,7 +36,7 @@ void Processor::step(){
     multiplexer1.setChoices(instructionMemory.getForRegTwo(), instructionMemory.getForMuxOne());
     // Pass RegDst from control to mux1
     multiplexer1.setControl(control.getRegDst());
-    std::cout << "regdst" << control.getRegDst() << std::endl;
+    std::cout << "regdst is: "<< dec << control.getRegDst() << std::endl;
     // Pass the result of mux1 to write register
     registerFile.setWriteRegister(multiplexer1.get());
     registerFile.toString();
