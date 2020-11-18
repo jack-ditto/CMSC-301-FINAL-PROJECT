@@ -20,11 +20,12 @@ public:
     string getInput2();                                      // getter for inpur2
 
 private:
-    string input1;         // binary string input one
-    string input2;         // binary string input two
-    string result;         // binary string result
-    bool zeroFlag;         // zero flag set if inputs are equal for Branch if Equal (and other branches I believe)
-    int operationNum;      // integer specifying what operation to perform. See .cpp file for index
-    void addInputs();      // add the two binary strings
-    void subtractInputs(); // subtract - input1 minus input2
+    string input1;            // binary string input one
+    string input2;            // binary string input two
+    string result;            // binary string result
+    bool zeroFlag;            // zero flag set if inputs are equal for Branch if Equal (and other branches I believe)
+    int operationNum;         // integer specifying what operation to perform. See .cpp file for index
+    void addInputs();         // add the two binary strings
+    void subtractInputs();    // subtract - input1 minus input2
+    void subtractInputsSlt(); // subtract for SLT
 };
