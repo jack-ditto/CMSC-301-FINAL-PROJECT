@@ -47,7 +47,7 @@ string DataMemory::get(){
   if (!MemRead){
     return "00000000000000000000000000000000";
   }
-  return bitset<32>(memMap.at(stol(address))).to_string();
+  return bitset<32>(memMap.at(stol(address,nullptr,2))).to_string();
 }
 
 //set initializes data string to input
@@ -66,8 +66,8 @@ void DataMemory::setWriteData(string str){
 //    long value
 //
 void DataMemory::write(){
-  long addr = stol(address);
-  long d = stol(data);
+  long addr = stol(address,nullptr,2);
+  long d = stol(data,nullptr,2);
   memMap[addr] = d;
 }
 
