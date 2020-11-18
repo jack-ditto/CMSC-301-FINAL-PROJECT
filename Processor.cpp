@@ -53,6 +53,8 @@ void Processor::step(){
     // Pass ReadData1 and the result of mux2 and alucontrol into ALU3
     alu3.setValues(aluControl.get(), registerFile.getData1(), multiplexer2.get());
 
+    std::cout << "ALU output: " << alu3.getResult() << std::endl;
+
     // Pass the result of ALU3 to DataMemory address
     dataMemory.setAddr(alu3.getResult());
     // Pass ReadData2 to DataMemory Write data
