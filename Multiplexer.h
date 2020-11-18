@@ -14,6 +14,7 @@ public:
     string getChoice1();
     string getChoice2();
     int getControl();
+    void toString();
 
 private:
     string output;  // store the output

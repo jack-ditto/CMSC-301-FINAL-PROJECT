@@ -81,3 +81,12 @@ string Multiplexer::getChoice2() {
 int Multiplexer::getControl() {
     return this->control;
 }
+
+void Multiplexer::toString() {
+    cout << "---- Multiplexer ----" << endl;
+    cout << "Choice 1: " << this->choice1 << endl;
+    cout << "Choice 2: " << this->choice2 << endl;
+    cout << "Control: " << this->control << endl;
+    cout << "Output: " << this->output << endl;
+    cout << "---------------------" << endl;
+}
