@@ -104,5 +104,22 @@ bool Control::getRegWrite()
 
 void Control::toString()
 {
-    cout << "regDst: " << regDst << std::endl;
+    cout << "regDst: " << this->regDst << endl;
+    cout << "aluSrc: " << this->aluSrc << endl;
+    cout << "memToReg: " << this->memToReg << endl;
+    cout << "regWrite: " << this->regWrite << endl;
+    cout << "memRead: " << this->memRead << endl;
+    cout << "memWrite: " << this->memWrite << endl;
+    cout << "branch: " << this->branch << endl;
+    cout << "aluOp: " << this->aluOp << endl;
+    cout << "jump: " << this->jump << endl;
+    //  this->regDst = regDst;
+    // this->aluSrc = aluSrc;
+    // this->memToReg = memToReg;
+    // this->regWrite = regWrite;
+    // this->memRead = memRead;
+    // this->memWrite = memWrite;
+    // this->branch = branch;
+    // this->aluOp = aluOp;
+    // this->jump = jump;
 }
