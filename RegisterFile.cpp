@@ -98,6 +98,6 @@ void RegisterFile::printMap(){
   cout << "Print Map" << endl;
   cout << "------------------" << endl;
   for (map<int,long>::iterator it = regMap.begin(); it != regMap.end(); it++){
-    cout << it->first << " => " << "0x" << hex << it->second << endl;
+    cout << dec << it->first << " => " << "0x" << hex << it->second << endl;
   }
 }
