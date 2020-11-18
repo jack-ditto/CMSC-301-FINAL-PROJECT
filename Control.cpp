@@ -42,8 +42,8 @@ void Control::setInstruction(string instruction)
 /**
  * Sets all values of instance variables.
  */
-void Control::setValues(bool regDst, bool aluSrc, bool memToReg, bool regWrite, bool memRead,
-                     bool memWrite, bool branch, string aluOp, bool jump)
+void Control::setValues(int regDst, int aluSrc, int memToReg, int regWrite, int memRead,
+                     int memWrite, int branch, string aluOp, int jump)
 {
     this->regDst = regDst;
     this->aluSrc = aluSrc;
