@@ -18,6 +18,8 @@ public:
     bool getAluSrc();                        // get source for ALU
     bool getRegWrite();                      // get if register write
 
+    void toString();
+
 private:
     // set values helper method
     void setValues(int regDst, int aluSrc, int memToReg, int regWrite, int memRead,
