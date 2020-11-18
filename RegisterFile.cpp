@@ -71,12 +71,14 @@ string RegisterFile::getData1(){return readData1;}
 //return - string
 string RegisterFile::getData2(){return readData2;}
 
-//getWriteData
+//getWriteData returns data to be written
 //
 //return - string
 string RegisterFile::getWriteData(){return writeData;}
 
 
+//toString prints out the content of the RegisterFile after a given instruction
+//
 void RegisterFile::toString(){
   cout << "Contents of RegisterFile: " << endl;
   cout << "--------------------------" << endl;
@@ -88,7 +90,11 @@ void RegisterFile::toString(){
   cout << "Write Data contains: " << writeData << endl;
   cout << "regWrite flag set to: " << regWrite << endl;
   cout << "-------------------------" << endl;
+}
 
+//printMap prints out the full contents of the RegisterFile
+//
+void RegisterFile::printMap(){
   cout << "Print Map" << endl;
   cout << "------------------" << endl;
   for (map<int,long>::iterator it = regMap.begin(); it != regMap.end(); it++){
