@@ -26,6 +26,7 @@ void Processor::step(){
     instructionMemory.toString();
     // passes bits 31-26 of the instruction into the control unit
     control.setInstruction(instructionMemory.getForControl());
+    control.toString();
     // Pass regist write value into register unit
     registerFile.setRegWrite(control.getRegWrite());
     // Pass bits 25-21 into read register one
