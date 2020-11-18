@@ -16,7 +16,7 @@ void Control::setInstruction(string instruction)
 
     // R-Type (add, slt)
     if (instruction == "00000")
-        setValues(, 0, 0, 1, 0, 0, 0, instruction, 0);
+        setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
 
     // Load word (lw)
     else if (instruction == "100011")
