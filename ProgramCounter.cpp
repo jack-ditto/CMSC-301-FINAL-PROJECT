@@ -6,7 +6,7 @@
 ProgramCounter::ProgramCounter(): pc(0x400000) {}
 
 //Set updates pc to new parameter
-void ProgramCounter::set(string newPC) {pc = stoi(newPC);}
+void ProgramCounter::set(string newPC) {pc = stoi(newPC,nullptr,2);}
 
 //get returns the current value of pc
 int ProgramCounter::get() {return pc;}
