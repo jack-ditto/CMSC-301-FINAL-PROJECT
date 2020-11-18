@@ -172,7 +172,7 @@ string ALU::getInput2() {
     return this->input2;
 }
 
-string ALU::toString() {
+void ALU::toString() {
     cout << "----- ALU -----" << endl;
     cout << "Input 1: " << this->input1 << endl;
     cout << "Input 2: " << this->input2 << endl;
