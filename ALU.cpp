@@ -41,11 +41,11 @@ void ALU::setOperation(int opNum)
  */
 string ALU::getResult()
 {
-    if (this->operationNum == -1)
-    {
-        cerr << "No operation specified" << endl;
-        return "";
-    }
+    // if (this->operationNum == -1)
+    // {
+    //     cerr << "No operation specified" << endl;
+    //     return "";
+    // }
 
     if (this->operationNum == 0)
     {
