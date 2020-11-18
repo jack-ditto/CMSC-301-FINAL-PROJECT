@@ -88,4 +88,10 @@ void RegisterFile::toString(){
   cout << "Write Data contains: " << writeData << endl;
   cout << "regWrite flag set to: " << regWrite << endl;
   cout << "-------------------------" << endl;
+
+  cout << "Print Map" << endl;
+  cout << "------------------" << endl;
+  for (map<int,long>::iterator it = regMap.begin(); it != regMap.end(); it++){
+    cout << it->first << " => " << it->second << endl;
+  }
 }

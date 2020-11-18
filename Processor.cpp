@@ -89,6 +89,7 @@ void Processor::step(){
     multiplexer5.setControl(control.getJump());
     // Updates PC to output of mux5
     programCounter.set(multiplexer5.get());
+
 }
 
 
