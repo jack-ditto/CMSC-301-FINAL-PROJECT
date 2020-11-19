@@ -25,8 +25,14 @@ int ALUControl::get()
         this->output = 0;
     }
 
+    // SUB
+    if (this->opCode == "000000" && this->func == "100010")
+    {
+        this->output = 1;
+    }
+
     // LW & SW
-    if (this->opCode == "100011" && this->opCode == "101011")
+    if (this->opCode == "100011" || this->opCode == "101011")
     {
         this->output = 0;
     }
@@ -40,7 +46,7 @@ int ALUControl::get()
     // ADDI
     if (this->opCode == "001000")
     {
-        this->output = 1;
+        this->output = 0;
     }
 
     // J - there should be no ALU operation on a jump
@@ -50,7 +56,7 @@ int ALUControl::get()
     }
 
     // SLT
-    if(this->opCode == "000000" && this->opCode == "100010") {
+    if(this->opCode == "000000" && this->func == "101010") {
         this->output = 2;
     }
 
@@ -72,4 +78,15 @@ void ALUControl::toString() {
     cout << "Func code: " << this->func << endl;
     cout << "Output: " << this->output << endl;
     cout << "-----------------------" << endl;
+}
+
+/**
+ * Operation code getter
+ */
+string ALUControl::getOpCode() {
+    return this->opCode;
+}
+
+string ALUControl::getFunctionCode() {
+    return this->func;
 }
