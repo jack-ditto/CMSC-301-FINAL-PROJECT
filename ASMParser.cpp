@@ -334,7 +334,7 @@ string ASMParser::encode(Instruction i)
   string str = "";
   Opcode instructionOpcode = i.getOpcode();
   int instructionImmediate = i.getImmediate();
-  std::cout << hex << instructionImmediate << std::endl;
+  // std::cout << hex << instructionImmediate << std::endl;
   // write 6 bits of opcode
   str += opcodes.getOpcodeField(instructionOpcode);
   // if the instruction is RTYPE

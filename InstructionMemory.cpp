@@ -87,7 +87,7 @@ string InstructionMemory::getForMuxOne(){
 string InstructionMemory::getForALUControl(){
   vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
-  return str.substr(27,6);
+  return str.substr(26,6);
 }
 
 

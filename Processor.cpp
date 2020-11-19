@@ -26,6 +26,7 @@ void Processor::step(){
     instructionMemory.toString();
     // passes bits 31-26 of the instruction into the control unit
     control.setInstruction(instructionMemory.getForControl());
+    control.toString();
     // Pass regist write value into register unit
     registerFile.setRegWrite(control.getRegWrite());
     // Pass bits 25-21 into read register one
@@ -36,7 +37,7 @@ void Processor::step(){
     multiplexer1.setChoices(instructionMemory.getForRegTwo(), instructionMemory.getForMuxOne());
     // Pass RegDst from control to mux1
     multiplexer1.setControl(control.getRegDst());
-    std::cout << "regdst" << control.getRegDst() << std::endl;
+    std::cout << "regdst is: " << dec << control.getRegDst() << std::endl;
     // Pass the result of mux1 to write register
     registerFile.setWriteRegister(multiplexer1.get());
     registerFile.toString();
@@ -52,6 +53,8 @@ void Processor::step(){
     // Pass ReadData1 and the result of mux2 and alucontrol into ALU3
     alu3.setValues(aluControl.get(), registerFile.getData1(), multiplexer2.get());
 
+    std::cout << "ALU output: " << alu3.getResult() << std::endl;
+
     // Pass the result of ALU3 to DataMemory address
     dataMemory.setAddr(alu3.getResult());
     // Pass ReadData2 to DataMemory Write data
@@ -60,7 +63,6 @@ void Processor::step(){
     dataMemory.setMemRead(control.getMemRead());
     // Pass MemWrite control bits to DataMemory
     dataMemory.setMemWrite(control.getMemWrite());
-
     dataMemory.toString();
     // Set choices of mux3 to result of ALU3 (0) and read data in DatMemory (1)
     multiplexer3.setChoices(alu3.getResult(), dataMemory.get());
@@ -87,6 +89,7 @@ void Processor::step(){
     multiplexer5.setControl(control.getJump());
     // Updates PC to output of mux5
     programCounter.set(multiplexer5.get());
+    registerFile.printMap();
 }
 
 

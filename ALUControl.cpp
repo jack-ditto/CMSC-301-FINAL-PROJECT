@@ -65,3 +65,11 @@ void ALUControl::set(string opCode, string func)
     this->opCode = opCode;
     this->func = func;
 }
+
+void ALUControl::toString() {
+    cout << "----- ALU Control -----" << endl;
+    cout << "Op code: " << this->opCode << endl;
+    cout << "Func code: " << this->func << endl;
+    cout << "Output: " << this->output << endl;
+    cout << "-----------------------" << endl;
+}

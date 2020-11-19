@@ -1,4 +1,5 @@
 #include "Control.h"
+#include <iostream>
 
 // Default constructor
 Control::Control() {}
@@ -6,7 +7,7 @@ Control::Control() {}
 
 /**
  * Set control flags based on first 6 bits of instruction (left to write)
- * 
+ *
  * @param instruction bits 31-26 of the instruction
  */
 void Control::setInstruction(string instruction)
@@ -14,7 +15,7 @@ void Control::setInstruction(string instruction)
     // Set the various instance variables here
 
     // R-Type (add, slt)
-    if (instruction == "00000")
+    if (instruction == "000000")
         setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
 
     // Load word (lw)
@@ -22,27 +23,27 @@ void Control::setInstruction(string instruction)
         setValues(0, 1, 1, 1, 1, 0, 0, instruction, 0);
 
     // Store word (sw)
-    else if (instruction == "101011") 
+    else if (instruction == "101011")
         setValues(-1, 1, -1, 0, 0, 1, 0, instruction, 0);
-    
+
     // Branch if equal to (beq)
-    else if (instruction == "000100") 
+    else if (instruction == "000100")
         setValues(-1, 0, -1, 0, 0, 0, 1, instruction, 1);
 
     // Add Immediate (addi)
     else if (instruction == "001000")
         setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
-    
+
     // Jump (j)
     else if (instruction == "000010")
         setValues(0, 0, 0, 0, 0, 0, 0, instruction, 1);
 }
 
 /**
- * Sets all values of instance variables. 
+ * Sets all values of instance variables.
  */
-void Control::setValues(bool regDst, bool aluSrc, bool memToReg, bool regWrite, bool memRead,
-                     bool memWrite, bool branch, string aluOp, bool jump)
+void Control::setValues(int regDst, int aluSrc, int memToReg, int regWrite, int memRead,
+                     int memWrite, int branch, string aluOp, int jump)
 {
     this->regDst = regDst;
     this->aluSrc = aluSrc;
@@ -99,4 +100,19 @@ bool Control::getAluSrc()
 bool Control::getRegWrite()
 {
     return this->regWrite;
+}
+
+void Control::toString()
+{
+    cout << "---- Control ----" << endl;
+    cout << "regDst: " << this->regDst << endl;
+    cout << "aluSrc: " << this->aluSrc << endl;
+    cout << "memToReg: " << this->memToReg << endl;
+    cout << "regWrite: " << this->regWrite << endl;
+    cout << "memRead: " << this->memRead << endl;
+    cout << "memWrite: " << this->memWrite << endl;
+    cout << "branch: " << this->branch << endl;
+    cout << "aluOp: " << this->aluOp << endl;
+    cout << "jump: " << this->jump << endl;
+    cout << "-----------------" << endl;
 }

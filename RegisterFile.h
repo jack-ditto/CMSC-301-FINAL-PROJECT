@@ -27,4 +27,5 @@ class RegisterFile{
     string getWriteData();
     void setRegWrite(bool val);
     void toString();
+    void printMap();
 };
