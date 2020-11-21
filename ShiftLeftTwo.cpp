@@ -55,3 +55,7 @@ void ShiftLeftTwo::shiftLeftTwo()
     
     this->output = bitString;
 }
+
+string ShiftLeftTwo::getInput() {
+    return this->input;
+}

@@ -100,3 +100,8 @@ void InstructionMemory::toString(){
     cout << it->first << " => " << inst << endl;
   }
 }
+
+string InstructionMemory::getInstruction() {
+  vector<string> temp = instrMap.at(address);
+  return temp.at(1);
+}

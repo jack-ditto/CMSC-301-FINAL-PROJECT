@@ -22,3 +22,7 @@ void SignExtend::toString(){
   cout << "Input to SignExtend is: " << input << endl;
   cout << "Output of SignExtend is: " << output << endl;
 }
+
+string SignExtend::getInput() {
+  return this->input;
+}

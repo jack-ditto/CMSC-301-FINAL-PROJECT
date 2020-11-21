@@ -85,3 +85,19 @@ void DataMemory::toString(){
     cout << it->first << " => " << it->second << endl;
   }*/
 }
+
+bool DataMemory::getMemRead() {
+  return this->MemRead;
+}
+
+bool DataMemory::getMemWrite() {
+  return this->MemWrite;
+}
+
+string DataMemory::getAddress() {
+  return this->address;
+}
+
+string DataMemory::getData() {
+  return this->data;
+}
