@@ -50,6 +50,7 @@ void ConfigParser::setInstructions(){
     for (const auto &p : instructionMap) {
         std::cout << "key[" << hex << p.first << "] = " << p.second.at(0) << " ; " << p.second.at(1) << '\n';
     }
+    delete parser;
 }
 
 void ConfigParser::setMemory(){
