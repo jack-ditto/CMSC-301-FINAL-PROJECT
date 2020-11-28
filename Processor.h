@@ -24,6 +24,8 @@ class Processor{
             map<long, long> memoryMap, map<int, long> registerMap);
         void step();
 
+        inline bool finishedExecution(){ return endExecution; }
+
     private:
         ProgramCounter programCounter;
         InstructionMemory instructionMemory;
@@ -43,5 +45,7 @@ class Processor{
         ALUControl aluControl;
         SignExtend signExtend;
         string concatinatePC(string shift, int pc);
+
+        bool endExecution = false;
 };
 #endif

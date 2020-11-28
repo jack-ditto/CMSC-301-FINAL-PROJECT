@@ -23,6 +23,11 @@ void Processor::step(){
     // Pass PC to instruction memory
     instructionMemory.setAddress(pc);
 
+    if(instructionMemory.isEnd()){
+        endExecution = true;
+        return;
+    }
+
     instructionMemory.toString();
     // passes bits 31-26 of the instruction into the control unit
     control.setInstruction(instructionMemory.getForControl());
