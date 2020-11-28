@@ -1,5 +1,6 @@
 #include "DataMemory.h"
 #include <iostream>
+#include <exception>
 
 //constructor creates a map of data and their corresponding address
 //
@@ -20,7 +21,7 @@ DataMemory::DataMemory(){}
 //
 void DataMemory::setAddr(string input){
   if (memMap.count(stol(input,nullptr,2)) == 0){
-    cerr << "address not in memory" << endl;
+    throw invalid_argument("address not in memory");
   }else{
     address = input;
   }
