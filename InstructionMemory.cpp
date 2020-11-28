@@ -17,7 +17,18 @@ InstructionMemory::InstructionMemory(){}
 
 
 //setAddress sets the address instance variable to the current pc
-void InstructionMemory::setAddress(long pc){address = pc;}
+void InstructionMemory::setAddress(long pc){
+  if (instrMap.count(pc) == 0){
+    endFile = true;
+  }else{
+      address = pc;
+  }
+}
+
+
+//isEnd returns bool for eof
+//
+bool InstructionMemory::isEnd(){return endFile;}
 
 
 //getForControl returns the bits 31-26 for the control unit
@@ -92,8 +103,10 @@ string InstructionMemory::getForALUControl(){
 
 
 //toString prints out the contents of InstructionMemory
-void InstructionMemory::toString(){
-  cout << "Contents of InstructionMemory: " << endl;
+//
+void InstructionMemory::printMap(){
+  cout << "Print DataMemory Map: " << endl;
+  cout << "-------------------------------" << endl;
   for (map<long,vector<string>>::iterator it = instrMap.begin(); it != instrMap.end(); it++){
     vector<string> temp = it->second;
     string inst = temp.at(1);
@@ -109,4 +122,11 @@ string InstructionMemory::getInstruction() {
 string InstructionMemory::getInstructionAsString() {
   vector<string> temp = instrMap.at(address);
   return temp.at(0);
+}
+void InstructionMemory::toString(){
+  cout << "Contents of InstructionMemory: " << endl;
+  cout << "-------------------------------" << endl;
+  cout << "Address => " << address << endl;
+  cout << "Instruction => " << instr << endl;
+  cout << "-------------------------------" << endl;
 }

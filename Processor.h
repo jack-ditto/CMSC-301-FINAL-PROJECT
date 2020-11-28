@@ -26,6 +26,8 @@ class Processor{
             map<long, long> memoryMap, map<int, long> registerMap);
         void step();
 
+        inline bool finishedExecution(){ return endExecution; }
+
     private:
         ProgramCounter programCounter;
         InstructionMemory instructionMemory;
@@ -47,5 +49,7 @@ class Processor{
         string concatinatePC(string shift, int pc);
         void writeWebInterfaceJson();
         int instructionNum;
+
+        bool endExecution = false;
 };
 #endif

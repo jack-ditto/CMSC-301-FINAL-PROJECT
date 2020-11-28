@@ -95,7 +95,7 @@ void RegisterFile::toString(){
 //printMap prints out the full contents of the RegisterFile
 //
 void RegisterFile::printMap(){
-  cout << "Print Map" << endl;
+  cout << "Print RegisterFile Map" << endl;
   cout << "------------------" << endl;
   for (map<int,long>::iterator it = regMap.begin(); it != regMap.end(); it++){
     cout << dec << it->first << " => " << "0x" << hex << it->second << endl;

@@ -30,6 +30,11 @@ void Processor::step()
     // Pass PC to instruction memory
     instructionMemory.setAddress(pc);
 
+    if(instructionMemory.isEnd()){
+        endExecution = true;
+        return;
+    }
+
     instructionMemory.toString();
     // passes bits 31-26 of the instruction into the control unit
     control.setInstruction(instructionMemory.getForControl());
@@ -101,6 +106,7 @@ void Processor::step()
     // Updates PC to output of mux5
     programCounter.set(multiplexer5.get());
     registerFile.printMap();
+    dataMemory.printMap();
 }
 
 /**

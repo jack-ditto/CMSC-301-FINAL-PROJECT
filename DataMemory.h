@@ -27,4 +27,5 @@ class DataMemory{
     bool getMemRead();
     string getAddress();
     string getData();
+    void printMap();
 };
