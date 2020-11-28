@@ -78,7 +78,6 @@ void DataMemory::write(){
 }
 
 
-
 //toString prints out the contents of DataMemory
 void DataMemory::toString(){
   cout << "Contents of DataMemory: " << endl;
@@ -86,8 +85,16 @@ void DataMemory::toString(){
   cout << "MemWrite: " << MemWrite << endl;
   cout << "Write Data: " << data << endl;
   cout << "Read Data: " << address << endl;
+}
 
-  /*for (map<long,long>::iterator it = memMap.begin; it != memMap.end(); it++){
-    cout << it->first << " => " << it->second << endl;
-  }*/
+
+//print outputs the contents of the DataMemory map
+//
+void DataMemory::printMap(){
+
+  cout << "Print DataMemory Map" << endl;
+  cout << "------------------" << endl;
+  for (map<long,long>::iterator it = memMap.begin(); it != memMap.end(); it++){
+    cout << it->first << " => "<< it->second << endl;
+  }
 }
