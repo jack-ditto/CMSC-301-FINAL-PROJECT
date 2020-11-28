@@ -17,7 +17,18 @@ InstructionMemory::InstructionMemory(){}
 
 
 //setAddress sets the address instance variable to the current pc
-void InstructionMemory::setAddress(long pc){address = pc;}
+void InstructionMemory::setAddress(long pc){
+  if (instrMap.count(pc) == 0){
+    endFile = true;
+  }else{
+      address = pc;
+  }
+}
+
+
+//isEnd returns bool for eof
+//
+bool InstructionMemory::isEnd(){return endFile;}
 
 
 //getForControl returns the bits 31-26 for the control unit

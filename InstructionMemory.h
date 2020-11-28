@@ -9,6 +9,7 @@ class InstructionMemory{
     long address;
     string instr;
     map<long,vector<string>> instrMap;
+    bool endFile = false;
 
   public:
     InstructionMemory(map<long,vector<string>> instructionsMap);
@@ -22,4 +23,5 @@ class InstructionMemory{
     string getForMuxOne();
     string getForALUControl();
     void toString();
+    bool isEnd();
 };
