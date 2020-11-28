@@ -14,7 +14,7 @@ void Control::setInstruction(string instruction)
 {
     // Set the various instance variables here
 
-    // R-Type (add, slt)
+    // R-Type (add, sub, slt)
     if (instruction == "000000")
         setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
 

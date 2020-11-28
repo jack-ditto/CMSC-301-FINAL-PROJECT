@@ -26,7 +26,7 @@ ALU::ALU()
  */
 void ALU::setOperation(int opNum)
 {
-    if (opNum > 1 || opNum < 0)
+    if (opNum > 2 || opNum < 0)
     {
         cerr << "Invalid operation number." << endl;
     }

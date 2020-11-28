@@ -10,6 +10,8 @@ public:
     ALUControl();                         // default / typical use constructor
     int get();                            // gets the operation number corresponding to the correct ALU op for an instruction
     void set(string opCode, string func); // sets the op code and function code
+    string getOpCode();                   // OpCode getter
+    string getFunctionCode();             // func code getter
     void toString();
 
 private:
