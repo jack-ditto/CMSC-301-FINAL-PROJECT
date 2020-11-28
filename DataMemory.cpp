@@ -21,7 +21,7 @@ DataMemory::DataMemory(){}
 //
 void DataMemory::setAddr(string input){
   if (memMap.count(stol(input,nullptr,2)) == 0){
-    throw invalid_argument("address not in DataMemory");
+    throw invalid_argument("address is not in the DataMemory");
   }else{
     address = input;
   }
