@@ -22,6 +22,7 @@ void InstructionMemory::setAddress(long pc){
     endFile = true;
   }else{
       address = pc;
+      instr = instrMap.at(address)[1];
   }
 }
 
