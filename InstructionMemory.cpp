@@ -105,3 +105,8 @@ string InstructionMemory::getInstruction() {
   vector<string> temp = instrMap.at(address);
   return temp.at(1);
 }
+
+string InstructionMemory::getInstructionAsString() {
+  vector<string> temp = instrMap.at(address);
+  return temp.at(0);
+}

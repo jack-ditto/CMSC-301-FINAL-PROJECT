@@ -46,5 +46,6 @@ class Processor{
         SignExtend signExtend;
         string concatinatePC(string shift, int pc);
         void writeWebInterfaceJson();
+        int instructionNum;
 };
 #endif

@@ -1,5 +1,7 @@
 #include "Processor.h"
 #include <bitset>
+#include <sstream>
+// #include<hex>
 
 Processor::Processor(map<long, vector<string>> instructionMap,
                      map<long, long> memoryMap, map<int, long> registerMap)
@@ -8,6 +10,7 @@ Processor::Processor(map<long, vector<string>> instructionMap,
     instructionMemory = InstructionMemory(instructionMap);
     dataMemory = DataMemory(memoryMap);
     registerFile = RegisterFile(registerMap);
+    instructionNum = 0;
 }
 
 string concatenatePC(string shift, int pc)
@@ -21,6 +24,7 @@ void Processor::step()
 {
     // Get PC from program counter
     long pc = programCounter.get();
+    this->instructionNum++;
 
     programCounter.toString();
     // Pass PC to instruction memory
@@ -90,12 +94,18 @@ void Processor::step()
     multiplexer5.setChoices(multiplexer4.get(), concatenatePC(shiftLeftTwo1.get(), pc));
     // Set control of mux5 to jump flag
     multiplexer5.setControl(control.getJump());
+
+    // Write data to JSON before adding to PC
+    this->writeWebInterfaceJson();
+
     // Updates PC to output of mux5
     programCounter.set(multiplexer5.get());
     registerFile.printMap();
-    this->writeWebInterfaceJson();
 }
 
+/**
+ * Write JSON data of every object to file. 
+ */
 void Processor::writeWebInterfaceJson()
 {
 
@@ -106,7 +116,7 @@ void Processor::writeWebInterfaceJson()
 
     outfile << "    \"programCounter\":" << endl;
     outfile << "        {" << endl;
-    outfile << "            \"get\":\"" << this->programCounter.get() << "\"" << endl;
+    outfile << "            \"get\":\"" << "0x" << hex << this->programCounter.get() << "\"" << endl;
     outfile << "        }," << endl;
 
     outfile << "    \"instructionMemory\":" << endl;
@@ -143,7 +153,7 @@ void Processor::writeWebInterfaceJson()
     outfile << "            \"input2\":\"" << this->alu1.getInput2() << "\"," << endl;
     outfile << "            \"opNum\":\"" << this->alu1.getOpNum() << "\"," << endl;
     outfile << "            \"zeroFlag\":\"" << this->alu1.getZeroFlag() << "\"," << endl;
-    outfile << "            \"result\":\"" << stol(this->alu1.getResult(), nullptr, 2) << "\"" << endl;
+    outfile << "            \"result\":\"" << "0x" << hex << stol(this->alu1.getResult(), nullptr, 2) << "\"" << endl;
     outfile << "        }," << endl;
 
     outfile << "    \"alu2\":" << endl;
@@ -201,7 +211,7 @@ void Processor::writeWebInterfaceJson()
     outfile << "            \"choice1\":\"" << this->multiplexer5.getChoice1() << "\"," << endl;
     outfile << "            \"choice2\":\"" << this->multiplexer5.getChoice2() << "\"," << endl;
     outfile << "            \"control\":\"" << this->multiplexer5.getControl() << "\"," << endl;
-    outfile << "            \"get\":\"" << this->multiplexer5.get() << "\"" << endl;
+    outfile << "            \"get\":\"" << "0x" << hex << stol(this->multiplexer5.get(), nullptr, 2) << "\"" << endl;
     outfile << "        }," << endl;
 
     outfile << "    \"shiftLeftTwo1\":" << endl;
@@ -240,6 +250,11 @@ void Processor::writeWebInterfaceJson()
     outfile << "        {" << endl;
     outfile << "            \"get\":\"" << this->signExtend.get() << "\"," << endl;
     outfile << "            \"input\":\"" << this->signExtend.getInput() << "\"" << endl;
+    outfile << "        }," << endl;
+    outfile << "    \"metaData\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"instructionNum\":\"" << this->instructionNum << "\"," << endl;
+    outfile << "            \"instructionString\":\"" << this->instructionMemory.getInstructionAsString() << "\"" << endl;
     outfile << "        }" << endl;
     outfile << "}";
     outfile.close();
