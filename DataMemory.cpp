@@ -18,7 +18,13 @@ DataMemory::DataMemory(){}
 //
 //paramenter - string input
 //
-void DataMemory::setAddr(string input){address = input;}
+void DataMemory::setAddr(string input){
+  if (memMap.count(stol(address,nullptr,2)) == 0){
+    cerr << "address not in memory" << endl;
+  }else{
+    address = input;
+  }
+}
 
 
 //setMemWrite sets the DataMemory Units MemWrite flag
