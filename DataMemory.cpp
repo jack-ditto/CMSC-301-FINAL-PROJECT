@@ -19,7 +19,7 @@ DataMemory::DataMemory(){}
 //paramenter - string input
 //
 void DataMemory::setAddr(string input){
-  if (memMap.count(stol(address,nullptr,2)) == 0){
+  if (memMap.count(stol(input,nullptr,2)) == 0){
     cerr << "address not in memory" << endl;
   }else{
     address = input;
