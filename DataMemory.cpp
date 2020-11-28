@@ -19,13 +19,7 @@ DataMemory::DataMemory(){}
 //
 //paramenter - string input
 //
-void DataMemory::setAddr(string input){
-  if (memMap.count(stol(input,nullptr,2)) == 0){
-    throw invalid_argument("address is not in the DataMemory");
-  }else{
-    address = input;
-  }
-}
+void DataMemory::setAddr(string input){address = input;}
 
 
 //setMemWrite sets the DataMemory Units MemWrite flag
@@ -33,6 +27,12 @@ void DataMemory::setAddr(string input){
 //parameter - bool in
 void DataMemory::setMemWrite(bool in){
   MemWrite = in;
+  //if writing or reading, check for invalid address and empty string
+  if (MemWrite || MemRead){
+    if (address == "" || memMap.count(stol(address,nullptr,2)) == 0){
+    throw invalid_argument("address is not in the DataMemory");
+    }
+  }
   if (MemWrite){
     write();
   }
