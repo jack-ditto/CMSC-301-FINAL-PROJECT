@@ -32,7 +32,7 @@ void Control::setInstruction(string instruction)
 
     // Add Immediate (addi)
     else if (instruction == "001000")
-        setValues(1, 0, 0, 1, 0, 0, 0, instruction, 0);
+        setValues(0, 1, 0, 1, 0, 0, 0, instruction, 0);
 
     // Jump (j)
     else if (instruction == "000010")
