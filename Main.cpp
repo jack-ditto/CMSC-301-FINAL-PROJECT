@@ -22,5 +22,6 @@ int main(int argc, char const *argv[])
 		processor.step();
 	}
 
+	delete parser;
 	return 0;
 }
