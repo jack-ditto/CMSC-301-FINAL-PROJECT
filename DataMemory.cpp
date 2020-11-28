@@ -24,7 +24,6 @@ void DataMemory::setAddr(string input){
   }else{
     address = input;
   }
-  
 }
 
 
