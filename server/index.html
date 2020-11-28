@@ -1,0 +1,2993 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./styling/styles.css" />
+  </head>
+
+  <body>
+    <h1 class="title">MIPS Processor Visual Debugger</h1>
+    <h4 class="subtitle">CMSC 301 Final Project</h4>
+
+    <p class="instruction-title">Instruction #<span id="instruction-num">0</span>: <span id="instruction-string">Not loaded.</span></p>
+
+    <div class="processor-wrapper">
+      <!-- <canvas id="canvas"></canvas> -->
+      <?xml version="1.0" encoding="utf-8"?>
+      <!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+      <svg
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 1920 1080"
+        style="enable-background: new 0 0 1920 1080"
+        xml:space="preserve"
+      >
+        <style type="text/css">
+          .st0 {
+            fill: #58a829;
+            stroke: #58a829;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+          }
+          .st1 {
+            fill: none;
+            stroke: #919396;
+            stroke-width: 0.75;
+          }
+          .st2 {
+            fill: none;
+          }
+          .st3 {
+            fill: #919396;
+          }
+          .st4 {
+            fill: none;
+            stroke: #63aae2;
+            stroke-width: 0.5;
+          }
+          .st5 {
+            fill: none;
+            stroke: #221f20;
+            stroke-width: 0.5;
+          }
+          .st6 {
+            fill: none;
+            stroke: #919396;
+            stroke-width: 0.5;
+          }
+          .st7 {
+            fill: #ffffff;
+          }
+          .st8 {
+            font-family: "ArialMT";
+          }
+          .st9 {
+            font-size: 20.8274px;
+          }
+          .st10 {
+            font-family: "Arial-BoldMT";
+          }
+          .st11 {
+            fill: none;
+            stroke: #63aae2;
+            stroke-width: 0.75;
+          }
+          .st12 {
+            fill: none;
+            stroke: #221f20;
+            stroke-width: 0.75;
+          }
+          .st13 {
+            fill: #221f20;
+          }
+          .st14 {
+            fill: #63aae2;
+          }
+          .st15 {
+            font-size: 14.2417px;
+          }
+          .st16 {
+            font-size: 15.8423px;
+          }
+          .st17 {
+            font-size: 17.7741px;
+          }
+          .st18 {
+            font-size: 16.2772px;
+          }
+          .st19 {
+            fill: none;
+            stroke: #63aae2;
+            stroke-width: 1.5;
+          }
+          .st20 {
+            fill: none;
+            stroke: #221f20;
+            stroke-width: 0.621;
+          }
+          .st21 {
+            fill: #58a829;
+          }
+          .st22 {
+            font-size: 20px;
+          }
+          .st23 {
+            fill: none;
+            stroke: #000000;
+          }
+          .st24 {
+            fill: #58a829;
+            stroke: #58a829;
+            stroke-miterlimit: 10;
+          }
+        </style>
+        <line class="st0" x1="1053.93" y1="915" x2="1053.93" y2="1056.52" />
+        <line class="st0" x1="1185.34" y1="314.34" x2="1185.34" y2="103" />
+        <line class="st1" x1="872.27" y1="717.33" x2="878.7" y2="717.33" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M881.97,715.5c-2.95-0.89-4.87-1.72-7.24-2.67v9c0.85-0.4,4.29-1.77,7.24-2.66c3.16-0.95,6.03-1.61,7.88-1.84
+	C887.99,717.1,885.13,716.45,881.97,715.5"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="886.21" y1="885.32" x2="936.92" y2="885.32" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M938.87,883.48c-2.95-0.89-4.87-1.72-7.24-2.67v9c0.85-0.39,4.29-1.77,7.24-2.66c3.16-0.95,6.02-1.61,7.88-1.84
+	C944.89,885.09,942.03,884.44,938.87,883.48"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st4"
+          d="M1327.7,897.8c0,32.87-18.45,59.52-41.21,59.52c-22.76,0-41.2-26.65-41.2-59.52c0-32.87,18.44-59.52,41.2-59.52
+	C1309.26,838.28,1327.7,864.93,1327.7,897.8z"
+        />
+        <rect
+          x="267.27"
+          y="46.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <rect
+          x="361.83"
+          y="521.69"
+          class="st5"
+          width="124.01"
+          height="179.41"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <ellipse class="st6" cx="1143.95" cy="341.48" rx="32.33" ry="41.58" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polygon
+          class="st6"
+          points="1360.83,609.59 1360.83,668.39 1377.93,690.07 1360.83,711.76 1360.83,773.44 1476.16,728.26 
+	1476.16,651.06 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polygon
+          class="st6"
+          points="1197.16,208.47 1197.16,267.27 1214.27,288.96 1197.16,310.64 1197.16,372.34 1312.48,327.14 
+	1312.48,249.95 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <rect x="888.9" y="568.33" class="st7" width="168.49" height="238.41" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <rect x="888.9" y="568.33" class="st5" width="168.49" height="238.41" />
+        <text transform="matrix(1 0 0 1 898.3246 594.2617)" class="st3 st8 st9">
+          Read
+        </text>
+        <text transform="matrix(1 0 0 1 898.3246 614.8638)" class="st3 st8 st9">
+          register 1
+        </text>
+        <text
+          transform="matrix(1 0 0 1 955.2172 797.2969)"
+          class="st3 st10 st9"
+        >
+          Registe
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1030.4476 797.2969)"
+          class="st3 st10 st9"
+        >
+          r
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1038.2572 797.2969)"
+          class="st3 st10 st9"
+        >
+          s
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1380.1293 698.0566)"
+          class="st3 st10 st9"
+        >
+          ALU
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1215.3314 297.0645)"
+          class="st3 st10 st9"
+        >
+          A
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1230.3705 297.0645)"
+          class="st3 st10 st9"
+        >
+          d
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1242.9076 297.0645)"
+          class="st3 st10 st9"
+        >
+          d
+        </text>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="1057.4" y1="627.93" x2="1360.8" y2="627.93" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1352.03,626.1c-2.95-0.89-4.87-1.72-7.24-2.67v9c0.85-0.4,4.29-1.78,7.24-2.66c3.16-0.95,6.03-1.61,7.88-1.84
+	C1358.06,627.71,1355.2,627.05,1352.03,626.1"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="1210.56" y1="739.59" x2="1360.8" y2="739.59" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1353.03,737.76c-2.95-0.89-4.87-1.71-7.24-2.67v9c0.85-0.4,4.29-1.78,7.24-2.67c3.16-0.95,6.03-1.6,7.88-1.84
+	C1359.06,739.36,1356.2,738.71,1353.03,737.76"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st11"
+          points="1447.8,578.67 1312.3,578.67 1311.88,389.74 1327.13,389.74 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <rect
+          x="664.27"
+          y="94.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="1713.54" y1="704.94" x2="1779.8" y2="704.94" />
+        <rect
+          x="664.27"
+          y="94.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1787.03,703.12c-2.95-0.89-4.87-1.71-7.24-2.66v9c0.85-0.39,4.29-1.77,7.24-2.66
+	c3.16-0.96,6.03-1.61,7.88-1.84C1793.06,704.72,1790.19,704.07,1787.03,703.12"
+        />
+        <rect
+          x="288.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st12" x1="397.22" y1="290.8" x2="420.21" y2="290.8" />
+        <rect
+          x="288.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M417.78,288.98c-2.95-0.89-4.87-1.72-7.24-2.67v9c0.85-0.4,4.29-1.77,7.24-2.67c3.16-0.95,6.02-1.6,7.88-1.84
+	C423.8,290.59,420.93,289.93,417.78,288.98"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="1057.4" y1="710.7" x2="1161.8" y2="710.67" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1169.03,708.86c-2.95-0.89-4.87-1.71-7.24-2.67v9c0.86-0.4,4.29-1.78,7.24-2.67c3.16-0.95,6.02-1.61,7.88-1.84
+	C1175.06,710.47,1172.19,709.81,1169.03,708.86"
+        />
+        <text
+          transform="matrix(1 0 0 1 1426.682 669.5137)"
+          class="st14 st8 st9"
+        >
+          Zero
+        </text>
+        <rect
+          x="665.27"
+          y="94.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st11"
+          points="1636.5,843 1636.88,895.26 1908.2,895.26 1908.2,418.96 922.8,418.96 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st11"
+          points="1648.68,631 1649,493.71 920.68,493.71 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st11"
+          points="971.11,568.33 971.11,549.73 896.84,549.73 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st11"
+          points="1194.8,692.39 1194.8,519.98 914.06,519.98 "
+        />
+        <text transform="matrix(1 0 0 1 998.1937 623.1323)" class="st3 st8 st9">
+          Read
+        </text>
+        <text transform="matrix(1 0 0 1 990.0712 643.731)" class="st3 st8 st9">
+          data 1
+        </text>
+        <text transform="matrix(1 0 0 1 998.1937 706.7119)" class="st3 st8 st9">
+          Read
+        </text>
+        <text transform="matrix(1 0 0 1 990.0712 727.3115)" class="st3 st8 st9">
+          data 2
+        </text>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st12" x1="667.53" y1="683.2" x2="667.53" y2="598.23" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st1"
+          points="889.78,884.96 667.52,884.96 667.52,683.2 "
+        />
+        <rect
+          x="427.27"
+          y="106.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="669.99" y1="595.23" x2="878.7" y2="595.23" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M880.64,596.4c-2.95-0.89-4.87-1.71-7.24-2.66v9c0.85-0.4,4.29-1.78,7.24-2.66c3.16-0.96,6.03-1.61,7.88-1.84
+	C886.67,598.01,883.81,597.36,880.64,596.4"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <ellipse class="st6" cx="986.76" cy="884.6" rx="39.65" ry="60.79" />
+        <text transform="matrix(1 0 0 1 960.726 878.8447)" class="st3 st10 st9">
+          Sign-
+        </text>
+        <text
+          transform="matrix(1 0 0 1 953.3539 903.8379)"
+          class="st3 st10 st9"
+        >
+          e
+        </text>
+        <text
+          transform="matrix(1 0 0 1 964.6224 903.8379)"
+          class="st3 st10 st9"
+        >
+          xtend
+        </text>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st6"
+          points="907.75,876.22 916.04,884.96 924.34,893.69 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st1"
+          points="1026.8,884.67 1091.3,884.96 1091.3,773.54 1162.8,773.67 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1169.05,771.71c-2.95-0.91-4.86-1.73-7.23-2.7l-0.03,9.01c0.85-0.41,4.3-1.76,7.25-2.63
+	c3.16-0.94,6.03-1.59,7.88-1.81C1175.06,773.33,1172.2,772.67,1169.05,771.71"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st6" x1="1043.57" y1="876.23" x2="1060.16" y2="893.69" />
+        <text transform="matrix(1 0 0 1 905.8998 870.334)" class="st3 st8 st9">
+          16
+        </text>
+        <text transform="matrix(1 0 0 1 1043.0277 870.334)" class="st3 st8 st9">
+          32
+        </text>
+        <g>
+          <text
+            transform="matrix(1 0 0 1 370.0248 616.2207)"
+            class="st13 st8 st9"
+          >
+            Inst
+          </text>
+          <text
+            transform="matrix(1 0 0 1 403.598 616.2207)"
+            class="st13 st8 st9"
+          >
+            r
+          </text>
+          <text
+            transform="matrix(1 0 0 1 410.8265 616.2207)"
+            class="st13 st8 st9"
+          >
+            uction
+          </text>
+          <text
+            transform="matrix(1 0 0 1 408.5145 636.8203)"
+            class="st13 st8 st9"
+          >
+            [31–0]
+          </text>
+        </g>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="792.56" y1="667.72" x2="878.7" y2="667.72" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M880.84,665.9c-2.95-0.89-4.87-1.71-7.24-2.66v9c0.85-0.41,4.29-1.78,7.24-2.67c3.16-0.96,6.02-1.61,7.88-1.84
+	C886.86,667.5,884,666.85,880.84,665.9"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="667.53" y1="667.72" x2="790.1" y2="667.72" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="667.53" y1="755.78" x2="828.48" y2="755.78" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M830.44,753.95c-2.95-0.89-4.87-1.71-7.24-2.67v9.01c0.85-0.4,4.29-1.78,7.24-2.67
+	c3.16-0.95,6.03-1.61,7.88-1.84C836.46,755.56,833.59,754.9,830.44,753.95"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st1"
+          points="790.1,669.17 790.1,685.93 828.48,685.93 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M830.81,684.1c-2.95-0.89-4.87-1.71-7.24-2.67v9.01c0.85-0.4,4.29-1.78,7.24-2.67
+	c3.16-0.95,6.03-1.61,7.88-1.84C836.84,685.72,833.97,685.05,830.81,684.1"
+        />
+        <rect
+          x="416.27"
+          y="109.34"
+          class="st2"
+          width="1341.52"
+          height="909.66"
+        />
+        <polyline
+          class="st1"
+          points="1714.8,751.17 1731.45,751.17 1731.45,1019.89 866.8,1019.89 866.8,787.97 879.09,787.97 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M880.46,786.1c-2.95-0.89-4.87-1.71-7.24-2.67v9.01c0.85-0.4,4.29-1.78,7.24-2.67
+	c3.16-0.95,6.03-1.61,7.88-1.84C886.48,787.71,883.62,787.06,880.46,786.1"
+        />
+        <rect
+          x="268.27"
+          y="36.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st12" x1="667.8" y1="610.2" x2="486.84" y2="610.2" />
+        <text
+          transform="matrix(1 0 0 1 1428.9916 704.9834)"
+          class="st3 st8 st9"
+        >
+          ALU
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1418.5795 725.5801)"
+          class="st3 st8 st9"
+        >
+          result
+        </text>
+        <rect
+          x="284.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polygon
+          class="st5"
+          points="426.41,157.8 426.41,216.6 443.52,238.29 426.41,259.97 426.41,321.66 496.11,276.47 496.11,199.28 "
+        />
+        <text
+          transform="matrix(1 0 0 1 449.2865 243.2383)"
+          class="st13 st10 st9"
+        >
+          A
+        </text>
+        <text
+          transform="matrix(1 0 0 1 464.3231 243.2383)"
+          class="st13 st10 st9"
+        >
+          d
+        </text>
+        <text
+          transform="matrix(1 0 0 1 476.8412 243.2383)"
+          class="st13 st10 st9"
+        >
+          d
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1266.9916 285.7061)"
+          class="st3 st8 st9"
+        >
+          ALU
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1258.6595 306.3057)"
+          class="st3 st8 st9"
+        >
+          r
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1265.2015 306.3057)"
+          class="st3 st8 st9"
+        >
+          e
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1276.3636 306.3057)"
+          class="st3 st8 st9"
+        >
+          s
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1286.3802 306.3057)"
+          class="st3 st8 st9"
+        >
+          u
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1297.5453 306.3057)"
+          class="st3 st8 st9"
+        >
+          l
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1301.7738 306.3057)"
+          class="st3 st8 st9"
+        >
+          t
+        </text>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st5"
+          d="M1210.56,773.54c0,10.08-7.56,18.32-16.79,18.32s-16.78-8.24-16.78-18.32v-62.84
+	c0-10.08,7.56-18.32,16.78-18.32c9.24,0,16.79,8.24,16.79,18.32V773.54z"
+        />
+        <g>
+          <text
+            transform="matrix(1 0 0 1 1188.105 735.0795)"
+            class="st3 st10 st15"
+          >
+            M
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1189.6841 746.4457)"
+            class="st3 st10 st15"
+          >
+            u
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1190.0698 757.809)"
+            class="st3 st10 st15"
+          >
+            x
+          </text>
+        </g>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st6"
+          d="M1451.78,288.55c0,10.07-7.56,18.31-16.79,18.31c-9.23,0-16.78-8.24-16.78-18.31V194.1
+	c0-10.07,7.56-18.31,16.78-18.31c9.24,0,16.79,8.24,16.79,18.31V288.55z"
+        />
+        <text
+          transform="matrix(1 0 0 1 1426.306 231.8408)"
+          class="st3 st10 st9"
+        >
+          M
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1428.6185 248.4585)"
+          class="st3 st10 st9"
+        >
+          u
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1429.2025 265.0796)"
+          class="st3 st10 st9"
+        >
+          x
+        </text>
+        <g>
+          <rect
+            x="665.27"
+            y="94.34"
+            class="st2"
+            width="1159.04"
+            height="909.66"
+          />
+          <rect
+            x="1572.15"
+            y="630.34"
+            class="st6"
+            width="142.4"
+            height="212.3"
+          />
+          <text
+            transform="matrix(1 0 0 1 1578.5883 795.9395)"
+            class="st3 st8 st9"
+          >
+            W
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1598.2484 795.9395)"
+            class="st3 st8 st9"
+          >
+            r
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1605.4769 795.9395)"
+            class="st3 st8 st9"
+          >
+            ite
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1578.5883 816.5371)"
+            class="st3 st8 st9"
+          >
+            data
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1574.6019 684.2666)"
+            class="st3 st8 st9"
+          >
+            Address
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1649.2699 787.4463)"
+            class="st3 st10 st9"
+          >
+            Data
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1632.2748 808.0479)"
+            class="st3 st10 st9"
+          >
+            mem
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1679.7094 808.0479)"
+            class="st3 st10 st9"
+          >
+            o
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1692.0297 808.0479)"
+            class="st3 st10 st9"
+          >
+            r
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1699.9418 808.0479)"
+            class="st3 st10 st9"
+          >
+            y
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1658.1224 685.9561)"
+            class="st3 st8 st9"
+          >
+            Read
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1667.3685 706.5547)"
+            class="st3 st8 st9"
+          >
+            data
+          </text>
+        </g>
+        <rect
+          x="434.27"
+          y="109.34"
+          class="st2"
+          width="1190.52"
+          height="909.66"
+        />
+        <polyline
+          class="st1"
+          points="1517.8,695.17 1517.8,866.96 1763.48,866.96 1763.3,772.67 1780.8,772.67 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1787.03,770.28c-2.96-0.89-4.87-1.71-7.24-2.67v9.01c0.85-0.4,4.29-1.78,7.24-2.67
+	c3.16-0.95,6.02-1.61,7.87-1.84C1793.06,771.88,1790.19,771.23,1787.03,770.28"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st1"
+          points="1069.85,710.7 1069.85,814.91 1323.94,814.91 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1326.45,813.08c-2.95-0.89-4.87-1.71-7.24-2.66v9c0.85-0.4,4.29-1.77,7.24-2.66c3.16-0.95,6.02-1.61,7.88-1.84
+	C1332.47,814.68,1329.61,814.03,1326.45,813.08"
+        />
+        <text
+          transform="matrix(1 0 0 1 1120.8021 335.4751)"
+          class="st3 st10 st9"
+        >
+          Shift
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1119.6342 360.4683)"
+          class="st3 st10 st9"
+        >
+          left 2
+        </text>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st1"
+          points="1091.74,774.54 1091.74,342.47 1101.4,341.47 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1104.29,339.64c-2.95-0.89-4.87-1.72-7.24-2.67v9c0.85-0.4,4.29-1.77,7.24-2.67c3.16-0.95,6.02-1.6,7.88-1.84
+	C1110.32,341.26,1107.45,340.6,1104.29,339.64"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="1176.28" y1="341.48" x2="1186.96" y2="341.48" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1189.29,339.65c-2.95-0.89-4.87-1.72-7.24-2.67v9c0.85-0.4,4.29-1.77,7.24-2.67c3.16-0.95,6.02-1.6,7.88-1.84
+	C1195.31,341.26,1192.44,340.6,1189.29,339.65"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st12" x1="495.8" y1="237.87" x2="751.63" y2="237.87" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="1125.14" y1="224.13" x2="1186.96" y2="224.13" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1188.91,222.3c-2.95-0.89-4.87-1.71-7.24-2.67v9c0.85-0.4,4.29-1.78,7.24-2.67c3.16-0.95,6.02-1.61,7.87-1.84
+	C1194.93,223.91,1192.07,223.25,1188.91,222.3"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st1"
+          points="751.62,237.87 1125.14,237.86 1125.14,192.59 1408.06,192.59 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1410.14,190.75c-2.95-0.89-4.87-1.72-7.24-2.67v9c0.85-0.4,4.29-1.77,7.24-2.67c3.16-0.95,6.03-1.6,7.88-1.84
+	C1416.16,192.37,1413.3,191.71,1410.14,190.75"
+        />
+        <text
+          transform="matrix(1 0 0 1 376.2118 297.1382)"
+          class="st13 st8 st9"
+        >
+          4
+        </text>
+        <text
+          transform="matrix(1 0 0 1 379.2513 549.6743)"
+          class="st13 st8 st9"
+        >
+          Read
+        </text>
+        <text
+          transform="matrix(1 0 0 1 379.2513 570.2739)"
+          class="st13 st8 st9"
+        >
+          address
+        </text>
+        <text
+          transform="matrix(1 0 0 1 373.0209 668.9111)"
+          class="st13 st10 st9"
+        >
+          Instruction
+        </text>
+        <text
+          transform="matrix(1 0 0 1 386.2059 689.5117)"
+          class="st13 st10 st9"
+        >
+          memo
+        </text>
+        <text
+          transform="matrix(1 0 0 1 447.5424 689.5117)"
+          class="st13 st10 st9"
+        >
+          r
+        </text>
+        <text
+          transform="matrix(1 0 0 1 455.8529 689.5117)"
+          class="st13 st10 st9"
+        >
+          y
+        </text>
+        <rect
+          x="138.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <rect x="160.05" y="545.97" class="st5" width="40.03" height="129.35" />
+        <rect
+          x="190.27"
+          y="103.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st12" x1="200.8" y1="610.65" x2="346.8" y2="610.65" />
+        <rect
+          x="267.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M354.33,608.81c-2.95-0.89-4.87-1.71-7.24-2.66v9c0.85-0.4,4.29-1.78,7.24-2.66c3.16-0.95,6.02-1.61,7.88-1.84
+	C360.35,610.43,357.49,609.77,354.33,608.81"
+        />
+        <rect
+          x="266.8"
+          y="109.34"
+          class="st2"
+          width="1314.52"
+          height="909.66"
+        />
+        <polyline
+          class="st12"
+          points="310.38,610.65 310.38,187.2 409.8,187.19 "
+        />
+        <rect
+          x="283.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M417.34,185.36c-2.95-0.89-4.87-1.71-7.24-2.66v9c0.85-0.4,4.29-1.78,7.24-2.67c3.16-0.95,6.02-1.61,7.88-1.84
+	C423.37,186.97,420.5,186.31,417.34,185.36"
+        />
+        <rect
+          x="127.8"
+          y="109.34"
+          class="st2"
+          width="1454.52"
+          height="909.66"
+        />
+        <polyline
+          class="st12"
+          points="1531.8,237.67 1563.3,237.67 1563.28,80.17 129.2,80.17 129.2,611.51 142.11,611.51 "
+        />
+        <rect
+          x="136.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M149.82,609.67c-2.95-0.89-4.87-1.71-7.24-2.66v9c0.85-0.4,4.29-1.78,7.24-2.66c3.16-0.96,6.02-1.61,7.88-1.84
+	C155.85,611.28,152.98,610.63,149.82,609.67"
+        />
+        <rect
+          x="706.27"
+          y="87.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st6"
+          d="M1829.18,769.02c0,10.07-7.56,18.31-16.79,18.31c-9.23,0-16.78-8.24-16.78-18.31v-62.85
+	c0-10.08,7.56-18.32,16.78-18.32c9.24,0,16.79,8.24,16.79,18.32V769.02z"
+        />
+        <g>
+          <text
+            transform="matrix(1 0 0 1 1805.7173 729.9243)"
+            class="st3 st10 st16"
+          >
+            M
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1807.4761 742.5649)"
+            class="st3 st10 st16"
+          >
+            u
+          </text>
+          <text
+            transform="matrix(1 0 0 1 1807.9038 755.2055)"
+            class="st3 st10 st16"
+          >
+            x
+          </text>
+        </g>
+        <text
+          transform="matrix(1 0 0 1 1805.7621 709.0732)"
+          class="st3 st8 st9"
+        >
+          1
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1806.7621 779.1992)"
+          class="st3 st8 st9"
+        >
+          0
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1188.2074 714.6553)"
+          class="st3 st8 st9"
+        >
+          0
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1187.2074 783.7812)"
+          class="st3 st8 st9"
+        >
+          1
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1424.0609 199.5093)"
+          class="st3 st8 st9"
+        >
+          0
+        </text>
+        <text transform="matrix(1 0 0 1 1424.0609 295.918)" class="st3 st8 st9">
+          1
+        </text>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st6"
+          d="M872.27,756.79c0,10.08-7.56,18.31-16.79,18.31c-9.24,0-16.78-8.23-16.78-18.31v-62.85
+	c0-10.08,7.56-18.31,16.78-18.31c9.24,0,16.79,8.24,16.79,18.31V756.79z"
+        />
+        <text transform="matrix(1 0 0 1 848.8427 696.8877)" class="st3 st8 st9">
+          0
+        </text>
+        <g>
+          <text
+            transform="matrix(1 0 0 1 848.003 718.3452)"
+            class="st3 st10 st17"
+          >
+            M
+          </text>
+          <text
+            transform="matrix(1 0 0 1 850.4317 730.0502)"
+            class="st3 st10 st18"
+          >
+            u
+          </text>
+          <text
+            transform="matrix(1 0 0 1 850.8882 743.0424)"
+            class="st3 st10 st18"
+          >
+            x
+          </text>
+        </g>
+        <text transform="matrix(1 0 0 1 848.8427 769.0137)" class="st3 st8 st9">
+          1
+        </text>
+        <g>
+          <text
+            transform="matrix(1 0 0 1 1295.39 914.7822)"
+            class="st14 st10 st9"
+          >
+            r
+          </text>
+          <g>
+            <text
+              transform="matrix(1 0 0 1 1265.1088 889.7891)"
+              class="st14 st10 st9"
+            >
+              ALU
+            </text>
+            <text
+              transform="matrix(1 0 0 1 1251.4242 914.7822)"
+              class="st14 st10 st9"
+            >
+              cont
+            </text>
+            <text
+              transform="matrix(1 0 0 1 1303.0765 914.7822)"
+              class="st14 st10 st9"
+            >
+              ol
+            </text>
+          </g>
+        </g>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st11"
+          d="M855.3,775.17v14.5l-241.5,0.21V307.86h306v40.32h-21.39"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st1"
+          points="888.9,884.96 888.9,992.71 1212.4,992.71 1212.4,895.8 1237.8,895.8 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1236.67,893.97c-2.95-0.89-4.87-1.71-7.24-2.67v9.01c0.85-0.4,4.29-1.78,7.24-2.67
+	c3.16-0.95,6.03-1.61,7.88-1.84C1242.69,895.57,1239.82,894.92,1236.67,893.97"
+        />
+        <g>
+          <text transform="matrix(1 0 0 1 972.5414 968.29)" class="st3 st8 st9">
+            r
+          </text>
+          <g>
+            <text
+              transform="matrix(1 0 0 1 938.9672 968.29)"
+              class="st3 st8 st9"
+            >
+              Inst
+            </text>
+            <text
+              transform="matrix(1 0 0 1 979.767 968.29)"
+              class="st3 st8 st9"
+            >
+              uction [5–0]
+            </text>
+          </g>
+        </g>
+        <g>
+          <text
+            transform="matrix(1 0 0 1 678.4672 568.7812)"
+            class="st3 st8 st9"
+          >
+            Inst
+          </text>
+          <text
+            transform="matrix(1 0 0 1 712.0404 568.7812)"
+            class="st3 st8 st9"
+          >
+            r
+          </text>
+          <text
+            transform="matrix(1 0 0 1 719.2689 568.7812)"
+            class="st3 st8 st9"
+          >
+            uction [25–21]
+          </text>
+        </g>
+        <text
+          transform="matrix(1 0 0 1 668.6771 415.0938)"
+          class="st13 st8 st9"
+        >
+          I
+        </text>
+        <text
+          transform="matrix(1 0 0 1 673.9603 415.0938)"
+          class="st13 st8 st9"
+        >
+          n
+        </text>
+        <text
+          transform="matrix(1 0 0 1 685.0038 415.0938)"
+          class="st13 st8 st9"
+        >
+          s
+        </text>
+        <text
+          transform="matrix(1 0 0 1 694.9183 415.0938)"
+          class="st13 st8 st9"
+        >
+          t
+        </text>
+        <text
+          transform="matrix(1 0 0 1 700.1888 415.0938)"
+          class="st13 st8 st9"
+        >
+          r
+        </text>
+        <text
+          transform="matrix(1 0 0 1 706.9149 415.0938)"
+          class="st13 st8 st9"
+        >
+          u
+        </text>
+        <text transform="matrix(1 0 0 1 717.995 415.0938)" class="st13 st8 st9">
+          c
+        </text>
+        <text transform="matrix(1 0 0 1 727.892 415.0938)" class="st13 st8 st9">
+          t
+        </text>
+        <text
+          transform="matrix(1 0 0 1 733.1581 415.0938)"
+          class="st13 st8 st9"
+        >
+          i
+        </text>
+        <text
+          transform="matrix(1 0 0 1 737.2821 415.0938)"
+          class="st13 st8 st9"
+        >
+          on
+        </text>
+        <text
+          transform="matrix(1 0 0 1 759.4086 415.0938)"
+          class="st13 st8 st9"
+        ></text>
+        <text
+          transform="matrix(1 0 0 1 764.6693 415.0938)"
+          class="st13 st8 st9"
+        >
+          [
+        </text>
+        <text
+          transform="matrix(1 0 0 1 769.9603 415.0938)"
+          class="st13 st8 st9"
+        >
+          31–2
+        </text>
+        <text
+          transform="matrix(1 0 0 1 814.2128 415.0938)"
+          class="st13 st8 st9"
+        >
+          6
+        </text>
+        <text
+          transform="matrix(1 0 0 1 825.2557 415.0938)"
+          class="st13 st8 st9"
+        >
+          ]
+        </text>
+        <g>
+          <text
+            transform="matrix(1 0 0 1 671.4672 731.3193)"
+            class="st3 st8 st9"
+          >
+            I
+          </text>
+          <text
+            transform="matrix(1 0 0 1 676.7499 731.3193)"
+            class="st3 st8 st9"
+          >
+            n
+          </text>
+          <text
+            transform="matrix(1 0 0 1 687.7963 731.3193)"
+            class="st3 st8 st9"
+          >
+            s
+          </text>
+          <text
+            transform="matrix(1 0 0 1 697.7103 731.3193)"
+            class="st3 st8 st9"
+          >
+            t
+          </text>
+          <text
+            transform="matrix(1 0 0 1 702.9784 731.3193)"
+            class="st3 st8 st9"
+          >
+            r
+          </text>
+          <text
+            transform="matrix(1 0 0 1 709.7069 731.3193)"
+            class="st3 st8 st9"
+          >
+            u
+          </text>
+          <text
+            transform="matrix(1 0 0 1 720.7845 731.3193)"
+            class="st3 st8 st9"
+          >
+            c
+          </text>
+          <text
+            transform="matrix(1 0 0 1 730.6815 731.3193)"
+            class="st3 st8 st9"
+          >
+            t
+          </text>
+          <text
+            transform="matrix(1 0 0 1 735.9506 731.3193)"
+            class="st3 st8 st9"
+          >
+            i
+          </text>
+          <text
+            transform="matrix(1 0 0 1 740.0746 731.3193)"
+            class="st3 st8 st9"
+          >
+            o
+          </text>
+          <text
+            transform="matrix(1 0 0 1 751.1376 731.3193)"
+            class="st3 st8 st9"
+          >
+            n
+          </text>
+          <text
+            transform="matrix(1 0 0 1 762.1913 731.3193)"
+            class="st3 st8 st9"
+          ></text>
+          <text
+            transform="matrix(1 0 0 1 767.4818 731.3193)"
+            class="st3 st8 st9"
+          >
+            [
+          </text>
+          <text
+            transform="matrix(1 0 0 1 772.765 731.3193)"
+            class="st3 st8 st9"
+          >
+            15–
+          </text>
+          <text
+            transform="matrix(1 0 0 1 805.9545 731.3193)"
+            class="st3 st8 st9"
+          >
+            1
+          </text>
+          <text
+            transform="matrix(1 0 0 1 816.9877 731.3193)"
+            class="st3 st8 st9"
+          >
+            1
+          </text>
+          <text
+            transform="matrix(1 0 0 1 828.0907 731.3193)"
+            class="st3 st8 st9"
+          >
+            ]
+          </text>
+        </g>
+        <g>
+          <text
+            transform="matrix(1 0 0 1 679.4672 639.2612)"
+            class="st3 st8 st9"
+          >
+            Inst
+          </text>
+          <text
+            transform="matrix(1 0 0 1 713.0404 639.2612)"
+            class="st3 st8 st9"
+          >
+            r
+          </text>
+          <text
+            transform="matrix(1 0 0 1 720.2889 639.2612)"
+            class="st3 st8 st9"
+          >
+            uction [20–16]
+          </text>
+        </g>
+        <text transform="matrix(1 0 0 1 672.4672 873.4902)" class="st3 st8 st9">
+          Inst
+        </text>
+        <text transform="matrix(1 0 0 1 706.0404 873.4902)" class="st3 st8 st9">
+          r
+        </text>
+        <text transform="matrix(1 0 0 1 713.2689 873.4902)" class="st3 st8 st9">
+          uction [15–0]
+        </text>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st19"
+          points="1327.7,901.8 1423.8,901.8 1423.8,749.17 "
+        />
+        <text
+          transform="matrix(1 0 0 1 933.2719 338.4233)"
+          class="st14 st8 st9"
+        >
+          RegDst
+        </text>
+        <text
+          transform="matrix(1 0 0 1 933.2719 364.3945)"
+          class="st14 st8 st9"
+        >
+          J
+        </text>
+        <text
+          transform="matrix(1 0 0 1 943.2679 364.3945)"
+          class="st14 st8 st9"
+        >
+          ump
+        </text>
+        <text
+          transform="matrix(1 0 0 1 933.2719 390.3682)"
+          class="st14 st8 st9"
+        >
+          B
+        </text>
+        <text
+          transform="matrix(1 0 0 1 947.1625 390.3682)"
+          class="st14 st8 st9"
+        >
+          r
+        </text>
+        <text transform="matrix(1 0 0 1 953.911 390.3682)" class="st14 st8 st9">
+          anch
+        </text>
+        <text
+          transform="matrix(1 0 0 1 933.2719 414.1724)"
+          class="st14 st8 st9"
+        >
+          MemRead
+        </text>
+        <text transform="matrix(1 0 0 1 933.2719 437.978)" class="st14 st8 st9">
+          MemtoReg
+        </text>
+        <text
+          transform="matrix(1 0 0 1 933.2719 463.9512)"
+          class="st14 st8 st9"
+        >
+          ALUOp
+        </text>
+        <text
+          transform="matrix(1 0 0 1 933.2719 489.9219)"
+          class="st14 st8 st9"
+        >
+          MemW
+        </text>
+        <text
+          transform="matrix(1 0 0 1 999.2113 489.9219)"
+          class="st14 st8 st9"
+        >
+          r
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1006.4369 489.9219)"
+          class="st14 st8 st9"
+        >
+          ite
+        </text>
+        <text transform="matrix(1 0 0 1 933.2719 515.896)" class="st14 st8 st9">
+          ALUSrc
+        </text>
+        <text
+          transform="matrix(1 0 0 1 933.2719 541.8672)"
+          class="st14 st8 st9"
+        >
+          RegW
+        </text>
+        <text
+          transform="matrix(1 0 0 1 991.1283 541.8672)"
+          class="st14 st8 st9"
+        >
+          r
+        </text>
+        <text
+          transform="matrix(1 0 0 1 998.3568 541.8672)"
+          class="st14 st8 st9"
+        >
+          ite
+        </text>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st4"
+          d="M924.98,447.56c0,60.44-19.65,109.45-43.88,109.45s-43.88-49-43.88-109.45s19.65-109.44,43.88-109.44
+	S924.98,387.11,924.98,447.56z"
+        />
+        <text
+          transform="matrix(1 0 0 1 844.2855 454.0488)"
+          class="st14 st10 st9"
+        >
+          Cont
+        </text>
+        <text
+          transform="matrix(1 0 0 1 891.7098 454.0488)"
+          class="st14 st10 st9"
+        >
+          r
+        </text>
+        <text
+          transform="matrix(1 0 0 1 899.4159 454.0488)"
+          class="st14 st10 st9"
+        >
+          ol
+        </text>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st19"
+          points="924.02,470.5 1147.51,470.5 1147.51,1008.16 1285.8,1008.16 1285.8,955.32 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st11"
+          points="924.8,445.59 1812.8,445.59 1812.8,687.17 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st11"
+          points="919.78,394.07 1274.77,394.07 1274.77,361.95 1327.13,361.95 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st11"
+          d="M1327.13,403.56h22.06c15.11,0,27.47-12.37,27.47-27.47v-3.58c0-15.11-12.37-27.47-27.47-27.47h-22.06V403.56z
+	"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st11"
+          points="1434.98,306.86 1434.98,372.52 1376.66,372.52 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st12"
+          points="667.53,598.23 667.53,447.56 827.01,447.55 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M828.64,445.72c-2.95-0.89-4.87-1.71-7.24-2.67v9c0.85-0.4,4.29-1.78,7.24-2.67c3.16-0.95,6.02-1.61,7.88-1.84
+	C834.67,447.33,831.8,446.67,828.64,445.72"
+        />
+        <rect
+          x="272.27"
+          y="132.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M305.74,610.5c0,2.87,2.33,5.21,5.21,5.21c2.87,0,5.21-2.33,5.21-5.21c0-2.87-2.33-5.21-5.21-5.21
+	C308.07,605.3,305.74,607.63,305.74,610.5"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M662.36,594.36c0,2.87,2.33,5.21,5.21,5.21c2.87,0,5.21-2.32,5.21-5.21c0-2.87-2.33-5.21-5.21-5.21
+	C664.7,589.15,662.36,591.49,662.36,594.36"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M662.36,667.92c0,2.87,2.33,5.21,5.21,5.21c2.87,0,5.21-2.33,5.21-5.21c0-2.88-2.33-5.21-5.21-5.21
+	C664.7,662.71,662.36,665.04,662.36,667.92"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M784.57,667.92c0,2.87,2.33,5.21,5.21,5.21s5.21-2.33,5.21-5.21c0-2.88-2.33-5.21-5.21-5.21
+	C786.91,662.71,784.57,665.04,784.57,667.92"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M662.36,611.33c0,2.87,2.33,5.21,5.21,5.21c2.87,0,5.21-2.33,5.21-5.21c0-2.88-2.33-5.21-5.21-5.21
+	C664.7,606.13,662.36,608.45,662.36,611.33"
+        />
+        <rect
+          x="410.27"
+          y="36.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M579.25,610.33c0,2.87,2.33,5.21,5.21,5.21c2.87,0,5.21-2.33,5.21-5.21c0-2.88-2.33-5.21-5.21-5.21
+	C581.58,605.13,579.25,607.45,579.25,610.33"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M662.36,757.7c0,2.87,2.33,5.21,5.21,5.21c2.87,0,5.21-2.33,5.21-5.21c0-2.87-2.33-5.21-5.21-5.21
+	C664.7,752.49,662.36,754.83,662.36,757.7"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M883.69,885.23c0,2.87,2.33,5.21,5.21,5.21c2.87,0,5.21-2.33,5.21-5.21c0-2.87-2.33-5.21-5.21-5.21
+	C886.02,880.02,883.69,882.36,883.69,885.23"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1120.1,224.23c0,2.87,2.33,5.21,5.21,5.21c2.88,0,5.21-2.33,5.21-5.21s-2.32-5.21-5.21-5.21
+	C1122.44,219.03,1120.1,221.36,1120.1,224.23"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="1475.8" y1="691.95" x2="1556.8" y2="691.95" />
+        <path
+          class="st3"
+          d="M1563.88,690.39c-2.93-0.96-4.83-1.82-7.18-2.82l-0.2,9c0.86-0.38,4.33-1.67,7.3-2.5
+	c3.18-0.89,6.06-1.48,7.92-1.67C1569.87,692.14,1567.01,691.43,1563.88,690.39"
+        />
+        <path
+          class="st3"
+          d="M1512.78,691.97c-0.06,2.87,2.22,5.26,5.09,5.32c2.87,0.06,5.26-2.22,5.32-5.09c0.06-2.87-2.22-5.26-5.09-5.32
+	C1515.24,686.81,1512.84,689.09,1512.78,691.97"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1064.58,711.17c0,2.87,2.32,5.21,5.21,5.21c2.87,0,5.21-2.33,5.21-5.21c0-2.87-2.33-5.21-5.21-5.21
+	C1066.91,705.96,1064.58,708.3,1064.58,711.17"
+        />
+        <text transform="matrix(1 0 0 1 898.3246 653.752)" class="st3 st8 st9">
+          Read
+        </text>
+        <text transform="matrix(1 0 0 1 898.3246 674.3486)" class="st3 st8 st9">
+          register 2
+        </text>
+        <text transform="matrix(1 0 0 1 898.3246 713.3604)" class="st3 st8 st9">
+          W
+        </text>
+        <text transform="matrix(1 0 0 1 917.9852 713.3604)" class="st3 st8 st9">
+          r
+        </text>
+        <text transform="matrix(1 0 0 1 925.2137 713.3604)" class="st3 st8 st9">
+          ite
+        </text>
+        <text transform="matrix(1 0 0 1 898.3246 733.958)" class="st3 st8 st9">
+          register
+        </text>
+        <text transform="matrix(1 0 0 1 898.3246 772.9697)" class="st3 st8 st9">
+          W
+        </text>
+        <text transform="matrix(1 0 0 1 917.9852 772.9697)" class="st3 st8 st9">
+          r
+        </text>
+        <text transform="matrix(1 0 0 1 925.2137 772.9697)" class="st3 st8 st9">
+          ite
+        </text>
+        <text transform="matrix(1 0 0 1 898.3246 793.5664)" class="st3 st8 st9">
+          data
+        </text>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="1451.78" y1="288.54" x2="1502.67" y2="288.54" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1505,286.7c-2.95-0.89-4.87-1.71-7.24-2.67v9c0.85-0.4,4.29-1.78,7.24-2.67c3.16-0.95,6.03-1.61,7.88-1.84
+	C1511.02,288.32,1508.16,287.66,1505,286.7"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <line class="st1" x1="1312.48" y1="288.55" x2="1408" y2="288.54" />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st3"
+          d="M1409.94,286.71c-2.95-0.89-4.87-1.71-7.24-2.66v9c0.86-0.4,4.29-1.78,7.24-2.67c3.16-0.95,6.02-1.61,7.88-1.84
+	C1415.96,288.32,1413.1,287.66,1409.94,286.71"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st7"
+          d="M1546.11,288.55c0,9.97-7.49,18.13-16.62,18.13c-9.14,0-16.62-8.16-16.62-18.13v-93.52
+	c0-9.97,7.48-18.13,16.62-18.13c9.14,0,16.62,8.16,16.62,18.13V288.55"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st5"
+          d="M1546.11,288.55c0,9.97-7.49,18.13-16.62,18.13c-9.14,0-16.62-8.16-16.62-18.13v-93.52
+	c0-9.97,7.48-18.13,16.62-18.13c9.14,0,16.62,8.16,16.62,18.13V288.55z"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st12"
+          points="858.94,166.22 1479.14,166.22 1479.14,198.69 1502.67,198.68 "
+        />
+        <text
+          transform="matrix(1 0 0 1 1520.8256 232.1772)"
+          class="st13 st10 st9"
+        >
+          M
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1523.1371 248.0483)"
+          class="st13 st10 st9"
+        >
+          u
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1523.6996 263.9214)"
+          class="st13 st10 st9"
+        >
+          x
+        </text>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M1504.25,196.84c-2.95-0.89-4.87-1.71-7.24-2.66v9c0.85-0.4,4.29-1.78,7.23-2.67
+	c3.16-0.95,6.03-1.61,7.88-1.84C1510.27,198.45,1507.4,197.79,1504.25,196.84"
+        />
+        <text
+          transform="matrix(1 0 0 1 1516.2504 200.3862)"
+          class="st13 st8 st9"
+        >
+          1
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1516.2504 295.5859)"
+          class="st13 st8 st9"
+        >
+          0
+        </text>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st11"
+          points="913,371.33 1083.09,371.33 1083.09,142.86 1530.5,142.86 1530.5,176.89 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st7"
+          d="M858.94,166.27c0,22.74-14.34,41.17-32.02,41.17S794.9,189,794.9,166.27s14.34-41.17,32.01-41.17
+	C844.61,125.1,858.94,143.53,858.94,166.27"
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st5"
+          d="M858.94,166.27c0,22.74-14.34,41.17-32.02,41.17S794.9,189,794.9,166.27s14.34-41.17,32.01-41.17
+	C844.61,125.1,858.94,143.53,858.94,166.27z"
+        />
+        <text transform="matrix(1 0 0 1 803.7753 160.52)" class="st13 st10 st9">
+          Shift
+        </text>
+        <text
+          transform="matrix(1 0 0 1 802.6097 185.5127)"
+          class="st13 st10 st9"
+        >
+          left 2
+        </text>
+        <text transform="matrix(1 0 0 1 623.369 147.1274)" class="st13 st8 st9">
+          Inst
+        </text>
+        <text
+          transform="matrix(1 0 0 1 656.9427 147.1274)"
+          class="st13 st8 st9"
+        >
+          r
+        </text>
+        <text
+          transform="matrix(1 0 0 1 664.1718 147.1274)"
+          class="st13 st8 st9"
+        >
+          uction [25–0]
+        </text>
+        <text
+          transform="matrix(1 0 0 1 879.0472 147.1274)"
+          class="st13 st8 st9"
+        >
+          J
+        </text>
+        <text
+          transform="matrix(1 0 0 1 889.0433 147.1274)"
+          class="st13 st8 st9"
+        >
+          ump address [31–0]
+        </text>
+        <rect
+          x="410.27"
+          y="36.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st12"
+          points="583.8,611.57 583.8,165.17 781.8,165.17 "
+        />
+        <rect
+          x="427.27"
+          y="108.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M786.87,163.43c-2.95-0.89-4.87-1.72-7.24-2.67v9c0.85-0.4,4.29-1.77,7.24-2.67c3.16-0.95,6.03-1.6,7.88-1.84
+	C792.9,165.05,790.04,164.39,786.87,163.43"
+        />
+        <text
+          transform="matrix(1 0 0 1 752.2557 198.0586)"
+          class="st13 st8 st9"
+        >
+          26
+        </text>
+        <text
+          transform="matrix(1 0 0 1 866.3944 198.0586)"
+          class="st13 st8 st9"
+        >
+          28
+        </text>
+        <rect
+          x="415.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st20"
+          points="752.9,157.62 761.11,166.27 769.32,174.91 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st20"
+          points="863.39,157.62 871.59,166.27 879.81,174.91 "
+        />
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <polyline
+          class="st12"
+          points="931.55,166.26 931.55,216.77 751.62,216.77 751.62,237.87 "
+        />
+        <text
+          transform="matrix(1 0 0 1 940.9833 208.3921)"
+          class="st13 st8 st9"
+        >
+          PC + 4 [31–28]
+        </text>
+        <rect
+          x="427.27"
+          y="109.34"
+          class="st2"
+          width="1159.04"
+          height="909.66"
+        />
+        <path
+          class="st13"
+          d="M746.41,237.79c0,2.87,2.33,5.21,5.21,5.21c2.87,0,5.21-2.33,5.21-5.21s-2.33-5.21-5.21-5.21
+	C748.74,232.59,746.41,234.92,746.41,237.79"
+        />
+        <text
+          transform="matrix(1 0 0 1 166.3041 615.6021)"
+          class="st13 st10 st9"
+        >
+          PC
+        </text>
+        <line class="st11" x1="1447.8" y1="578.67" x2="1447.8" y2="640.86" />
+        <text
+          transform="matrix(1 0 0 1 210.0205 605.4116)"
+          class="st21 st10 st22"
+          id="pc-output"
+        >
+          0x40000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 597.3701 231.606)"
+          class="st21 st10 st22"
+          id="top-left-alu-output"
+        >
+          0x40000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1012.3936 466.1382)"
+          class="st21 st10 st22"
+          id="alu-op"
+        >
+          00000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1046.5166 440.1382)"
+          class="st21 st10 st22"
+          id="mem-to-reg"
+        >
+          0
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1046.7629 414.1382)"
+          class="st21 st10 st22"
+          id="mem-read"
+        >
+          0
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1046.7629 392.1382)"
+          class="st21 st10 st22"
+          id="branch"
+        >
+          0
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1046.7629 368.1382)"
+          class="st21 st10 st22"
+          id="jump"
+        >
+          0
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1047.7234 490.3735)"
+          class="st21 st10 st22"
+          id="mem-write"
+        >
+          0
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1047.7234 516.3735)"
+          class="st21 st10 st22"
+          id="alu-src"
+        >
+          0
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1047.4536 541.7101)"
+          class="st21 st10 st22"
+          id="reg-write"
+        >
+          0
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1046.6705 339.303)"
+          class="st21 st10 st22"
+          id="reg-dst"
+        >
+          0
+        </text>
+        <text
+          transform="matrix(1 0 0 1 678.4821 440.8462)"
+          class="st21 st10 st22"
+          id="control-input"
+        >
+          000000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 680.0966 591.1951)"
+          class="st21 st10 st22"
+          id="read-register-1-input"
+        >
+          000000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 680.3564 663.2374)"
+          class="st21 st10 st22"
+          id="read-register-2-input"
+        >
+          00000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 680.4424 750.8568)"
+          class="st21 st10 st22"
+          id="write-register-input"
+        >
+          00000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 672.6347 907.8616)"
+          class="st21 st10 st22"
+          id="sign-extend-input"
+        >
+          0000000000000000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1344.7461 898.1155)"
+          class="st21 st10 st22"
+          id="alu-control-output"
+        >
+          0
+        </text>
+        <text
+          transform="matrix(1 0 0 1 939.6469 987.718)"
+          class="st21 st10 st22"
+          id="func-code"
+        >
+          000000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1451.9222 631.9998)"
+          class="st21 st10 st22"
+          id="zero-flag"
+        >
+          0
+        </text>
+        <rect x="52" y="831" class="st23" width="572" height="142" />
+        <text
+          transform="matrix(1 0 0 1 67.0591 868.6406)"
+          class="st10 st22"
+          id="binary-instruction"
+        >
+          Instruction: 00000000000000000000000000000000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 65.9308 907.5471)"
+          class="st10 st22"
+          id="read-data-1"
+        >
+          Read Data 1: 00000000000000000000000000000000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 66.9585 950.2543)"
+          class="st10 st22"
+          id="read-data-2"
+        >
+          Read Data 2: 00000000000000000000000000000000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1338.8173 1015.777)"
+          class="st21 st10 st22"
+          id="write-data"
+        >
+          00000000000000000000000000000000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 752.7056 70.7898)"
+          class="st21 st10 st22"
+          id="mux-5-output"
+        >
+          0x40000
+        </text>
+        <text
+          transform="matrix(1 0 0 1 1535.537 365.1177)"
+          class="st21 st10 st22"
+          id="main-alu-output"
+        >
+          00000000000000000000000000000000
+        </text>
+        <g>
+          <line class="st0" x1="1517.13" y1="654.6" x2="1517.13" y2="353.74" />
+          <path
+            class="st24"
+            d="M1519.29,659.24c0.89-2.95,1.71-4.87,2.66-7.24h-9.01c0.39,0.85,1.77,4.29,2.66,7.24
+		c0.96,3.16,1.61,6.03,1.84,7.88C1517.69,665.27,1518.34,662.39,1519.29,659.24"
+          />
+          <path
+            class="st24"
+            d="M1512.03,358.78c-0.06,2.87,2.22,5.26,5.09,5.32c2.87,0.06,5.26-2.22,5.32-5.09
+		c0.06-2.87-2.22-5.26-5.09-5.32C1514.49,353.62,1512.1,355.9,1512.03,358.78"
+          />
+        </g>
+        <line class="st0" x1="677.63" y1="112.94" x2="677.63" y2="21" />
+        <path
+          class="st24"
+          d="M679.8,117.57c0.89-2.95,1.71-4.87,2.66-7.24h-9c0.39,0.85,1.77,4.29,2.66,7.24c0.96,3.16,1.61,6.03,1.84,7.88
+	C678.19,123.6,678.84,120.73,679.8,117.57"
+        />
+        <path
+          class="st24"
+          d="M672.53,21.12c-0.06,2.87,2.22,5.26,5.09,5.32s5.26-2.22,5.32-5.09c0.06-2.87-2.22-5.26-5.09-5.32
+	C674.99,15.96,672.6,18.24,672.53,21.12"
+        />
+        <text
+          transform="matrix(1 0 0 1 690.9815 29.2314)"
+          class="st21 st10 st22"
+          id="top-shift-left-two-input"
+        >
+          00000000000000000000000000000000
+        </text>
+        <line class="st0" x1="998.12" y1="125" x2="998.12" y2="60" />
+        <path
+          class="st24"
+          d="M1000.29,120.74c0.89-2.95,1.71-4.87,2.66-7.24h-9c0.39,0.85,1.77,4.29,2.66,7.24
+	c0.96,3.16,1.61,6.03,1.84,7.88C998.69,126.77,999.34,123.89,1000.29,120.74"
+        />
+        <path
+          class="st24"
+          d="M993.03,60.2c-0.06,2.87,2.22,5.26,5.09,5.32s5.26-2.22,5.32-5.09c0.06-2.87-2.22-5.26-5.09-5.32
+	C995.48,55.04,993.09,57.32,993.03,60.2"
+        />
+        <text
+          transform="matrix(1 0 0 1 1011.894 68.5482)"
+          class="st21 st10 st22"
+          id="top-shift-left-two-output"
+        >
+          00000000000000000000000000000000
+        </text>
+        <path
+          class="st24"
+          d="M1187.51,318.98c0.89-2.95,1.71-4.87,2.66-7.24h-9c0.39,0.85,1.77,4.29,2.66,7.24
+	c0.96,3.16,1.61,6.03,1.84,7.88C1185.91,325.01,1186.56,322.13,1187.51,318.98"
+        />
+        <path
+          class="st24"
+          d="M1180.25,101.52c-0.06,2.87,2.22,5.26,5.09,5.32c2.87,0.06,5.26-2.22,5.32-5.09c0.06-2.87-2.22-5.26-5.09-5.32
+	C1182.71,96.36,1180.31,98.64,1180.25,101.52"
+        />
+        <text
+          transform="matrix(1 0 0 1 1197.3589 109.7772)"
+          class="st21 st10 st22"
+          id="bottom-shift-left-two-output"
+        >
+          00000000000000000000000000000000
+        </text>
+        <path
+          class="st24"
+          d="M1052.76,907.26c-0.89,2.95-1.71,4.87-2.66,7.24h9.01c-0.39-0.85-1.77-4.29-2.66-7.24
+	c-0.96-3.16-1.61-6.03-1.84-7.88C1054.36,901.23,1053.71,904.11,1052.76,907.26"
+        />
+        <path
+          class="st24"
+          d="M1059.02,1051.48c0.06-2.87-2.22-5.26-5.09-5.32c-2.87-0.06-5.26,2.22-5.32,5.09
+	c-0.06,2.87,2.22,5.26,5.09,5.32C1056.56,1056.64,1058.95,1054.36,1059.02,1051.48"
+        />
+        <text
+          transform="matrix(1 0 0 1 1068.5708 1057.501)"
+          class="st21 st10 st22"
+          id="sign-extend-output"
+        >
+          00000000000000000000000000000000
+        </text>
+        <g>
+          <g>
+            <line class="st25" x1="1627" y1="266" x2="1562" y2="266" />
+            <path
+              class="st26"
+              d="M1562.26,267.9c2.95,0.89,4.87,1.71,7.24,2.66v-9c-0.85,0.39-4.29,1.77-7.24,2.66
+              c-3.16,0.96-6.03,1.61-7.88,1.84C1556.23,266.3,1559.11,266.95,1562.26,267.9"
+            />
+            <path
+              class="st26"
+              d="M1621.73,265.89c-0.06,2.87,2.22,5.26,5.09,5.32c2.87,0.06,5.26-2.22,5.32-5.09
+              c0.06-2.87-2.22-5.26-5.09-5.32C1624.19,260.73,1621.8,263.01,1621.73,265.89"
+            />
+          </g>
+          <text
+            transform="matrix(1 0 0 1 1643.5427 273.4188)"
+            class="st26 st10 st22"
+          >
+            MUX #5
+          </text>
+        </g>
+        <g>
+          <line
+            style="
+              fill: #b9003b;
+              stroke: #b9003b;
+              stroke-width: 2;
+              stroke-miterlimit: 10;
+            "
+            x1="1627"
+            y1="266"
+            x2="1562"
+            y2="266"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M1562.26,267.9c2.95,0.89,4.87,1.71,7.24,2.66v-9c-0.85,0.39-4.29,1.77-7.24,2.66
+            c-3.16,0.96-6.03,1.61-7.88,1.84C1556.23,266.3,1559.11,266.95,1562.26,267.9"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M1621.73,265.89c-0.06,2.87,2.22,5.26,5.09,5.32c2.87,0.06,5.26-2.22,5.32-5.09
+            c0.06-2.87-2.22-5.26-5.09-5.32C1624.19,260.73,1621.8,263.01,1621.73,265.89"
+          />
+          <text
+            transform="matrix(1 0 0 1 1643.5427 273.4188)"
+            style="fill: #b9003b; font-family: 'Arial-BoldMT'; font-size: 20px"
+          >
+            MUX #5
+          </text>
+        </g>
+        <g>
+          <line
+            style="
+              fill: #b9003b;
+              stroke: #b9003b;
+              stroke-width: 2;
+              stroke-miterlimit: 10;
+            "
+            x1="1371"
+            y1="222.44"
+            x2="1402.42"
+            y2="222.44"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M1402.16,220.53c-2.95-0.89-4.87-1.71-7.24-2.66v9c0.85-0.39,4.29-1.77,7.24-2.66
+          c3.16-0.96,6.03-1.61,7.88-1.84C1408.19,222.14,1405.31,221.49,1402.16,220.53"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M1371.69,222.54c0.06-2.87-2.22-5.26-5.09-5.32c-2.87-0.06-5.26,2.22-5.32,5.09
+          c-0.06,2.87,2.22,5.26,5.09,5.32C1369.23,227.7,1371.62,225.42,1371.69,222.54"
+          />
+          <text
+            transform="matrix(1 0 0 1 1281.7395 229.7315)"
+            style="fill: #b9003b; font-family: 'Arial-BoldMT'; font-size: 20px"
+          >
+            MUX #4
+          </text>
+        </g>
+        <g>
+          <line
+            style="
+              fill: #b9003b;
+              stroke: #b9003b;
+              stroke-width: 2;
+              stroke-miterlimit: 10;
+            "
+            x1="421.3"
+            y1="121.74"
+            x2="452.72"
+            y2="121.74"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M453.4,143.24c0.89-2.95,1.71-4.87,2.66-7.24h-9c0.39,0.85,1.77,4.29,2.66,7.24
+            c0.96,3.16,1.61,6.03,1.84,7.88C451.8,149.27,452.45,146.39,453.4,143.24"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M422.98,121.85c0.06-2.87-2.22-5.26-5.09-5.32s-5.26,2.22-5.32,5.09c-0.06,2.87,2.22,5.26,5.09,5.32
+            C420.53,127.01,422.92,124.73,422.98,121.85"
+          />
+          <line
+            style="
+              fill: #b9003b;
+              stroke: #b9003b;
+              stroke-width: 2;
+              stroke-miterlimit: 10;
+            "
+            x1="451.69"
+            y1="137.3"
+            x2="451.69"
+            y2="122"
+          />
+          <text
+            transform="matrix(1 0 0 1 333.5921 128.4242)"
+            style="fill: #b9003b; font-family: 'Arial-BoldMT'; font-size: 20px"
+          >
+            ALU #1
+          </text>
+        </g>
+        <g>
+          <path
+            style="fill: #b9003b"
+            d="M1411.75,612.24c0.89-2.95,1.71-4.87,2.66-7.24h-9.01c0.39,0.85,1.77,4.29,2.66,7.24
+            c0.96,3.16,1.61,6.03,1.84,7.88C1410.15,618.27,1410.8,615.39,1411.75,612.24"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M1415.33,556.1c0.06-2.87-2.22-5.26-5.09-5.32c-2.87-0.06-5.26,2.22-5.32,5.09
+            c-0.06,2.87,2.22,5.26,5.09,5.32C1412.88,561.26,1415.27,558.98,1415.33,556.1"
+          />
+          <line
+            style="
+              fill: #b9003b;
+              stroke: #b9003b;
+              stroke-width: 2;
+              stroke-miterlimit: 10;
+            "
+            x1="1410.04"
+            y1="612"
+            x2="1410.04"
+            y2="559.25"
+          />
+          <text
+            transform="matrix(1 0 0 1 1373.943 540.6712)"
+            style="fill: #b9003b; font-family: 'Arial-BoldMT'; font-size: 20px"
+          >
+            ALU #3
+          </text>
+        </g>
+        <g>
+          <line
+            style="
+              fill: #b9003b;
+              stroke: #b9003b;
+              stroke-width: 2;
+              stroke-miterlimit: 10;
+            "
+            x1="1265"
+            y1="702.72"
+            x2="1230.27"
+            y2="702.72"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M1230.54,704.63c2.95,0.89,4.87,1.71,7.24,2.66v-9c-0.85,0.39-4.29,1.77-7.24,2.66
+            c-3.16,0.96-6.03,1.61-7.88,1.84C1224.51,703.02,1227.38,703.67,1230.54,704.63"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M1263.01,702.62c-0.06,2.87,2.22,5.26,5.09,5.32c2.87,0.06,5.26-2.22,5.32-5.09
+            c0.06-2.87-2.22-5.26-5.09-5.32C1265.47,697.46,1263.07,699.74,1263.01,702.62"
+          />
+          <text
+            transform="matrix(1 0 0 1 1278.8174 709.1418)"
+            style="fill: #b9003b; font-family: 'Arial-BoldMT'; font-size: 20px"
+          >
+            MUX #2
+          </text>
+        </g>
+        <g>
+          <line
+            style="
+              fill: #b9003b;
+              stroke: #b9003b;
+              stroke-width: 2;
+              stroke-miterlimit: 10;
+            "
+            x1="1866"
+            y1="734.48"
+            x2="1836.29"
+            y2="734.48"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M1839.76,736.38c2.95,0.89,4.87,1.71,7.24,2.66v-9c-0.85,0.39-4.29,1.77-7.24,2.66
+            c-3.16,0.96-6.03,1.61-7.88,1.84C1833.73,734.78,1836.61,735.43,1839.76,736.38"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M1860.02,645.37c-0.06,2.87,2.22,5.26,5.09,5.32c2.87,0.06,5.26-2.22,5.32-5.09
+            c0.06-2.87-2.22-5.26-5.09-5.32C1862.48,640.21,1860.09,642.49,1860.02,645.37"
+          />
+          <text
+            transform="matrix(1 0 0 1 1828.8295 631.8948)"
+            style="fill: #b9003b; font-family: 'Arial-BoldMT'; font-size: 20px"
+          >
+            MUX #3
+          </text>
+          <line
+            style="
+              fill: #b9003b;
+              stroke: #b9003b;
+              stroke-width: 2;
+              stroke-miterlimit: 10;
+            "
+            x1="1865.01"
+            y1="649.91"
+            x2="1865.01"
+            y2="735"
+          />
+        </g>
+        <g>
+          <line
+            style="
+              fill: #b9003b;
+              stroke: #b9003b;
+              stroke-width: 2;
+              stroke-miterlimit: 10;
+            "
+            x1="421.3"
+            y1="121.74"
+            x2="452.72"
+            y2="121.74"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M453.4,143.24c0.89-2.95,1.71-4.87,2.66-7.24h-9c0.39,0.85,1.77,4.29,2.66,7.24
+            c0.96,3.16,1.61,6.03,1.84,7.88C451.8,149.27,452.45,146.39,453.4,143.24"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M422.98,121.85c0.06-2.87-2.22-5.26-5.09-5.32s-5.26,2.22-5.32,5.09c-0.06,2.87,2.22,5.26,5.09,5.32
+            C420.53,127.01,422.92,124.73,422.98,121.85"
+          />
+          <line
+            style="
+              fill: #b9003b;
+              stroke: #b9003b;
+              stroke-width: 2;
+              stroke-miterlimit: 10;
+            "
+            x1="451.69"
+            y1="137.3"
+            x2="451.69"
+            y2="122"
+          />
+          <text
+            transform="matrix(1 0 0 1 333.5921 128.4242)"
+            style="fill: #b9003b; font-family: 'Arial-BoldMT'; font-size: 20px"
+          >
+            ALU #1
+          </text>
+        </g>
+        <g>
+          <g>
+            <line
+              style="
+                fill: #b9003b;
+                stroke: #b9003b;
+                stroke-width: 2;
+                stroke-miterlimit: 10;
+              "
+              x1="783.06"
+              y1="701.83"
+              x2="814.48"
+              y2="701.83"
+            />
+            <path
+              style="fill: #b9003b"
+              d="M814.21,699.92c-2.95-0.89-4.87-1.71-7.24-2.66v9c0.85-0.39,4.29-1.77,7.24-2.66
+              c3.16-0.96,6.03-1.61,7.88-1.84C820.24,701.53,817.37,700.88,814.21,699.92"
+            />
+            <path
+              style="fill: #b9003b"
+              d="M783.74,701.93c0.06-2.87-2.22-5.26-5.09-5.32s-5.26,2.22-5.32,5.09
+              c-0.06,2.87,2.22,5.26,5.09,5.32C781.28,707.09,783.68,704.81,783.74,701.93"
+            />
+          </g>
+          <text
+            transform="matrix(1 0 0 1 693.7947 709.1217)"
+            style="fill: #b9003b; font-family: 'Arial-BoldMT'; font-size: 20px"
+          >
+            MUX #1
+          </text>
+        </g>
+        <g>
+          <text
+            transform="matrix(1 0 0 1 705.2902 109.3614)"
+            class="st26 st10 st22"
+          >
+            SL2 #1
+          </text>
+          <g>
+            <line class="st25" x1="787.55" y1="102.07" x2="827" y2="102.07" />
+            <path
+              class="st26"
+              d="M828.4,116.24c0.89-2.95,1.71-4.87,2.66-7.24h-9c0.39,0.85,1.77,4.29,2.66,7.24
+              c0.96,3.16,1.61,6.03,1.84,7.88C826.8,122.27,827.45,119.39,828.4,116.24"
+            />
+            <path
+              class="st26"
+              d="M788.24,102.17c0.06-2.87-2.22-5.26-5.09-5.32s-5.26,2.22-5.32,5.09c-0.06,2.87,2.22,5.26,5.09,5.32
+              C785.78,107.33,788.17,105.05,788.24,102.17"
+            />
+            <line class="st25" x1="827" y1="117" x2="827" y2="101" />
+          </g>
+        </g>
+        <g>
+          <text
+            transform="matrix(1 0 0 1 705.2902 109.3614)"
+            style="fill: #b9003b; font-family: 'Arial-BoldMT'; font-size: 20px"
+          >
+            SL2 #1
+          </text>
+          <g>
+            <line
+              style="
+                fill: #b9003b;
+                stroke: #b9003b;
+                stroke-width: 2;
+                stroke-miterlimit: 10;
+              "
+              x1="787.55"
+              y1="102.07"
+              x2="827"
+              y2="102.07"
+            />
+            <path
+              style="fill: #b9003b"
+              d="M828.4,116.24c0.89-2.95,1.71-4.87,2.66-7.24h-9c0.39,0.85,1.77,4.29,2.66,7.24
+              c0.96,3.16,1.61,6.03,1.84,7.88C826.8,122.27,827.45,119.39,828.4,116.24"
+            />
+            <path
+              style="fill: #b9003b"
+              d="M788.24,102.17c0.06-2.87-2.22-5.26-5.09-5.32s-5.26,2.22-5.32,5.09
+              c-0.06,2.87,2.22,5.26,5.09,5.32C785.78,107.33,788.17,105.05,788.24,102.17"
+            />
+            <line
+              style="
+                fill: #b9003b;
+                stroke: #b9003b;
+                stroke-width: 2;
+                stroke-miterlimit: 10;
+              "
+              x1="827"
+              y1="117"
+              x2="827"
+              y2="101"
+            />
+          </g>
+        </g>
+        <g>
+          <text
+            transform="matrix(1 0 0 1 1019.6299 279.7346)"
+            style="fill: #b9003b; font-family: 'Arial-BoldMT'; font-size: 20px"
+          >
+            SL2 #2
+          </text>
+          <g>
+            <line
+              style="
+                fill: #b9003b;
+                stroke: #b9003b;
+                stroke-width: 2;
+                stroke-miterlimit: 10;
+              "
+              x1="1101.89"
+              y1="272.44"
+              x2="1141.34"
+              y2="272.44"
+            />
+            <path
+              style="fill: #b9003b"
+              d="M1142.74,286.61c0.89-2.95,1.71-4.87,2.66-7.24h-9.01c0.39,0.85,1.77,4.29,2.66,7.24
+              c0.96,3.16,1.61,6.03,1.84,7.88C1141.14,292.64,1141.79,289.77,1142.74,286.61"
+            />
+            <path
+              style="fill: #b9003b"
+              d="M1102.58,272.55c0.06-2.87-2.22-5.26-5.09-5.32c-2.87-0.06-5.26,2.22-5.32,5.09
+              c-0.06,2.87,2.22,5.26,5.09,5.32C1100.12,277.71,1102.51,275.43,1102.58,272.55"
+            />
+
+            <line
+              style="
+                fill: #b9003b;
+                stroke: #b9003b;
+                stroke-width: 2;
+                stroke-miterlimit: 10;
+              "
+              x1="1141.34"
+              y1="287.37"
+              x2="1141.34"
+              y2="271.37"
+            />
+          </g>
+        </g>
+        <g>
+          <text
+            transform="matrix(1 0 0 1 1214.042 476.6906)"
+            style="fill: #b9003b; font-family: 'Arial-BoldMT'; font-size: 20px"
+          >
+            ALU #2
+          </text>
+          <path
+            style="fill: #b9003b"
+            d="M1240.48,376.42c-0.89,2.95-1.71,4.87-2.66,7.24h9c-0.39-0.85-1.77-4.29-2.66-7.24
+            c-0.96-3.16-1.61-6.03-1.84-7.88C1242.09,370.39,1241.44,373.26,1240.48,376.42"
+          />
+          <path
+            style="fill: #b9003b"
+            d="M1236.9,446.56c-0.06,2.87,2.22,5.26,5.09,5.32c2.87,0.06,5.26-2.22,5.32-5.09
+            c0.06-2.87-2.22-5.26-5.09-5.32C1239.36,441.4,1236.97,443.68,1236.9,446.56"
+          />
+          <line
+            style="
+              fill: #b9003b;
+              stroke: #b9003b;
+              stroke-width: 2;
+              stroke-miterlimit: 10;
+            "
+            x1="1242.2"
+            y1="376.66"
+            x2="1242.2"
+            y2="441"
+          />
+        </g>
+      </svg>
+    </div>
+
+    <script src="./js/bundle.js"></script>
+  </body>
+</html>

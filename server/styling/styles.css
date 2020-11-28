@@ -1,0 +1,28 @@
+html, body {
+    overflow: hidden;
+}
+
+.title, .subtitle, .instruction-title {
+    color: rgb(36, 36, 36);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.title {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.subtitle {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.processor-wrapper {
+    margin-top: 50px;
+}
+
+.instruction-title {
+    margin-left: 30px;
+}
+
+
