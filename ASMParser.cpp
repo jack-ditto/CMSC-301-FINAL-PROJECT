@@ -366,7 +366,10 @@ string ASMParser::encode(Instruction i)
       }
     }
     // write 16 bits of immediate value
-    str += std::bitset<16>(instructionImmediate).to_string();
+    if(opcodes.getOpcodeField(instructionOpcode) == "000100" )
+      str += std::bitset<32>(instructionImmediate).to_string().substr(14, 16);
+    else
+      str += std::bitset<16>(instructionImmediate).to_string();
     // if JTYPE
   } else{
     string address = std::bitset<32>(instructionImmediate).to_string();

@@ -95,7 +95,6 @@ void Processor::step(){
     // Updates PC to output of mux5
     programCounter.set(multiplexer5.get());
     registerFile.printMap();
-    dataMemory.printMap();
 }
 
 
