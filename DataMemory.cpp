@@ -97,4 +97,5 @@ void DataMemory::printMap(){
   for (map<long,long>::iterator it = memMap.begin(); it != memMap.end(); it++){
     cout << it->first << " => "<< it->second << endl;
   }
+  cout << "------------------" << endl;
 }

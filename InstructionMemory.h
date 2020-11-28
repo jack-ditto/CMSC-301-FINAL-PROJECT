@@ -24,4 +24,5 @@ class InstructionMemory{
     string getForALUControl();
     void toString();
     bool isEnd();
+    void printMap();
 };
