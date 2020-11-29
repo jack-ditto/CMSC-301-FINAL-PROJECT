@@ -11,7 +11,7 @@ Processor::Processor(map<long, vector<string>> instructionMap,
 
 string concatenatePC(string shift, int pc){
     string programC = bitset<32>(pc).to_string();
-    string result = programC.substr(0, 4) + shift;
+    string result = programC.substr(0, 4) + shift.substr(5, 28);
     return result;
 }
 
@@ -95,5 +95,3 @@ void Processor::step(){
     programCounter.set(multiplexer5.get());
     //registerFile.printMap();
 }
-
-
