@@ -28,7 +28,7 @@ void Control::setInstruction(string instruction)
 
     // Branch if equal to (beq)
     else if (instruction == "000100")
-        setValues(-1, 0, -1, 0, 0, 0, 1, instruction, 1);
+        setValues(-1, 0, -1, 0, 0, 0, 1, instruction, 0);
 
     // Add Immediate (addi)
     else if (instruction == "001000")
