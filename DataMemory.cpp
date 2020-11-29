@@ -82,10 +82,13 @@ void DataMemory::write(){
 //toString prints out the contents of DataMemory
 void DataMemory::toString(){
   cout << "Contents of DataMemory: " << endl;
-  cout << "MemRead: " << MemRead << endl;
-  cout << "MemWrite: " << MemWrite << endl;
-  cout << "Write Data: " << data << endl;
-  cout << "Read Data: " << address << endl;
+  cout << "------------------------" << endl;
+  cout << "MemRead => 0x" << hex << MemRead << endl;
+  cout << "MemWrite => 0x" << hex << MemWrite << endl;
+  cout << "Write Data => 0x" << hex << stol(data,nullptr,2) << endl;
+  cout << "Read Data => 0x" << hex << stol(address,nullptr,2) << endl;
+  cout << "------------------------" << endl;
+  cout << endl;
 }
 
 
@@ -96,7 +99,8 @@ void DataMemory::printMap(){
   cout << "Print DataMemory Map" << endl;
   cout << "------------------" << endl;
   for (map<long,long>::iterator it = memMap.begin(); it != memMap.end(); it++){
-    cout << it->first << " => "<< it->second << endl;
+    cout << hex << "0x" << it->first << " => " << "0x" << it->second << endl;
   }
   cout << "------------------" << endl;
+  cout << endl;
 }

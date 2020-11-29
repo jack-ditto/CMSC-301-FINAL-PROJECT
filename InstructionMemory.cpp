@@ -111,14 +111,16 @@ void InstructionMemory::printMap(){
   for (map<long,vector<string>>::iterator it = instrMap.begin(); it != instrMap.end(); it++){
     vector<string> temp = it->second;
     string inst = temp.at(1);
-    cout << it->first << " => " << inst << endl;
+    cout << hex << "0x" << it->first << " => " << "0x" << inst << endl;
   }
+  cout << endl;
 }
 
 void InstructionMemory::toString(){
   cout << "Contents of InstructionMemory: " << endl;
   cout << "-------------------------------" << endl;
-  cout << "Address => " << address << endl;
-  cout << "Instruction => " << instr << endl;
+  cout << "Address => 0x" << hex << address << endl;
+  cout << "Instruction => 0x" << hex << stol(instr,nullptr,2) << endl;
   cout << "-------------------------------" << endl;
+  cout << endl;
 }

@@ -104,15 +104,17 @@ bool Control::getRegWrite()
 
 void Control::toString()
 {
-    cout << "---- Control ----" << endl;
-    cout << "regDst: " << this->regDst << endl;
-    cout << "aluSrc: " << this->aluSrc << endl;
-    cout << "memToReg: " << this->memToReg << endl;
-    cout << "regWrite: " << this->regWrite << endl;
-    cout << "memRead: " << this->memRead << endl;
-    cout << "memWrite: " << this->memWrite << endl;
-    cout << "branch: " << this->branch << endl;
-    cout << "aluOp: " << this->aluOp << endl;
-    cout << "jump: " << this->jump << endl;
-    cout << "-----------------" << endl;
+    cout << "Contents of Control: " << endl;
+    cout << "---------------------" << endl;
+    cout << "regDst => 0x" << hex << this->regDst << endl;
+    cout << "aluSrc => 0x" << hex << this->aluSrc << endl;
+    cout << "memToReg => 0x" << hex << this->memToReg << endl;
+    cout << "regWrite => 0x" << hex << this->regWrite << endl;
+    cout << "memRead => 0x" << hex << this->memRead << endl;
+    cout << "memWrite => 0x" << hex << this->memWrite << endl;
+    cout << "branch => 0x" << hex << this->branch << endl;
+    cout << "aluOp => 0x" << hex << stol(this->aluOp,nullptr,2) << endl;
+    cout << "jump => 0x" << hex << this->jump << endl;
+    cout << "---------------------" << endl;
+    cout << endl;    
 }
