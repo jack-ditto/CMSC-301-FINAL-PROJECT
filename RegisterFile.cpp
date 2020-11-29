@@ -20,7 +20,6 @@ RegisterFile::RegisterFile(){}
 //parameter - string write
 //
 void RegisterFile::setWriteRegister(string write){
-  cout << "test123" << write << endl;
   writeRegister = stoi(write,nullptr,2);
 }
 

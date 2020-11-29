@@ -79,7 +79,7 @@ class ASMParser{
 
   // Given a valid instruction, returns a string representing the 32 bit MIPS binary encoding
   // of that instruction.
-  string encode(Instruction i);
+  string encode(Instruction i, long pc);
 
 };
 

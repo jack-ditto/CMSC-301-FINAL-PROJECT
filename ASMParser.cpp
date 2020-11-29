@@ -36,7 +36,7 @@ ASMParser::ASMParser(string filename)
 
   if(myFormatCorrect){
     // for every line in initial instructions with removed labels
-    int address = 0x400000;
+    long address = 0x400000;
     for(auto& line : initialInstructions){
       string opcode("");
       string operand[80];
@@ -63,7 +63,7 @@ ASMParser::ASMParser(string filename)
         break;
       }
 
-      string encoding = encode(i);
+      string encoding = encode(i, address);
       i.setEncoding(encoding);
 
       // std::cout << line << "\t::::: " << i.getEncoding() << std::endl;
@@ -328,7 +328,7 @@ imm = labelHolder[operand[imm_p]];
 }
 
 
-string ASMParser::encode(Instruction i)
+string ASMParser::encode(Instruction i, long pc)
   // Given a valid instruction, returns a string representing the 32 bit MIPS binary encoding
   // of that instruction.
 {
@@ -366,9 +366,10 @@ string ASMParser::encode(Instruction i)
       }
     }
     // write 16 bits of immediate value
-    if(opcodes.getOpcodeField(instructionOpcode) == "000100" )
-      str += std::bitset<32>(instructionImmediate).to_string().substr(14, 16);
-    else
+    if(opcodes.getOpcodeField(instructionOpcode) == "000100"){
+      int offset = instructionImmediate - (pc + 4);
+      str += std::bitset<18>(offset).to_string().substr(0, 16);
+    }else
       str += std::bitset<16>(instructionImmediate).to_string();
     // if JTYPE
   } else{

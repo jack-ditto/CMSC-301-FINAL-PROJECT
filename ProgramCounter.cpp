@@ -13,5 +13,5 @@ int ProgramCounter::get() {return pc;}
 
 //toString prints out contents of pc
 void ProgramCounter::toString(){
-  cout << "PC is currently: " << pc << endl;
+  cout << "PC is currently: " << hex << pc << endl;
 }
