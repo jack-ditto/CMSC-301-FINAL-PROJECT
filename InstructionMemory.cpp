@@ -48,7 +48,7 @@ string InstructionMemory::getForControl(){
 string InstructionMemory::getForShift(){
   vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
-  return str.substr(6,25);
+  return str.substr(6,26);
 }
 
 
