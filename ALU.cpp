@@ -25,8 +25,9 @@ ALU::ALU()
  * @param opNum the number corresponding to the desired operation. 
  */
 void ALU::setOperation(int opNum)
-{
-    if (opNum > 2 || opNum < 0)
+{   
+    // -1 is allowed for a jump instruction, output doesn't matter
+    if (opNum > 2 || opNum < -1)
     {
         cerr << "Invalid operation number." << endl;
     }
@@ -40,12 +41,12 @@ void ALU::setOperation(int opNum)
  * Executes and gets the result of the ALU
  */
 string ALU::getResult()
-{
-    // if (this->operationNum == -1)
-    // {
-    //     cerr << "No operation specified" << endl;
-    //     return "";
-    // }
+{   
+    // Is operation num is -1, we don't care about output
+    if (this->operationNum == -1)
+    {
+        this->result = "00000000000000000000000000000000";
+    }
 
     if (this->operationNum == 0)
     {
