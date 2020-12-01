@@ -78,23 +78,24 @@ void Processor::step(){
     // Set values of alu2 to output of alu1 and shiftleftTwo2
     alu2.setValues(0, alu1.getResult(), shiftLeftTwo2.get());
 
-    // Set choices of mux4 to output of alu1 and alu2
+    // Set choices of mux5 to output of alu1 and alu2
     multiplexer5.setChoices(alu1.getResult(), alu2.getResult());
-    // Set control of mux4 to (branch AND zero) flags
+    // Set control of mux5 to (branch AND zero) flags
     multiplexer5.setControl(control.getBranch() && alu3.getZeroFlag());
-    // Set choices of mux5 to output of mux4 and shiftLeftTwo1
+    // Set choices of mux4 to output of mux5 and shiftLeftTwo1
     multiplexer4.setChoices(multiplexer5.get(), concatenatePC(shiftLeftTwo1.get(), pc));
-    // Set control of mux5 to jump flag
+    // Set control of mux4 to jump flag
     multiplexer4.setControl(control.getJump());
 
     string result = multiplexer4.get();
 
     print();
 
-    // Updates PC to output of mux5
+    // Updates PC to output of mux4
     programCounter.set(result);
 
 }
+
 void Processor::print(){
     instructionMemory.printAssembly();
     programCounter.toString();

@@ -2,14 +2,26 @@
 #include "ASMParser.h"
 #include <algorithm> // for removing blank spaces
 
+/**
+ * Processes a line removing comments and spaces
+ *
+ * @param line line needed to be processed
+ * @return string - processed line
+ */
 string preprocess(string line){
     line.erase(remove_if(line.begin(), line.end(), ::isspace), line.end()); // removes whitespaces
+    //removes comments
     size_t index = line.find("#");
     if(index != string::npos)
         line = line.substr(0, index);
     return line;
 }
 
+/**
+ * Constructor for processing config files
+ *
+ * @param filename name of the file to be processed
+ */
 ConfigParser::ConfigParser(string filename){
     ifstream in;
     in.open(filename.c_str());
@@ -24,6 +36,7 @@ ConfigParser::ConfigParser(string filename){
             line = preprocess(line);
             if(line.empty() || line[0] == '#')
                 continue;
+            // process config parameters
             size_t index = line.find("=");
             configParameters[line.substr(0, index)] = line.substr(index + 1, line.length());
         }
@@ -32,12 +45,16 @@ ConfigParser::ConfigParser(string filename){
         //     std::cout << "key[" << p.first << "] = " << p.second << '\n';
         // }
 
+        // set all the maps
         setInstructions();
         setMemory();
         setRegisters();
     }
 }
 
+/**
+ * Set the instruction map
+ */
 void ConfigParser::setInstructions(){
     ASMParser *parser;
     parser = new ASMParser(configParameters["program_input"]);
@@ -54,6 +71,9 @@ void ConfigParser::setInstructions(){
     delete parser;
 }
 
+/**
+ * Set the memory map
+ */
 void ConfigParser::setMemory(){
     ifstream in;
     in.open(configParameters["memory_contents_input"].c_str());
@@ -80,6 +100,9 @@ void ConfigParser::setMemory(){
     }
 }
 
+/**
+ * Set the register map
+ */
 void ConfigParser::setRegisters(){
     ifstream in;
     in.open(configParameters["register_file_input"].c_str());
@@ -107,26 +130,40 @@ void ConfigParser::setRegisters(){
 
 }
 
-map<long, vector<string>> ConfigParser::getInstructions(){
-    return instructionMap;
-}
+/**
+ * Get instruction map
+ * @return map<long, vector<string>>
+ */
+map<long, vector<string>> ConfigParser::getInstructions(){ return instructionMap; }
 
-map<long, long> ConfigParser::getMemory(){
-    return memoryMap;
-}
+/**
+ * Get memory map
+ * @return map<long, long>
+ */
+map<long, long> ConfigParser::getMemory(){ return memoryMap; }
 
-map<int, long> ConfigParser::getRegisters(){
-    return registerMap;
-}
+/**
+ * Get register map
+ * @return map<int, long>
+ */
+map<int, long> ConfigParser::getRegisters(){ return registerMap; }
 
-string ConfigParser::outputMode(){
-    return configParameters["output_mode"];
-}
+/**
+ * Get output mode
+ * @return string output mode
+ */
+string ConfigParser::outputMode(){ return configParameters["output_mode"]; }
 
-string ConfigParser::getFileName(){
-    return configParameters["output_file"];
-}
+/**
+ * Get output file name
+ * @return string output file name
+ */
+string ConfigParser::getFileName(){ return configParameters["output_file"]; }
 
+/**
+ * Print memory contents
+ * @return true if print memory contents
+ */
 bool ConfigParser::printMemoryContents(){
     if(configParameters["print_memory_contents"] == "true")
         return true;
@@ -134,6 +171,10 @@ bool ConfigParser::printMemoryContents(){
         return false;
 }
 
+/**
+ * Debug mode
+ * @return true if print debug info
+ */
 bool ConfigParser::debugMode(){
     if(configParameters["debug_mode"] == "true")
         return true;
@@ -141,6 +182,10 @@ bool ConfigParser::debugMode(){
         return false;
 }
 
+/**
+ * write to file
+ * @return true if write output to a file
+ */
 bool ConfigParser::writeToFile(){
     if(configParameters["write_to_file"] == "true")
         return true;

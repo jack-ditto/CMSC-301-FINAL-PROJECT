@@ -2,10 +2,10 @@
 #include <bitset>
 #include <algorithm> // for removing blank spaces
 
-
+// process the instruction line, remove comments
 string process(string line){
   size_t found = line.find_first_of('\t');
-  while (found != string::npos) { // While our position in the sting is in range.
+  while (found != string::npos) { // While tab position in the string is in range.
     line[found] = ' '; // Change the character at position.
     found = line.find_first_of('\t', found+1); // Relocate again.
   }
@@ -18,9 +18,6 @@ string process(string line){
     return "";
   return str;
 }
-
-bool BothAreSpaces(char lhs, char rhs) { return (lhs == rhs) && (lhs == ' '); }
-
 
 ASMParser::ASMParser(string filename)
   // Specify a text file containing MIPS assembly instructions. Function
@@ -82,6 +79,7 @@ ASMParser::ASMParser(string filename)
   myIndex = 0;
 }
 
+// Extract labels from instruction
 void ASMParser::extractLabels(string filename){
   int address = 0x400000;
   // open file to read
@@ -114,9 +112,8 @@ void ASMParser::extractLabels(string filename){
   }
 }
 
-map<long,vector<string>> ASMParser::getInstructionMap(){
-  return addressInstruction;
-}
+// return the ,ap of instructions
+map<long,vector<string>> ASMParser::getInstructionMap(){ return addressInstruction; }
 
 
 Instruction ASMParser::getNextInstruction()
