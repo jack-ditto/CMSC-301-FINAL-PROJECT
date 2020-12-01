@@ -17,6 +17,10 @@ class ConfigParser{
     map<long, long> getMemory();
     map<int, long> getRegisters();
     string outputMode();
+    string getFileName();
+    bool printMemoryContents();
+    bool debugMode();
+    bool writeToFile();
 
   private:
     map<string, string> configParameters;
