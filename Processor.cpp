@@ -93,6 +93,12 @@ void Processor::step(){
     // Updates PC to output of mux5
     programCounter.set(multiplexer5.get());
     //registerFile.printMap();
+
+    multiplexer1.toString();
+    multiplexer2.toString();
+    multiplexer3.toString();
+    multiplexer4.toString();
+    multiplexer5.toString();
 }
 void Processor::print(){}
 
