@@ -47,9 +47,9 @@ void ConfigParser::setInstructions(){
     }
 
     instructionMap = parser->getInstructionMap();
-    for (const auto &p : instructionMap) {
-        std::cout << "key[" << hex << p.first << "] = " << p.second.at(0) << " ; " << p.second.at(1) << '\n';
-    }
+    // for (const auto &p : instructionMap) {
+    //     std::cout << "key[" << hex << p.first << "] = " << p.second.at(0) << " ; " << p.second.at(1) << '\n';
+    // }
     delete parser;
 }
 
