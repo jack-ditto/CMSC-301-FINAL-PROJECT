@@ -86,6 +86,9 @@ void Processor::step(){
     multiplexer5.setChoices(multiplexer4.get(), concatenatePC(shiftLeftTwo1.get(), pc));
     // Set control of mux5 to jump flag
     multiplexer5.setControl(control.getJump());
+
+    print();
+
     // Updates PC to output of mux5
     programCounter.set(multiplexer5.get());
     //registerFile.printMap();
