@@ -22,7 +22,7 @@ class Processor{
     public:
         Processor(map<long, vector<string>> instructionMap,
             map<long, long> memoryMap, map<int, long> registerMap);
-        void setParameters(bool debugMode, bool printMemoryContents, bool writeToFile, string fileName);
+        void setParameters(bool debugMode, bool printMemoryContents);
         void step();
         void print();
 
