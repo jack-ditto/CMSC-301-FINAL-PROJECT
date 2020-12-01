@@ -1,6 +1,6 @@
 #include "ShiftLeftTwo.h"
 
-int ShiftLeftTwo::counter = 0;
+int ShiftLeftTwo::counter = 1;
 
 /**
  * Default constructor

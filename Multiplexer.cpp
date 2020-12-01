@@ -1,6 +1,6 @@
 #include "Multiplexer.h"
 
-int Multiplexer::counter = 0;
+int Multiplexer::counter = 1;
 
 /**
  * Default / typical use constructor

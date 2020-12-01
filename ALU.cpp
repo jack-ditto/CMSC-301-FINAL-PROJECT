@@ -1,6 +1,6 @@
 #include "ALU.h"
 
-int ALU::counter = 0;
+int ALU::counter = 1;
 
 /**
  * Default / common use construtor
