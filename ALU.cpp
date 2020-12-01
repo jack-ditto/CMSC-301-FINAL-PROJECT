@@ -24,6 +24,7 @@ ALU::ALU()
  * 
  * ADD = 0
  * SUBTRACT = 1
+ * SLT = 2
  * TODO: add AND and OR operations if nescessary
  * 
  * @param opNum the number corresponding to the desired operation. 

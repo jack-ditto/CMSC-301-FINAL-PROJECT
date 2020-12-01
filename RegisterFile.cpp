@@ -44,6 +44,11 @@ void RegisterFile::setReadReg2(string val){
 }
 
 
+//setWrite data sets the writeData instance variable and updates the regMap
+// if the regWrite flag is true
+//
+//Parameter - string in
+//
 void RegisterFile::setWriteData(string in){
   writeData = in;
   if (regWrite){
@@ -71,6 +76,7 @@ string RegisterFile::getData1(){return readData1;}
 //return - string
 string RegisterFile::getData2(){return readData2;}
 
+
 //getWriteData returns data to be written
 //
 //return - string
@@ -92,6 +98,7 @@ void RegisterFile::toString(){
   cout << "-------------------------" << endl;
   cout << endl;
 }
+
 
 //printMap prints out the full contents of the RegisterFile
 //
