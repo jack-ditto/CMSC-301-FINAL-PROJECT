@@ -79,18 +79,18 @@ void Processor::step(){
     alu2.setValues(0, alu1.getResult(), shiftLeftTwo2.get());
 
     // Set choices of mux4 to output of alu1 and alu2
-    multiplexer4.setChoices(alu1.getResult(), alu2.getResult());
+    multiplexer5.setChoices(alu1.getResult(), alu2.getResult());
     // Set control of mux4 to (branch AND zero) flags
-    multiplexer4.setControl(control.getBranch() && alu3.getZeroFlag());
+    multiplexer5.setControl(control.getBranch() && alu3.getZeroFlag());
     // Set choices of mux5 to output of mux4 and shiftLeftTwo1
-    multiplexer5.setChoices(multiplexer4.get(), concatenatePC(shiftLeftTwo1.get(), pc));
+    multiplexer4.setChoices(multiplexer5.get(), concatenatePC(shiftLeftTwo1.get(), pc));
     // Set control of mux5 to jump flag
-    multiplexer5.setControl(control.getJump());
+    multiplexer4.setControl(control.getJump());
 
     print();
 
     // Updates PC to output of mux5
-    programCounter.set(multiplexer5.get());
+    programCounter.set(multiplexer4.get());
     //registerFile.printMap();
 
 }
@@ -99,8 +99,23 @@ void Processor::print(){
     programCounter.toString();
     instructionMemory.toString();
     control.toString();
+    aluControl.toString();
     registerFile.toString();
+    signExtend.toString();
     dataMemory.toString();
+
+    alu1.toString();
+    alu2.toString();
+    alu3.toString();
+
+    multiplexer1.toString();
+    multiplexer2.toString();
+    multiplexer3.toString();
+    multiplexer4.toString();
+    multiplexer5.toString();
+
+    shiftLeftTwo1.toString();
+    shiftLeftTwo2.toString();
 }
 
 void Processor::setParameters(bool debugMode, bool printMemoryContents){
