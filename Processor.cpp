@@ -87,10 +87,12 @@ void Processor::step(){
     // Set control of mux5 to jump flag
     multiplexer4.setControl(control.getJump());
 
+    string result = multiplexer4.get();
+
     print();
 
     // Updates PC to output of mux5
-    programCounter.set(multiplexer4.get());
+    programCounter.set(result);
     //registerFile.printMap();
 
 }

@@ -128,5 +128,6 @@ void InstructionMemory::toString(){
 void InstructionMemory::printAssembly(){
   cout << endl;
   cout << "Assembly Instruction => " << instrMap.at(address)[0] << endl;
+  cout << endl;
   cout << "---------------------------------" << endl;
 }
