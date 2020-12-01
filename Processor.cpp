@@ -27,7 +27,6 @@ void Processor::step(){
         endExecution = true;
         return;
     }
-
     instructionMemory.toString();
     // passes bits 31-26 of the instruction into the control unit
     control.setInstruction(instructionMemory.getForControl());
