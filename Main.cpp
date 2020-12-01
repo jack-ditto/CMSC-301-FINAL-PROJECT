@@ -17,15 +17,21 @@ int main(int argc, char const *argv[])
 	Processor processor = Processor(parser->getInstructions(), parser->getMemory(), parser->getRegisters());
 	processor.setParameters(parser->debugMode(), parser->printMemoryContents(), parser->writeToFile(), parser->getFileName());
 
+	std::ofstream out("out.txt");
+    //std::streambuf *coutbuf = std::cout.rdbuf(); //save old buf
+    std::cout.rdbuf(out.rdbuf());
+
 	try{
 		while (!processor.finishedExecution()){
 			processor.step();
-			if(parser->outputMode() == "single_step")
+			if(parser->outputMode() == "sinle_step")
 				cin.get(wait);
 		}
 	}catch(const std::invalid_argument& e){
 		std::cout << e.what() << std::endl;
 	}
+
+	out.close();
 
 	delete parser;
 	return 0;
