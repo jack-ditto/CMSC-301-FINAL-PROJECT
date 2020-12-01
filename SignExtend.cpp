@@ -19,6 +19,10 @@ string SignExtend::get(){
 
 //toString method prints out input and output of sign extend
 void SignExtend::toString(){
-  cout << "Input to SignExtend is: " << input << endl;
-  cout << "Output of SignExtend is: " << output << endl;
+  cout << "Contents of SignExtend: " << endl;
+  cout << "------------------------------" << endl;
+  cout << "Input => 0x" << hex << input << endl;
+  cout << "Output => 0x" << hex << output << endl;
+  cout << "------------------------------" << endl;
+  cout << endl;
 }
