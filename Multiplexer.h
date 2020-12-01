@@ -7,6 +7,7 @@ class Multiplexer
 {
 
 public:
+    static int counter;
     Multiplexer();                                   // default / typical use constructor
     string get();                                    // gets the decision from the multiplexer
     void setControl(int control);                    // set the value of the control line
@@ -17,6 +18,7 @@ public:
     void toString();
 
 private:
+    int id;
     string output;  // store the output
     string choice1; // store choice 1
     string choice2; // store choice 2

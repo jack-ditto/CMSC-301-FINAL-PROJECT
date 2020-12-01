@@ -1,11 +1,15 @@
 #include "ShiftLeftTwo.h"
 
+int ShiftLeftTwo::counter = 0;
+
 /**
  * Default constructor
  */
 ShiftLeftTwo::ShiftLeftTwo()
 {
     this->unitNum = 1;
+    id = ShiftLeftTwo::counter;
+    ShiftLeftTwo::counter++;
 }
 
 /**
@@ -63,7 +67,7 @@ void ShiftLeftTwo::shiftLeftTwo()
  */
 void ShiftLeftTwo::toString()
 {
-    cout << "Contents of ShiftLeftTwo: " << endl;
+    cout << "Contents of ShiftLeftTwo " << id << ":" << endl;
     cout << "--------------------------" << endl;
     cout << "Input => 0x" << hex << input << endl;
     cout << "Output => 0x" << hex << output << endl;

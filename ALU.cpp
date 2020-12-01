@@ -1,5 +1,7 @@
 #include "ALU.h"
 
+int ALU::counter = 0;
+
 /**
  * Default / common use construtor
  * 
@@ -13,6 +15,8 @@ ALU::ALU()
     this->input1 = "";
     this->input2 = "";
     this->zeroFlag = false;
+    id = ALU::counter;
+    ALU::counter++;
 }
 
 /**
@@ -174,7 +178,7 @@ string ALU::getInput2() {
 }
 
 void ALU::toString() {
-    cout << "Contents of ALU:" << endl;
+    cout << "Contents of ALU " << id << ":" << endl;
     cout << "-------------------------" << endl;
     cout << "Input 1 => 0x" << hex << this->input1 << endl;
     cout << "Input 2 => 0x" << hex << this->input2 << endl;
