@@ -106,12 +106,12 @@ string InstructionMemory::getForALUControl(){
 //toString prints out the contents of InstructionMemory
 //
 void InstructionMemory::printMap(){
-  cout << "Print DataMemory Map: " << endl;
+  cout << "Print InstructionMemory Map: " << endl;
   cout << "-------------------------------" << endl;
   for (map<long,vector<string>>::iterator it = instrMap.begin(); it != instrMap.end(); it++){
     vector<string> temp = it->second;
     string inst = temp.at(1);
-    cout << hex << "0x" << it->first << " => " << "0x" << inst << endl;
+    cout << hex << "0x" << hex << it->first << " => " << "0x" << hex << inst << endl;
   }
   cout << endl;
 }

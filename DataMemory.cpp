@@ -99,7 +99,7 @@ void DataMemory::printMap(){
   cout << "Print DataMemory Map" << endl;
   cout << "------------------" << endl;
   for (map<long,long>::iterator it = memMap.begin(); it != memMap.end(); it++){
-    cout << hex << "0x" << it->first << " => " << "0x" << it->second << endl;
+    cout << hex << "0x" << hex << it->first << " => " << "0x" << hex << it->second << endl;
   }
   cout << "------------------" << endl;
   cout << endl;
