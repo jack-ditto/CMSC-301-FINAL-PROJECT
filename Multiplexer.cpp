@@ -83,10 +83,12 @@ int Multiplexer::getControl() {
 }
 
 void Multiplexer::toString() {
-    cout << "---- Multiplexer ----" << endl;
-    cout << "Choice 1: " << this->choice1 << endl;
-    cout << "Choice 2: " << this->choice2 << endl;
-    cout << "Control: " << this->control << endl;
-    cout << "Output: " << this->output << endl;
-    cout << "---------------------" << endl;
+    cout << "Contents of Multiplexer:" << endl;
+    cout << "------------------------" << endl;
+    cout << "Choice 1 => 0x" << hex << this->choice1 << endl;
+    cout << "Choice 2 => 0x" << hex << this->choice2 << endl;
+    cout << "Control => 0x" << hex << this->control << endl;
+    cout << "Output => 0x" << hex << this->output << endl;
+    cout << "------------------------" << endl;
+    cout << endl;
 }

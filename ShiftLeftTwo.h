@@ -11,6 +11,7 @@ public:
     ShiftLeftTwo(int unitNum); // constructor to which ShiftLeftTwo unit
     string get();              // get the shifted left input binary string as binary string
     void set(string input);    // set the input binary string
+    void toString();
 
 private:
     string output;       // store output

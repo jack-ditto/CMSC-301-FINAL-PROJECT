@@ -55,3 +55,18 @@ void ShiftLeftTwo::shiftLeftTwo()
     
     this->output = bitString;
 }
+
+
+/**
+ * print out contents of ShiftLeftTwo
+ *
+ */
+void ShiftLeftTwo::toString()
+{
+    cout << "Contents of ShiftLeftTwo: " << endl;
+    cout << "--------------------------" << endl;
+    cout << "Input => 0x" << hex << input << endl;
+    cout << "Output => 0x" << hex << output << endl;
+    cout << "--------------------------" << endl;
+    cout << endl;
+}
