@@ -69,8 +69,8 @@ void ShiftLeftTwo::toString()
 {
     cout << "Contents of ShiftLeftTwo " << id << ":" << endl;
     cout << "--------------------------" << endl;
-    cout << "Input => 0x" << hex << input << endl;
-    cout << "Output => 0x" << hex << output << endl;
+    cout << "Input => 0x" << hex << stol(input, nullptr, 2) << endl;
+    cout << "Output => 0x" << hex << stol(output, nullptr, 2) << endl;
     cout << "--------------------------" << endl;
     cout << endl;
 }
