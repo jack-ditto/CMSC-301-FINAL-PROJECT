@@ -13,7 +13,7 @@ int main()
 {
 
     // ######## Testing Constructor #############
-    cout << "############ Testing ALU Control #############" << endl
+    cout << "############ Testing Control #############" << endl
          << endl;
 
     // ######### Constructor ################
