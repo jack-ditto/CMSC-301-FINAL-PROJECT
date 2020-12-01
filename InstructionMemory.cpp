@@ -116,6 +116,15 @@ void InstructionMemory::printMap(){
   cout << endl;
 }
 
+string InstructionMemory::getInstruction() {
+  vector<string> temp = instrMap.at(address);
+  return temp.at(1);
+}
+
+string InstructionMemory::getInstructionAsString() {
+  vector<string> temp = instrMap.at(address);
+  return temp.at(0);
+}
 void InstructionMemory::toString(){
   cout << "Contents of InstructionMemory: " << endl;
   cout << "-------------------------------" << endl;

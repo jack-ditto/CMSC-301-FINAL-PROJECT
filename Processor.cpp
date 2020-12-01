@@ -1,23 +1,30 @@
 #include "Processor.h"
-#include<bitset>
+#include <bitset>
+#include <sstream>
+// #include<hex>
 
 Processor::Processor(map<long, vector<string>> instructionMap,
-    map<long, long> memoryMap, map<int, long> registerMap){
-        // Create instances of all components
-        instructionMemory = InstructionMemory(instructionMap);
-        dataMemory = DataMemory(memoryMap);
-        registerFile = RegisterFile(registerMap);
+                     map<long, long> memoryMap, map<int, long> registerMap)
+{
+    // Create instances of all components
+    instructionMemory = InstructionMemory(instructionMap);
+    dataMemory = DataMemory(memoryMap);
+    registerFile = RegisterFile(registerMap);
+    instructionNum = 0;
 }
 
-string concatenatePC(string shift, int pc){
+string concatenatePC(string shift, int pc)
+{
     string programC = bitset<32>(pc).to_string();
     string result = programC.substr(0, 4) + shift.substr(5, 28);
     return result;
 }
 
-void Processor::step(){
+void Processor::step()
+{
     // Get PC from program counter
     long pc = programCounter.get();
+    this->instructionNum++;
 
     programCounter.toString();
     // Pass PC to instruction memory
@@ -91,6 +98,10 @@ void Processor::step(){
     multiplexer5.setChoices(multiplexer4.get(), concatenatePC(shiftLeftTwo1.get(), pc));
     // Set control of mux5 to jump flag
     multiplexer5.setControl(control.getJump());
+
+    // Write data to JSON before adding to PC
+    this->writeWebInterfaceJson();
+
     // Updates PC to output of mux5
     programCounter.set(multiplexer5.get());
     //registerFile.printMap();
@@ -102,4 +113,160 @@ void Processor::setParameters(bool debugMode, bool printMemoryContents, bool wri
     this->printMemoryContents = printMemoryContents;
     this->writeToFile = writeToFile;
     this->fileName = fileName;
+}
+/**
+ * Write JSON data of every object to file. 
+ */
+void Processor::writeWebInterfaceJson()
+{
+
+    ofstream outfile;
+    outfile.open("webInterfaceOutput.json");
+
+    outfile << "{" << endl;
+
+    outfile << "    \"programCounter\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"get\":\"" << "0x" << hex << this->programCounter.get() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"instructionMemory\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"getInstruction\":\"" << this->instructionMemory.getInstruction() << "\"," << endl;
+    outfile << "            \"getForControl\":\"" << this->instructionMemory.getForControl() << "\"," << endl;
+    outfile << "            \"getForShift\":\"" << this->instructionMemory.getForShift() << "\"," << endl;
+    outfile << "            \"getForExtend\":\"" << this->instructionMemory.getForExtend() << "\"," << endl;
+    outfile << "            \"getForRegOne\":\"" << this->instructionMemory.getForRegOne() << "\"," << endl;
+    outfile << "            \"getForRegTwo\":\"" << this->instructionMemory.getForRegTwo() << "\"," << endl;
+    outfile << "            \"getForMuxOne\":\"" << this->instructionMemory.getForMuxOne() << "\"," << endl;
+    outfile << "            \"getForALUControl\":\"" << this->instructionMemory.getForALUControl() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"dataMemory\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"get\":\"" << this->dataMemory.get() << "\"," << endl;
+    outfile << "            \"memRead\":\"" << this->dataMemory.getMemRead() << "\"," << endl;
+    outfile << "            \"memWrite\":\"" << this->dataMemory.getMemWrite() << "\"," << endl;
+    outfile << "            \"address\":\"" << this->dataMemory.getAddress() << "\"," << endl;
+    outfile << "            \"data\":\"" << this->dataMemory.getData() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"registerFile\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"data1\":\"" << this->registerFile.getData1() << "\"," << endl;
+    outfile << "            \"data2\":\"" << this->registerFile.getData2() << "\"," << endl;
+    outfile << "            \"writeData\":\"" << this->registerFile.getWriteData() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"alu1\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"input1\":\"" << this->alu1.getInput1() << "\"," << endl;
+    outfile << "            \"input2\":\"" << this->alu1.getInput2() << "\"," << endl;
+    outfile << "            \"opNum\":\"" << this->alu1.getOpNum() << "\"," << endl;
+    outfile << "            \"zeroFlag\":\"" << this->alu1.getZeroFlag() << "\"," << endl;
+    outfile << "            \"result\":\"" << "0x" << hex << stol(this->alu1.getResult(), nullptr, 2) << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"alu2\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"input1\":\"" << this->alu2.getInput1() << "\"," << endl;
+    outfile << "            \"input2\":\"" << this->alu2.getInput2() << "\"," << endl;
+    outfile << "            \"opNum\":\"" << this->alu2.getOpNum() << "\"," << endl;
+    outfile << "            \"zeroFlag\":\"" << this->alu2.getZeroFlag() << "\"," << endl;
+    outfile << "            \"result\":\"" << this->alu2.getResult() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"alu3\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"input1\":\"" << this->alu3.getInput1() << "\"," << endl;
+    outfile << "            \"input2\":\"" << this->alu3.getInput2() << "\"," << endl;
+    outfile << "            \"opNum\":\"" << this->alu3.getOpNum() << "\"," << endl;
+    outfile << "            \"zeroFlag\":\"" << this->alu3.getZeroFlag() << "\"," << endl;
+    outfile << "            \"result\":\"" << this->alu3.getResult() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"mux1\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"choice1\":\"" << this->multiplexer1.getChoice1() << "\"," << endl;
+    outfile << "            \"choice2\":\"" << this->multiplexer1.getChoice2() << "\"," << endl;
+    outfile << "            \"control\":\"" << this->multiplexer1.getControl() << "\"," << endl;
+    outfile << "            \"get\":\"" << this->multiplexer1.get() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"mux2\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"choice1\":\"" << this->multiplexer2.getChoice1() << "\"," << endl;
+    outfile << "            \"choice2\":\"" << this->multiplexer2.getChoice2() << "\"," << endl;
+    outfile << "            \"control\":\"" << this->multiplexer2.getControl() << "\"," << endl;
+    outfile << "            \"get\":\"" << this->multiplexer2.get() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"mux3\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"choice1\":\"" << this->multiplexer3.getChoice1() << "\"," << endl;
+    outfile << "            \"choice2\":\"" << this->multiplexer3.getChoice2() << "\"," << endl;
+    outfile << "            \"control\":\"" << this->multiplexer3.getControl() << "\"," << endl;
+    outfile << "            \"get\":\"" << this->multiplexer3.get() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"mux4\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"choice1\":\"" << this->multiplexer4.getChoice1() << "\"," << endl;
+    outfile << "            \"choice2\":\"" << this->multiplexer4.getChoice2() << "\"," << endl;
+    outfile << "            \"control\":\"" << this->multiplexer4.getControl() << "\"," << endl;
+    outfile << "            \"get\":\"" << this->multiplexer4.get() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"mux5\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"choice1\":\"" << this->multiplexer5.getChoice1() << "\"," << endl;
+    outfile << "            \"choice2\":\"" << this->multiplexer5.getChoice2() << "\"," << endl;
+    outfile << "            \"control\":\"" << this->multiplexer5.getControl() << "\"," << endl;
+    outfile << "            \"get\":\"" << "0x" << hex << stol(this->multiplexer5.get(), nullptr, 2) << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"shiftLeftTwo1\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"input\":\"" << this->shiftLeftTwo1.getInput() << "\"," << endl;
+    outfile << "            \"get\":\"" << this->shiftLeftTwo1.get() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"shiftLeftTwo2\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"input\":\"" << this->shiftLeftTwo2.getInput() << "\"," << endl;
+    outfile << "            \"get\":\"" << this->shiftLeftTwo2.get() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"control\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"regDst\":\"" << this->control.getRegDst() << "\"," << endl;
+    outfile << "            \"jump\":\"" << this->control.getJump() << "\"," << endl;
+    outfile << "            \"branch\":\"" << this->control.getBranch() << "\"," << endl;
+    outfile << "            \"memWrite\":\"" << this->control.getMemWrite() << "\"," << endl;
+    outfile << "            \"memRead\":\"" << this->control.getMemRead() << "\"," << endl;
+    outfile << "            \"memToReg\":\"" << this->control.getMemToReg() << "\"," << endl;
+    outfile << "            \"aluOp\":\"" << this->control.getAluOp() << "\"," << endl;
+    outfile << "            \"aluSrc\":\"" << this->control.getAluSrc() << "\"," << endl;
+    outfile << "            \"regWrite\":\"" << this->control.getRegWrite() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"aluControl\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"get\":\"" << this->aluControl.get() << "\"," << endl;
+    outfile << "            \"opCode\":\"" << this->aluControl.getOpCode() << "\"," << endl;
+    outfile << "            \"functionCode\":\"" << this->aluControl.getFunctionCode() << "\"" << endl;
+    outfile << "        }," << endl;
+
+    outfile << "    \"signExtend\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"get\":\"" << this->signExtend.get() << "\"," << endl;
+    outfile << "            \"input\":\"" << this->signExtend.getInput() << "\"" << endl;
+    outfile << "        }," << endl;
+    outfile << "    \"metaData\":" << endl;
+    outfile << "        {" << endl;
+    outfile << "            \"instructionNum\":\"" << this->instructionNum << "\"," << endl;
+    outfile << "            \"instructionString\":\"" << this->instructionMemory.getInstructionAsString() << "\"" << endl;
+    outfile << "        }" << endl;
+    outfile << "}";
+    outfile.close();
 }

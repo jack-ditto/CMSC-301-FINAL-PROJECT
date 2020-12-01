@@ -26,3 +26,7 @@ void SignExtend::toString(){
   cout << "------------------------------" << endl;
   cout << endl;
 }
+
+string SignExtend::getInput() {
+  return this->input;
+}

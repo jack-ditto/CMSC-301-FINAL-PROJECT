@@ -22,6 +22,8 @@ class InstructionMemory{
     string getForRegTwo();
     string getForMuxOne();
     string getForALUControl();
+    string getInstruction();
+    string getInstructionAsString();
     void toString();
     bool isEnd();
     void printMap();

@@ -12,4 +12,5 @@ class SignExtend{
     void setInput(string in);
     string get();
     void toString();
+    string getInput();
 };

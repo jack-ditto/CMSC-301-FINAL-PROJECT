@@ -13,6 +13,7 @@ public:
     string get();              // get the shifted left input binary string as binary string
     void set(string input);    // set the input binary string
     void toString();
+    string getInput();
 
 private:
     string output;       // store output

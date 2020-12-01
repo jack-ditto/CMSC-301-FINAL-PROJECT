@@ -15,6 +15,8 @@
 #include "RegisterFile.h"
 #include "ShiftLeftTwo.h"
 #include "SignExtend.h"
+#include <fstream>
+
 
 using namespace std;
 
@@ -47,6 +49,8 @@ class Processor{
         ALUControl aluControl;
         SignExtend signExtend;
         string concatinatePC(string shift, int pc);
+        void writeWebInterfaceJson();
+        int instructionNum;
 
         bool endExecution = false;
         bool debugMode;

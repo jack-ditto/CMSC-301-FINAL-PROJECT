@@ -91,6 +91,21 @@ void DataMemory::toString(){
   cout << endl;
 }
 
+bool DataMemory::getMemRead() {
+  return this->MemRead;
+}
+
+bool DataMemory::getMemWrite() {
+  return this->MemWrite;
+}
+
+string DataMemory::getAddress() {
+  return this->address;
+}
+
+string DataMemory::getData() {
+  return this->data;
+}
 
 //print outputs the contents of the DataMemory map
 //
@@ -102,5 +117,4 @@ void DataMemory::printMap(){
     cout << hex << "0x" << it->first << " => " << "0x" << it->second << endl;
   }
   cout << "------------------" << endl;
-  cout << endl;
 }

@@ -70,3 +70,7 @@ void ShiftLeftTwo::toString()
     cout << "--------------------------" << endl;
     cout << endl;
 }
+
+string ShiftLeftTwo::getInput() {
+    return this->input;
+}
