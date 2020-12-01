@@ -14,8 +14,9 @@ ConfigParser::ConfigParser(string filename){
     ifstream in;
     in.open(filename.c_str());
 
-    if(in.bad()){
-        std::cout << "BAD Config FILE!!!" << std::endl;
+    if(!in){
+        std::cerr << "BAD Config FILE!!!" << std::endl;
+        exit(1);
     }
     else{
         string line;
@@ -42,7 +43,7 @@ void ConfigParser::setInstructions(){
     parser = new ASMParser(configParameters["program_input"]);
 
     if(parser->isFormatCorrect() == false){
-        cerr << "Format of input file is incorrect " << endl;
+        cerr << "Format of asm file is incorrect " << endl;
         exit(1);
     }
 
@@ -57,8 +58,9 @@ void ConfigParser::setMemory(){
     ifstream in;
     in.open(configParameters["memory_contents_input"].c_str());
 
-    if(in.bad()){
+    if(!in){
         std::cout << "BAD memory FILE!!!" << std::endl;
+        exit(1);
     }
     else{
         string line;
@@ -82,8 +84,9 @@ void ConfigParser::setRegisters(){
     ifstream in;
     in.open(configParameters["register_file_input"].c_str());
 
-    if(in.bad()){
+    if(!in){
         std::cout << "BAD register FILE!!!" << std::endl;
+        exit(1);
     }
     else{
         string line;
