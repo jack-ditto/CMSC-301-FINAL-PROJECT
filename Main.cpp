@@ -38,9 +38,9 @@ int main(int argc, char const *argv[])
 	Processor processor = Processor(parser->getInstructions(), parser->getMemory(), parser->getRegisters());
 	processor.setParameters(parser->debugMode(), parser->printMemoryContents(), parser->writeToFile(), parser->getFileName());
 
-	std::ofstream out("out.txt");
-    std::streambuf *coutbuf = std::cout.rdbuf();
-    std::cout.rdbuf(out.rdbuf());
+	// std::ofstream out("out.txt");
+    // std::streambuf *coutbuf = std::cout.rdbuf();
+    // std::cout.rdbuf(out.rdbuf());
 
 	try{
 		while (!processor.finishedExecution()){
@@ -52,8 +52,8 @@ int main(int argc, char const *argv[])
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout.rdbuf(coutbuf); //reset to standard output again
-	out.close();
+	// std::cout.rdbuf(coutbuf); //reset to standard output again
+	// out.close();
 
 	delete parser;
 	return 0;

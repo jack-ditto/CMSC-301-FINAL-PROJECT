@@ -8,6 +8,7 @@ class ALU
 {
 
 public:
+    static int counter;
     ALU();                                                   // constructor
     void setValues(int opNum, string input1, string input2); // set all values for ALU
     void setOperation(int opNum);                            // set op number
@@ -21,6 +22,7 @@ public:
     void toString();                                         // to string method
 
 private:
+    int id;
     string input1;            // binary string input one
     string input2;            // binary string input two
     string result;            // binary string result

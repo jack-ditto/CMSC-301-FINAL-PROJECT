@@ -1,10 +1,14 @@
 #include "Multiplexer.h"
 
+int Multiplexer::counter = 0;
+
 /**
  * Default / typical use constructor
  */
 Multiplexer::Multiplexer()
 {
+    id = Multiplexer::counter;
+    Multiplexer::counter++;
 }
 
 /**
@@ -83,12 +87,12 @@ int Multiplexer::getControl() {
 }
 
 void Multiplexer::toString() {
-    cout << "Contents of Multiplexer:" << endl;
+    cout << "Contents of Multiplexer " << id << ":" << endl;
     cout << "------------------------" << endl;
-    cout << "Choice 1 => 0x" << hex << this->choice1 << endl;
-    cout << "Choice 2 => 0x" << hex << this->choice2 << endl;
+    cout << "Choice 1 => 0x" << hex << stol(this->choice1,nullptr,2) << endl;
+    cout << "Choice 2 => 0x" << hex << stol(this->choice2,nullptr,2) << endl;
     cout << "Control => 0x" << hex << this->control << endl;
-    cout << "Output => 0x" << hex << this->output << endl;
+    cout << "Output => 0x" << hex << stol(this->output,nullptr,2) << endl;
     cout << "------------------------" << endl;
     cout << endl;
 }
