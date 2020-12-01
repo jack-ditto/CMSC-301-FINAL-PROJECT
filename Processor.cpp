@@ -90,11 +90,6 @@ void Processor::step(){
     programCounter.set(multiplexer5.get());
     //registerFile.printMap();
 
-    multiplexer1.toString();
-    multiplexer2.toString();
-    multiplexer3.toString();
-    multiplexer4.toString();
-    multiplexer5.toString();
 }
 void Processor::print(){
     instructionMemory.printAssembly();
