@@ -20,7 +20,6 @@ RegisterFile::RegisterFile(){}
 //parameter - string write
 //
 void RegisterFile::setWriteRegister(string write){
-  cout << "test123" << write << endl;
   writeRegister = stoi(write,nullptr,2);
 }
 
@@ -82,22 +81,25 @@ string RegisterFile::getWriteData(){return writeData;}
 void RegisterFile::toString(){
   cout << "Contents of RegisterFile: " << endl;
   cout << "--------------------------" << endl;
-  cout << "Read Register 1 contains: " << readRegister1 << endl;
-  cout << "Read Register 2 contains: " << readRegister2 << endl;
-  cout << "Write Register contains: " << writeRegister << endl;
-  cout << "Read Data 1 contains: " << readData1 << endl;
-  cout << "Read Data 2 contains: " << readData2 << endl;
-  cout << "Write Data contains: " << writeData << endl;
-  cout << "regWrite flag set to: " << regWrite << endl;
+  cout << "Read Register 1 => " << "0x" << hex << readRegister1 << endl;
+  cout << "Read Register 2 => " << "0x" << hex << readRegister2 << endl;
+  cout << "Write Register => " << "0x" << hex << writeRegister << endl;
+  cout << "Read Data 1 => " << "0x" << hex << stol(readData1,nullptr,2) << endl;
+  cout << "Read Data 2 => " << "0x" << hex << stol(readData2,nullptr,2) << endl;
+  cout << "Write Data => " << "0x" << hex << writeData << endl;
+  cout << "regWrite flag => " << "0x" << hex << regWrite << endl;
   cout << "-------------------------" << endl;
+  cout << endl;
 }
 
 //printMap prints out the full contents of the RegisterFile
 //
 void RegisterFile::printMap(){
-  cout << "Print Map" << endl;
+  cout << "Print RegisterFile Map" << endl;
   cout << "------------------" << endl;
   for (map<int,long>::iterator it = regMap.begin(); it != regMap.end(); it++){
     cout << dec << it->first << " => " << "0x" << hex << it->second << endl;
   }
+  cout << "------------------" << endl;
+  cout << endl;
 }

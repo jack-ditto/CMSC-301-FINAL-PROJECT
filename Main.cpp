@@ -17,6 +17,15 @@ int main(int argc, char const *argv[])
 	Processor processor = Processor(parser->getInstructions(), parser->getMemory(), parser->getRegisters());
 
 	std::cout << parser->outputMode() << std::endl;
-	processor.step();
+
+	try{
+		while (!processor.finishedExecution()){
+			processor.step();
+		}
+	}catch(const std::invalid_argument& e){
+		std::cout << e.what() << std::endl;
+	}
+
+	delete parser;
 	return 0;
 }

@@ -11,7 +11,7 @@ Processor::Processor(map<long, vector<string>> instructionMap,
 
 string concatenatePC(string shift, int pc){
     string programC = bitset<32>(pc).to_string();
-    string result = programC.substr(0, 4) + shift;
+    string result = programC.substr(0, 4) + shift.substr(5, 28);
     return result;
 }
 
@@ -22,6 +22,11 @@ void Processor::step(){
     programCounter.toString();
     // Pass PC to instruction memory
     instructionMemory.setAddress(pc);
+
+    if(instructionMemory.isEnd()){
+        endExecution = true;
+        return;
+    }
 
     instructionMemory.toString();
     // passes bits 31-26 of the instruction into the control unit
@@ -37,7 +42,6 @@ void Processor::step(){
     multiplexer1.setChoices(instructionMemory.getForRegTwo(), instructionMemory.getForMuxOne());
     // Pass RegDst from control to mux1
     multiplexer1.setControl(control.getRegDst());
-    std::cout << "regdst is: " << dec << control.getRegDst() << std::endl;
     // Pass the result of mux1 to write register
     registerFile.setWriteRegister(multiplexer1.get());
     registerFile.toString();
@@ -52,8 +56,6 @@ void Processor::step(){
     multiplexer2.setControl(control.getAluSrc());
     // Pass ReadData1 and the result of mux2 and alucontrol into ALU3
     alu3.setValues(aluControl.get(), registerFile.getData1(), multiplexer2.get());
-
-    std::cout << "ALU output: " << alu3.getResult() << std::endl;
 
     // Pass the result of ALU3 to DataMemory address
     dataMemory.setAddr(alu3.getResult());
@@ -77,8 +79,10 @@ void Processor::step(){
     shiftLeftTwo1.set(instructionMemory.getForShift());
     // Set shiftLetTwo2 to 32b output of sign extend
     shiftLeftTwo2.set(signExtend.get());
+
     // Set values of alu2 to output of alu1 and shiftleftTwo2
     alu2.setValues(0, alu1.getResult(), shiftLeftTwo2.get());
+
     // Set choices of mux4 to output of alu1 and alu2
     multiplexer4.setChoices(alu1.getResult(), alu2.getResult());
     // Set control of mux4 to (branch AND zero) flags
@@ -89,8 +93,5 @@ void Processor::step(){
     multiplexer5.setControl(control.getJump());
     // Updates PC to output of mux5
     programCounter.set(multiplexer5.get());
-    registerFile.printMap();
+    //registerFile.printMap();
 }
-
-
-

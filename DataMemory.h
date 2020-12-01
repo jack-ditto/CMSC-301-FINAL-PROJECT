@@ -23,4 +23,5 @@ class DataMemory{
     void setMemWrite(bool in);
     void toString();
     void setWriteData(string str);
+    void printMap();
 };

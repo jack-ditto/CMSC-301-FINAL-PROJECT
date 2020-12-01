@@ -36,7 +36,7 @@ ASMParser::ASMParser(string filename)
 
   if(myFormatCorrect){
     // for every line in initial instructions with removed labels
-    int address = 0x400000;
+    long address = 0x400000;
     for(auto& line : initialInstructions){
       string opcode("");
       string operand[80];
@@ -63,7 +63,7 @@ ASMParser::ASMParser(string filename)
         break;
       }
 
-      string encoding = encode(i);
+      string encoding = encode(i, address);
       i.setEncoding(encoding);
 
       // std::cout << line << "\t::::: " << i.getEncoding() << std::endl;
@@ -307,16 +307,17 @@ bool ASMParser::getOperands(Instruction &i, Opcode o,
     if(isNumberString(operand[imm_p])){  // does it have a numeric immediate field?
       imm = cvtNumString2Number(operand[imm_p]);
       if(((abs(imm) & 0xFFFF0000)<<1))  // too big a number to fit
-	      return false;
-    }else if(isNumberHex(operand[imm_p])){
+	return false;
+    }else if(labelHolder.count(operand[imm_p]) == 0){
       imm = stol(operand[imm_p], nullptr, 16);
     }
     else{
       if(opcodes.isIMMLabel(o)){  // Can the operand be a label?
-	      // Assign the immediate field an address
-        imm = labelHolder[operand[imm_p]];
-      }else  // There is an error
-	      return false;
+	// Assign the immediate field an address
+imm = labelHolder[operand[imm_p]];
+      }
+      else  // There is an error
+	return false;
     }
 
   }
@@ -327,7 +328,7 @@ bool ASMParser::getOperands(Instruction &i, Opcode o,
 }
 
 
-string ASMParser::encode(Instruction i)
+string ASMParser::encode(Instruction i, long pc)
   // Given a valid instruction, returns a string representing the 32 bit MIPS binary encoding
   // of that instruction.
 {
@@ -365,7 +366,11 @@ string ASMParser::encode(Instruction i)
       }
     }
     // write 16 bits of immediate value
-    str += std::bitset<16>(instructionImmediate).to_string();
+    if(opcodes.getOpcodeField(instructionOpcode) == "000100"){
+      int offset = instructionImmediate - (pc + 4);
+      str += std::bitset<18>(offset).to_string().substr(0, 16);
+    }else
+      str += std::bitset<16>(instructionImmediate).to_string();
     // if JTYPE
   } else{
     string address = std::bitset<32>(instructionImmediate).to_string();

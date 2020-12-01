@@ -1,5 +1,6 @@
 #include "DataMemory.h"
 #include <iostream>
+#include <exception>
 
 //constructor creates a map of data and their corresponding address
 //
@@ -26,6 +27,12 @@ void DataMemory::setAddr(string input){address = input;}
 //parameter - bool in
 void DataMemory::setMemWrite(bool in){
   MemWrite = in;
+  //if writing or reading, check for invalid address and empty string
+  if (MemWrite || MemRead){
+    if (address == "" || memMap.count(stol(address,nullptr,2)) == 0){
+    throw invalid_argument("address is not in the DataMemory");
+    }
+  }
   if (MemWrite){
     write();
   }
@@ -47,7 +54,7 @@ string DataMemory::get(){
   if (!MemRead){
     return "00000000000000000000000000000000";
   }
-  return bitset<32>(memMap.at(stol(address))).to_string();
+  return bitset<32>(memMap.at(stol(address,nullptr,2))).to_string();
 }
 
 //set initializes data string to input
@@ -66,22 +73,34 @@ void DataMemory::setWriteData(string str){
 //    long value
 //
 void DataMemory::write(){
-  long addr = stol(address);
-  long d = stol(data);
+  long addr = stol(address,nullptr,2);
+  long d = stol(data,nullptr,2);
   memMap[addr] = d;
 }
-
 
 
 //toString prints out the contents of DataMemory
 void DataMemory::toString(){
   cout << "Contents of DataMemory: " << endl;
-  cout << "MemRead: " << MemRead << endl;
-  cout << "MemWrite: " << MemWrite << endl;
-  cout << "Write Data: " << data << endl;
-  cout << "Read Data: " << address << endl;
+  cout << "------------------------" << endl;
+  cout << "MemRead => 0x" << hex << MemRead << endl;
+  cout << "MemWrite => 0x" << hex << MemWrite << endl;
+  cout << "Write Data => 0x" << hex << stol(data,nullptr,2) << endl;
+  cout << "Read Data => 0x" << hex << stol(address,nullptr,2) << endl;
+  cout << "------------------------" << endl;
+  cout << endl;
+}
 
-  /*for (map<long,long>::iterator it = memMap.begin; it != memMap.end(); it++){
-    cout << it->first << " => " << it->second << endl;
-  }*/
+
+//print outputs the contents of the DataMemory map
+//
+void DataMemory::printMap(){
+
+  cout << "Print DataMemory Map" << endl;
+  cout << "------------------" << endl;
+  for (map<long,long>::iterator it = memMap.begin(); it != memMap.end(); it++){
+    cout << hex << "0x" << it->first << " => " << "0x" << it->second << endl;
+  }
+  cout << "------------------" << endl;
+  cout << endl;
 }
