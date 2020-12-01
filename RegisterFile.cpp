@@ -45,6 +45,7 @@ void RegisterFile::setReadReg2(string val){
 
 
 void RegisterFile::setWriteData(string in){
+  writeData = in;
   if (regWrite){
     long input = stol(in,nullptr,2);
     regMap[writeRegister] = input;
@@ -86,7 +87,7 @@ void RegisterFile::toString(){
   cout << "Write Register => 0x" << hex << writeRegister << endl;
   cout << "Read Data 1 => 0x" << hex << stol(readData1,nullptr,2) << endl;
   cout << "Read Data 2 => 0x" << hex << stol(readData2,nullptr,2) << endl;
-  cout << "Write Data => 0x" << hex << writeData << endl;
+  cout << "Write Data => 0x" << hex << stol(writeData,nullptr,2) << endl;
   cout << "regWrite flag => 0x" << hex << regWrite << endl;
   cout << "-------------------------" << endl;
   cout << endl;
