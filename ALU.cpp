@@ -180,8 +180,8 @@ string ALU::getInput2() {
 void ALU::toString() {
     cout << "Contents of ALU " << id << ":" << endl;
     cout << "-------------------------" << endl;
-    cout << "Input 1 => 0x" << hex << this->input1 << endl;
-    cout << "Input 2 => 0x" << hex << this->input2 << endl;
+    cout << "Input 1 => 0x" << hex << stol(this->input1, nullptr, 2) << endl;
+    cout << "Input 2 => 0x" << hex << stol(this->input2, nullptr, 2) << endl;
     cout << "Operation Number => 0x" << hex << this->operationNum << endl;
     cout << "Zero flag => 0x" << hex << this->zeroFlag << endl;
     cout << "-------------------------" << endl;
