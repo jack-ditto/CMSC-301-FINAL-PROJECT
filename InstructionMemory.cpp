@@ -111,7 +111,7 @@ void InstructionMemory::printMap(){
   for (map<long,vector<string>>::iterator it = instrMap.begin(); it != instrMap.end(); it++){
     vector<string> temp = it->second;
     string inst = temp.at(1);
-    cout << hex << "0x" << hex << it->first << " => " << "0x" << hex << inst << endl;
+    cout << hex << "0x" << hex << it->first << " => " << "0x" << hex << stol(inst,nullptr,2) << endl;
   }
   cout << endl;
 }
