@@ -3,27 +3,6 @@
 
 using namespace std;
 
-
-class stream_redirection
-{
-    std::ostream& from;
-    std::ofstream to;
-    std::streambuf *const saved;
-public:
-    stream_redirection(std::ostream& from, const std::string& filename)
-        : from{from},
-          to{filename},
-          saved{from.rdbuf(to.rdbuf())}
-    {}
-    stream_redirection(const stream_redirection&) = delete;
-    void operator=(const stream_redirection&) = delete;
-    ~stream_redirection()
-    {
-        from.rdbuf(saved);
-    }
-};
-
-
 int main(int argc, char const *argv[])
 {
 	ConfigParser *parser;
@@ -36,11 +15,14 @@ int main(int argc, char const *argv[])
 
 	parser = new ConfigParser(argv[1]);
 	Processor processor = Processor(parser->getInstructions(), parser->getMemory(), parser->getRegisters());
-	processor.setParameters(parser->debugMode(), parser->printMemoryContents(), parser->writeToFile(), parser->getFileName());
+	processor.setParameters(parser->debugMode(), parser->printMemoryContents());
 
-	// std::ofstream out("out.txt");
-    // std::streambuf *coutbuf = std::cout.rdbuf();
-    // std::cout.rdbuf(out.rdbuf());
+	std::streambuf *coutbuf = std::cout.rdbuf();
+	std::ofstream out(parser->getFileName());
+
+	if(parser->writeToFile()){
+		std::cout.rdbuf(out.rdbuf());
+	}
 
 	try{
 		while (!processor.finishedExecution()){
@@ -52,8 +34,10 @@ int main(int argc, char const *argv[])
 		std::cout << e.what() << std::endl;
 	}
 
-	// std::cout.rdbuf(coutbuf); //reset to standard output again
-	// out.close();
+	if(parser->writeToFile()){
+		std::cout.rdbuf(coutbuf); //reset to standard output again
+		out.close();
+	}
 
 	delete parser;
 	return 0;

@@ -19,7 +19,6 @@ void Processor::step(){
     // Get PC from program counter
     long pc = programCounter.get();
 
-    programCounter.toString();
     // Pass PC to instruction memory
     instructionMemory.setAddress(pc);
 
@@ -27,10 +26,9 @@ void Processor::step(){
         endExecution = true;
         return;
     }
-    instructionMemory.toString();
+
     // passes bits 31-26 of the instruction into the control unit
     control.setInstruction(instructionMemory.getForControl());
-    control.toString();
     // Pass regist write value into register unit
     registerFile.setRegWrite(control.getRegWrite());
     // Pass bits 25-21 into read register one
@@ -43,7 +41,6 @@ void Processor::step(){
     multiplexer1.setControl(control.getRegDst());
     // Pass the result of mux1 to write register
     registerFile.setWriteRegister(multiplexer1.get());
-    registerFile.toString();
 
     // Pass bits 15-0 to Sign extend
     signExtend.setInput(instructionMemory.getForExtend());
@@ -64,7 +61,6 @@ void Processor::step(){
     dataMemory.setMemRead(control.getMemRead());
     // Pass MemWrite control bits to DataMemory
     dataMemory.setMemWrite(control.getMemWrite());
-    dataMemory.toString();
     // Set choices of mux3 to result of ALU3 (0) and read data in DatMemory (1)
     multiplexer3.setChoices(alu3.getResult(), dataMemory.get());
     // Set mux3 control bits to MemToReg
@@ -100,11 +96,16 @@ void Processor::step(){
     multiplexer4.toString();
     multiplexer5.toString();
 }
-void Processor::print(){}
+void Processor::print(){
+    instructionMemory.printAssembly();
+    programCounter.toString();
+    instructionMemory.toString();
+    control.toString();
+    registerFile.toString();
+    dataMemory.toString();
+}
 
-void Processor::setParameters(bool debugMode, bool printMemoryContents, bool writeToFile, string fileName){
+void Processor::setParameters(bool debugMode, bool printMemoryContents){
     this->debugMode = debugMode;
     this->printMemoryContents = printMemoryContents;
-    this->writeToFile = writeToFile;
-    this->fileName = fileName;
 }
