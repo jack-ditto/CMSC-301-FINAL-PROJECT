@@ -36,7 +36,7 @@ void Control::setInstruction(string instruction)
 
     // Jump (j)
     else if (instruction == "000010")
-        setValues(0, 0, 0, 0, 0, 0, 0, instruction, 1);
+        setValues(-1, -1, -1, 0, 0, 0, 0, instruction, 1);
 }
 
 /**
@@ -57,32 +57,32 @@ void Control::setValues(int regDst, int aluSrc, int memToReg, int regWrite, int 
 }
 
 // Getters
-bool Control::getRegDst()
+int Control::getRegDst()
 {
     return this->regDst;
 }
 
-bool Control::getJump()
+int Control::getJump()
 {
     return this->jump;
 }
 
-bool Control::getBranch()
+int Control::getBranch()
 {
     return this->branch;
 }
 
-bool Control::getMemWrite()
+int Control::getMemWrite()
 {
     return this->memWrite;
 }
 
-bool Control::getMemRead()
+int Control::getMemRead()
 {
     return this->memRead;
 }
 
-bool Control::getMemToReg()
+int Control::getMemToReg()
 {
     return this->memToReg;
 }
@@ -92,12 +92,12 @@ string Control::getAluOp()
     return this->aluOp;
 }
 
-bool Control::getAluSrc()
+int Control::getAluSrc()
 {
     return this->aluSrc;
 }
 
-bool Control::getRegWrite()
+int Control::getRegWrite()
 {
     return this->regWrite;
 }
