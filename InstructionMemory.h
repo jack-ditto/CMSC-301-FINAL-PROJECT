@@ -27,4 +27,5 @@ class InstructionMemory{
     void toString();
     bool isEnd();
     void printMap();
+    void printAssembly();
 };

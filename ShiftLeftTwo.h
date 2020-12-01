@@ -8,6 +8,7 @@ class ShiftLeftTwo
 {
 
 public:
+    static int counter;
     ShiftLeftTwo();            // default constructor
     ShiftLeftTwo(int unitNum); // constructor to which ShiftLeftTwo unit
     string get();              // get the shifted left input binary string as binary string
@@ -16,6 +17,7 @@ public:
     string getInput();
 
 private:
+    int id;
     string output;       // store output
     string input;        // store input
     int unitNum;         // store output bit string size
