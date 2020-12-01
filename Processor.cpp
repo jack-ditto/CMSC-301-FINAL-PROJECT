@@ -93,7 +93,6 @@ void Processor::step(){
 
     // Updates PC to output of mux5
     programCounter.set(result);
-    //registerFile.printMap();
 
 }
 void Processor::print(){
@@ -118,6 +117,12 @@ void Processor::print(){
 
     shiftLeftTwo1.toString();
     shiftLeftTwo2.toString();
+
+    if(printMemoryContents){
+        instructionMemory.printMap();
+        registerFile.printMap();
+        dataMemory.printMap();
+    }
 }
 
 void Processor::setParameters(bool debugMode, bool printMemoryContents){
