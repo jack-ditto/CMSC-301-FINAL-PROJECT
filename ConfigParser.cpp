@@ -119,3 +119,28 @@ map<int, long> ConfigParser::getRegisters(){
 string ConfigParser::outputMode(){
     return configParameters["output_mode"];
 }
+
+string ConfigParser::getFileName(){
+    return configParameters["output_file"];
+}
+
+bool ConfigParser::printMemoryContents(){
+    if(configParameters["print_memory_contents"] == "true")
+        return true;
+    else
+        return false;
+}
+
+bool ConfigParser::debugMode(){
+    if(configParameters["debug_mode"] == "true")
+        return true;
+    else
+        return false;
+}
+
+bool ConfigParser::writeToFile(){
+    if(configParameters["write_to_file"] == "true")
+        return true;
+    else
+        return false;
+}
