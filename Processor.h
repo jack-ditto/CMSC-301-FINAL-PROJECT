@@ -22,7 +22,9 @@ class Processor{
     public:
         Processor(map<long, vector<string>> instructionMap,
             map<long, long> memoryMap, map<int, long> registerMap);
+        void setParameters(bool debugMode, bool printMemoryContents, bool writeToFile, string fileName);
         void step();
+        void print();
 
         inline bool finishedExecution(){ return endExecution; }
 
@@ -47,5 +49,10 @@ class Processor{
         string concatinatePC(string shift, int pc);
 
         bool endExecution = false;
+        bool debugMode;
+        bool printMemoryContents;
+        bool writeToFile;
+        string fileName;
+
 };
 #endif

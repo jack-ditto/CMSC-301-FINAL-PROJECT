@@ -95,3 +95,11 @@ void Processor::step(){
     programCounter.set(multiplexer5.get());
     //registerFile.printMap();
 }
+void Processor::print(){}
+
+void Processor::setParameters(bool debugMode, bool printMemoryContents, bool writeToFile, string fileName){
+    this->debugMode = debugMode;
+    this->printMemoryContents = printMemoryContents;
+    this->writeToFile = writeToFile;
+    this->fileName = fileName;
+}
