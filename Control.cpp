@@ -113,7 +113,7 @@ void Control::toString()
     cout << "memRead => 0x" << hex << this->memRead << endl;
     cout << "memWrite => 0x" << hex << this->memWrite << endl;
     cout << "branch => 0x" << hex << this->branch << endl;
-    cout << "aluOp => 0x" << hex << this->aluOp << endl;
+    cout << "aluOp => 0x" << hex << stol(this->aluOp, nullptr, 2) << endl;
     cout << "jump => 0x" << hex << this->jump << endl;
     cout << "--------------------" << endl;
     cout << endl;
