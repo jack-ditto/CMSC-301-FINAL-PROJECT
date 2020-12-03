@@ -38,6 +38,7 @@ class ASMParser{
   // Iterator that returns the next Instruction in the list of Instructions.
   Instruction getNextInstruction();
 
+  // Get the instruction map for Config Parser
   map<long,vector<string>> getInstructionMap();
 
  private:

@@ -21,14 +21,16 @@ using namespace std;
 class Processor{
     public:
         Processor(map<long, vector<string>> instructionMap,
-            map<long, long> memoryMap, map<int, long> registerMap);
-        void setParameters(bool debugMode, bool printMemoryContents);
-        void step();
-        void print();
-
+            map<long, long> memoryMap, map<int, long> registerMap);     // Constructor
+        ~Processor(){}
+        void setParameters(bool debugMode, bool printMemoryContents);   // Set parameters
+        void step();    // Execute one instruction
+        void print();   // Print output
         inline bool finishedExecution(){ return endExecution; }
 
     private:
+
+        // Declare all components
         ProgramCounter programCounter;
         InstructionMemory instructionMemory;
         DataMemory dataMemory;
@@ -45,9 +47,9 @@ class Processor{
         ShiftLeftTwo shiftLeftTwo2;
         Control control;
         ALUControl aluControl;
-        SignExtend signExtend;
-        string concatinatePC(string shift, int pc);
+        SignExtend signExtend;;
 
+        // Declare parameters
         bool endExecution = false;
         bool debugMode;
         bool printMemoryContents;

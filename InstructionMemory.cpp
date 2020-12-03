@@ -1,7 +1,7 @@
 #include "InstructionMemory.h"
 #include <iostream>
 #include <vector>
-//#include <fsteam>
+
 
 //constructor creates a map of instructions and their corresponding address
 //
@@ -12,11 +12,13 @@ InstructionMemory::InstructionMemory(map<long,vector<string>> instructionsMap){
 }
 
 
-//Empty constructor just initializes InstructionMemory
+//Empty constructor initializes InstructionMemory
+//
 InstructionMemory::InstructionMemory(){}
 
 
 //setAddress sets the address instance variable to the current pc
+//
 void InstructionMemory::setAddress(long pc){
   if (instrMap.count(pc) == 0){
     endFile = true;
@@ -34,7 +36,8 @@ bool InstructionMemory::isEnd(){return endFile;}
 
 //getForControl returns the bits 31-26 for the control unit
 //
-//Return - binary string
+//Return - string getForControl
+//
 string InstructionMemory::getForControl(){
   vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
@@ -44,7 +47,8 @@ string InstructionMemory::getForControl(){
 
 //getForShift returns the bits 25-0 for the shift left 2 unit
 //
-//Return - binary string
+//Return - string getForShift
+//
 string InstructionMemory::getForShift(){
   vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
@@ -54,7 +58,8 @@ string InstructionMemory::getForShift(){
 
 //getForExtend returns the bits 15-0 for the sign extend unit
 //
-//Return - binary string
+//Return - string getForExtend
+//
 string InstructionMemory::getForExtend(){
   vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
@@ -64,7 +69,8 @@ string InstructionMemory::getForExtend(){
 
 //getForRegOne returns the bits 25-21 for read register 1
 //
-//Return - binary string
+//Return - string getForRegOne
+//
 string InstructionMemory::getForRegOne(){
   vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
@@ -75,7 +81,8 @@ string InstructionMemory::getForRegOne(){
 //getForRegTwo returns the bits 20-16 for read register 2 and the top part
 // of the multiplexor
 //
-//Return - binary string
+//Return - strin getForRegTwo
+//
 string InstructionMemory::getForRegTwo(){
   vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
@@ -85,7 +92,8 @@ string InstructionMemory::getForRegTwo(){
 
 //getForMuxOne returns the bits 15-11 for the bottom of the multiplexor
 //
-//Return - binary string
+//Return - string getForMuxOne
+//
 string InstructionMemory::getForMuxOne(){
   vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
@@ -95,7 +103,8 @@ string InstructionMemory::getForMuxOne(){
 
 //getForALUControl returns the bits 5-0 for alu control
 //
-//Return - binary string
+//Return - string getForALUControl
+//
 string InstructionMemory::getForALUControl(){
   vector<string> temp = instrMap.at(address);
   string str = temp.at(1);
@@ -103,7 +112,7 @@ string InstructionMemory::getForALUControl(){
 }
 
 
-//toString prints out the contents of InstructionMemory
+//printMap prints out the contents of InstructionMemory
 //
 void InstructionMemory::printMap(){
   cout << "Print InstructionMemory Map: " << endl;
@@ -116,6 +125,9 @@ void InstructionMemory::printMap(){
   cout << endl;
 }
 
+
+//toString prints out the contents of InstructionMemory
+//
 void InstructionMemory::toString(){
   cout << "Contents of InstructionMemory: " << endl;
   cout << "-------------------------------" << endl;
@@ -125,6 +137,9 @@ void InstructionMemory::toString(){
   cout << endl;
 }
 
+
+//printAssembly prints out the assembly instruction
+//
 void InstructionMemory::printAssembly(){
   cout << endl;
   cout << "Assembly Instruction => " << instrMap.at(address)[0] << endl;

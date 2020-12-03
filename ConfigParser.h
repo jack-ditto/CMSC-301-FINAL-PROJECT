@@ -10,24 +10,23 @@ using namespace std;
 
 class ConfigParser{
   public:
-    // Specify a text file config.
-    ConfigParser(string filename);
+    ConfigParser(string filename);  // Constructor provide config file name
 
-    map<long, vector<string>> getInstructions();
-    map<long, long> getMemory();
-    map<int, long> getRegisters();
-    string outputMode();
-    string getFileName();
-    bool printMemoryContents();
-    bool debugMode();
-    bool writeToFile();
+    map<long, vector<string>> getInstructions();  // get instruction map
+    map<long, long> getMemory();                  // get memory map
+    map<int, long> getRegisters();                // get register map
+    string outputMode();        // get output mode
+    string getFileName();       // get output file name
+    bool printMemoryContents(); // print memory contents
+    bool debugMode();           // get debug mode
+    bool writeToFile();         // get write to file
 
   private:
-    map<string, string> configParameters;
+    map<string, string> configParameters;     // map of config parameters
 
-    map<long, vector<string>> instructionMap; // vector for assembly and machine
-    map<long, long> memoryMap;
-    map<int, long> registerMap;
+    map<long, vector<string>> instructionMap; // map of instructions
+    map<long, long> memoryMap;                // map of memory
+    map<int, long> registerMap;               // map of registers
 
     void setInstructions();
     void setMemory();

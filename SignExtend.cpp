@@ -1,12 +1,23 @@
 #include <iostream>
 #include "SignExtend.h"
 
+
+//Empty constructor
+//
 SignExtend::SignExtend(){}
 
+
 //setInput sets the input instance variable
+//
+//Parameter - string in 
+//
 void SignExtend::setInput(string in){input = in;}
 
+
 //get method returns the extended input
+//
+//return - string output
+//
 string SignExtend::get(){
   string first = input.substr(0,1);
   if (first == "1"){
@@ -17,7 +28,9 @@ string SignExtend::get(){
   return output;
 }
 
+
 //toString method prints out input and output of sign extend
+//
 void SignExtend::toString(){
   cout << "Contents of SignExtend: " << endl;
   cout << "------------------------------" << endl;
